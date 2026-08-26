@@ -368,3 +368,1346 @@ button {
 
   box-shadow: 0 0 14px white;
 }
+
+.hero h1 {
+  font-size: clamp(4rem, 10vw, 9rem);
+
+  line-height: 0.86;
+
+  letter-spacing: -0.075em;
+
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: transparent;
+
+  -webkit-text-stroke: 1px #777;
+}
+
+.hero-description {
+  max-width: 700px;
+
+  margin-top: 35px;
+
+  color: #aaa;
+
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.hero-description strong {
+  color: white;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 35px;
+}
+
+.primary-button,
+.secondary-button,
+.email-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 14px 22px;
+
+  border: 1px solid white;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.primary-button {
+  background: white;
+  color: black;
+}
+
+.primary-button:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  color: white;
+  border-color: var(--line);
+}
+
+.secondary-button:hover {
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+
+  gap: 55px;
+
+  margin-top: 70px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--line);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat strong {
+  font-size: 1.5rem;
+}
+
+.stat span {
+  color: #666;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   PHOTO SYSTEM
+========================================================= */
+
+.photo-frame {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #111;
+
+  border: 1px solid var(--line);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.photo-frame:hover img {
+  transform: scale(1.04);
+}
+
+.hero-photo {
+  position: absolute;
+
+  right: 5%;
+  bottom: 12%;
+
+  width: 260px;
+  height: 340px;
+
+  z-index: 1;
+
+  opacity: 0.9;
+}
+
+.hero-photo::after,
+.about-photo::after,
+.visual-photo::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  pointer-events: none;
+}
+
+.about-photo {
+  width: 100%;
+  height: 480px;
+}
+
+.visual-photo {
+  width: 100%;
+  height: 400px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 70px;
+}
+
+.about .section-heading {
+  grid-column: 1 / -1;
+}
+
+.about-card {
+  min-height: 400px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #222 0,
+      #111 40%,
+      #090909 75%
+    );
+
+  border: 1px solid var(--line);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.avatar-area {
+  position: relative;
+
+  width: 220px;
+  height: 220px;
+
+  display: grid;
+  place-items: center;
+}
+
+.avatar-ring {
+  position: absolute;
+
+  border: 1px solid #444;
+
+  border-radius: 50%;
+}
+
+.ring-one {
+  width: 150px;
+  height: 150px;
+}
+
+.ring-two {
+  width: 190px;
+  height: 190px;
+}
+
+.ring-three {
+  width: 220px;
+  height: 220px;
+}
+
+.avatar {
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+
+  background: white;
+  color: black;
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 900;
+
+  z-index: 2;
+}
+
+.avatar-photo {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 3px solid white;
+
+  position: relative;
+  z-index: 3;
+}
+
+.avatar-name {
+  margin-top: 25px;
+
+  font-weight: bold;
+
+  letter-spacing: 0.05em;
+}
+
+.about-text {
+  align-self: center;
+}
+
+.about-text h3 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1;
+
+  margin-bottom: 30px;
+
+  letter-spacing: -0.04em;
+}
+
+.about-text h3 span {
+  color: #777;
+}
+
+.about-text p {
+  color: #aaa;
+
+  margin-bottom: 20px;
+
+  max-width: 650px;
+}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.skill-card {
+  border: 1px solid var(--line);
+
+  background: var(--card);
+
+  padding: 35px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.skill-card:hover {
+  background: var(--card-hover);
+
+  transform: translateY(-5px);
+
+  border-color: #444;
+}
+
+.skill-icon {
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid #444;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 28px;
+
+  font-weight: bold;
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+
+  margin-bottom: 12px;
+}
+
+.skill-card p {
+  color: #999;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.project-card {
+  min-height: 300px;
+
+  display: flex;
+
+  gap: 25px;
+
+  border: 1px solid var(--line);
+
+  background: var(--card);
+
+  padding: 35px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card:hover {
+  background: var(--card-hover);
+
+  transform: translateY(-5px);
+
+  border-color: #444;
+}
+
+.project-number {
+  color: #555;
+
+  font-size: 1rem;
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project-category,
+.timeline-label,
+.contact-label,
+.ai-label {
+  color: #777;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.15em;
+
+  font-weight: bold;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+
+  margin: 12px 0;
+}
+
+.project-card p {
+  color: #999;
+}
+
+.project-link {
+  display: inline-block;
+
+  margin-top: 25px;
+
+  color: white;
+
+  border-bottom: 1px solid #555;
+
+  padding-bottom: 4px;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.project-link:hover {
+  border-color: white;
+}
+
+.muted-link {
+  color: #666;
+
+  border-bottom: none;
+}
+
+/* =========================================================
+   AI CREATIONS
+========================================================= */
+
+.ai-creations {
+  position: relative;
+}
+
+.ai-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.ai-card {
+  position: relative;
+
+  min-height: 320px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  background: #101010;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.ai-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #555;
+}
+
+.ai-card-image {
+  width: 100%;
+  height: 100%;
+
+  min-height: 320px;
+
+  object-fit: cover;
+
+  opacity: 0.7;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+.ai-card:hover .ai-card-image {
+  transform: scale(1.05);
+
+  opacity: 0.9;
+}
+
+.ai-card-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.95)
+    );
+}
+
+.ai-card-content h3 {
+  font-size: 1.7rem;
+
+  margin: 8px 0;
+}
+
+.ai-card-content p {
+  color: #aaa;
+
+  max-width: 600px;
+}
+
+/* =========================================================
+   INTERACTION SECTION
+========================================================= */
+
+.interaction {
+  position: relative;
+}
+
+.interaction-intro {
+  max-width: 700px;
+
+  color: #aaa;
+
+  margin-bottom: 45px;
+}
+
+.puzzle-wrapper {
+  display: grid;
+
+  grid-template-columns: 1fr 0.8fr;
+
+  gap: 40px;
+
+  align-items: center;
+}
+
+.puzzle-container {
+  width: min(100%, 520px);
+
+  aspect-ratio: 1 / 1;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  gap: 3px;
+
+  background: #222;
+
+  border: 1px solid #444;
+
+  padding: 3px;
+}
+
+.puzzle-piece {
+  position: relative;
+
+  cursor: pointer;
+
+  background-repeat: no-repeat;
+
+  background-size: 400% 400%;
+
+  border: none;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.puzzle-piece:hover {
+  filter: brightness(1.25);
+
+  transform: scale(0.97);
+}
+
+.puzzle-piece.empty {
+  background: #090909 !important;
+
+  cursor: default;
+
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.03);
+}
+
+.puzzle-info {
+  border: 1px solid var(--line);
+
+  background: var(--card);
+
+  padding: 35px;
+}
+
+.puzzle-info h3 {
+  font-size: 2rem;
+
+  margin-bottom: 15px;
+}
+
+.puzzle-info p {
+  color: #999;
+
+  margin-bottom: 25px;
+}
+
+.puzzle-stats {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.puzzle-stat {
+  border: 1px solid #292929;
+
+  padding: 15px;
+
+  background: #0b0b0b;
+}
+
+.puzzle-stat strong {
+  display: block;
+
+  font-size: 1.4rem;
+}
+
+.puzzle-stat span {
+  color: #666;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.1em;
+}
+
+.puzzle-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.puzzle-button {
+  border: 1px solid #444;
+
+  background: transparent;
+
+  color: white;
+
+  padding: 11px 16px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.puzzle-button:hover {
+  background: white;
+
+  color: black;
+
+  border-color: white;
+}
+
+/* =========================================================
+   VISUAL GALLERY
+========================================================= */
+
+.visual-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.visual-item {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 430px;
+
+  border: 1px solid var(--line);
+
+  background: #111;
+}
+
+.visual-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.visual-item:hover img {
+  transform: scale(1.06);
+
+  filter: brightness(1.1);
+}
+
+.visual-caption {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 25px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,0.9)
+    );
+}
+
+.visual-caption h3 {
+  font-size: 1.3rem;
+}
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.timeline {
+  max-width: 850px;
+
+  margin: auto;
+
+  position: relative;
+
+  padding-left: 40px;
+
+  border-left: 1px solid #333;
+}
+
+.timeline-item {
+  position: relative;
+
+  margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+
+  left: -46px;
+  top: 30px;
+
+  width: 11px;
+  height: 11px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 15px white;
+}
+
+.timeline-card {
+  background: var(--card);
+
+  border: 1px solid var(--line);
+
+  padding: 30px;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateX(5px);
+
+  border-color: #444;
+}
+
+.timeline-card h3 {
+  margin: 10px 0;
+
+  font-size: 1.5rem;
+}
+
+.timeline-card p {
+  color: #999;
+}
+
+/* =========================================================
+   SOCIAL SECTION
+========================================================= */
+
+.social-section {
+  text-align: center;
+}
+
+.social-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.social-card {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 150px;
+
+  border: 1px solid var(--line);
+
+  background: var(--card);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+
+  background: var(--card-hover);
+
+  border-color: #555;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #444;
+
+  margin-bottom: 15px;
+
+  font-size: 1.1rem;
+
+  font-weight: bold;
+}
+
+.social-card h3 {
+  font-size: 1rem;
+}
+
+.social-card span {
+  color: #666;
+
+  font-size: 0.7rem;
+
+  margin-top: 4px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+  padding-bottom: 80px;
+}
+
+.contact-card {
+  text-align: center;
+
+  padding: 90px 30px;
+
+  border: 1px solid var(--line);
+
+  background:
+    radial-gradient(
+      circle at center,
+      #1c1c1c,
+      #0c0c0c 60%
+    );
+}
+
+.contact-card h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+
+  margin: 20px 0;
+}
+
+.contact-card h2 span {
+  color: transparent;
+
+  -webkit-text-stroke: 1px #777;
+}
+
+.contact-card p {
+  color: #999;
+
+  margin-bottom: 30px;
+}
+
+.email-button {
+  background: white;
+
+  color: black;
+
+  border: none;
+
+  font-weight: bold;
+}
+
+.email-button:hover {
+  background: #ddd;
+
+  transform: translateY(-2px);
+}
+
+.contact-socials {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.contact-socials a {
+  min-width: 48px;
+  height: 48px;
+
+  padding: 0 15px;
+
+  border: 1px solid #333;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #aaa;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-socials a:hover {
+  color: white;
+
+  border-color: white;
+
+  background: #151515;
+}
+
+/* Existing social-links compatibility */
+
+.social-links {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.social-links a {
+  min-width: 45px;
+  height: 45px;
+
+  padding: 0 12px;
+
+  border: 1px solid #333;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #aaa;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.social-links a:hover {
+  color: white;
+
+  border-color: white;
+
+  background: #151515;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  border-top: 1px solid var(--line);
+
+  padding: 35px 5%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #777;
+
+  font-size: 0.8rem;
+}
+
+.footer-logo {
+  color: white;
+}
+
+.copyright {
+  color: #555;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero-photo {
+    display: none;
+  }
+
+  .puzzle-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .visual-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .header {
+    height: 65px;
+
+    padding: 0 6%;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    top: 65px;
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding: 100px 0;
+  }
+
+  .hero::before {
+    width: 280px;
+    height: 280px;
+
+    right: -180px;
+
+    box-shadow:
+      0 0 0 50px #0d0d0d,
+      0 0 0 100px #0a0a0a;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: 20px;
+
+    justify-content: space-between;
+  }
+
+  .stat strong {
+    font-size: 1.25rem;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .about .section-heading {
+    grid-column: auto;
+  }
+
+  .about-card {
+    min-height: 330px;
+  }
+
+  .about-photo {
+    height: 380px;
+  }
+
+  .skills-grid,
+  .projects-grid,
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 45px;
+  }
+
+  .contact-card {
+    padding: 65px 20px;
+  }
+
+  .contact-card h2 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .email-button {
+    max-width: 100%;
+
+    font-size: 0.85rem;
+
+    padding: 13px 15px;
+
+    word-break: break-word;
+  }
+
+  .footer {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .visual-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-item {
+    height: 400px;
+  }
+
+  .puzzle-info {
+    padding: 25px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .section-grid {
+    width: 88%;
+  }
+
+  .logo,
+  .footer-logo {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 18vw, 4.5rem);
+  }
+
+  .hero-stats {
+    gap: 12px;
+  }
+
+  .stat span {
+    font-size: 0.58rem;
+  }
+
+  .skill-card,
+  .project-card {
+    padding: 25px;
+  }
+
+  .project-card {
+    gap: 15px;
+  }
+
+  .ai-card,
+  .ai-card-image {
+    min-height: 280px;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social-card {
+    min-height: 125px;
+  }
+
+  .puzzle-buttons {
+    flex-direction: column;
+  }
+
+  .puzzle-button {
+    width: 100%;
+  }
+
+  .contact-socials a {
+    flex: 1;
+  }
+}
