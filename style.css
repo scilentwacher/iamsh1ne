@@ -1,9 +1,8 @@
 /* =========================================================
    SHINE PORTFOLIO
    PREMIUM DARK EDITORIAL
-   UPDATED:
-   1. SHINE R = OUTLINE / MATHEW. = SOLID
-   2. LARGE FULL-COLOR HERO PHOTO ON MOBILE
+   MOBILE HERO:
+   TYPOGRAPHY + LARGE COLOR PHOTO BEHIND LOWER HERO
 ========================================================= */
 
 :root {
@@ -38,10 +37,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
 }
 
 a {
@@ -127,9 +122,13 @@ button {
 
 .menu-button span {
   display: block;
+
   height: 2px;
+
   background: white;
+
   margin: 5px 0;
+
   transition: 0.3s ease;
 }
 
@@ -173,20 +172,27 @@ button {
 
 .section-number {
   color: #777;
+
   font-size: 0.75rem;
+
   letter-spacing: 0.18em;
 }
 
 .section-heading h2 {
   margin-top: 15px;
+
   font-size: clamp(2.5rem, 6vw, 5rem);
+
   line-height: 1;
+
   letter-spacing: -0.05em;
 }
 
 .section-heading p {
   margin-top: 18px;
+
   color: var(--muted);
+
   max-width: 650px;
 }
 
@@ -203,8 +209,11 @@ button {
   padding: 100px 0;
 
   position: relative;
+
   overflow: hidden;
 }
+
+/* Background circle */
 
 .hero::before {
   content: "";
@@ -218,6 +227,7 @@ button {
   top: 80px;
 
   border: 1px solid #222;
+
   border-radius: 50%;
 
   box-shadow:
@@ -229,7 +239,9 @@ button {
 
 .hero-content {
   position: relative;
+
   z-index: 5;
+
   max-width: 850px;
 }
 
@@ -239,19 +251,25 @@ button {
 
 .status-pill {
   display: inline-flex;
+
   align-items: center;
+
   gap: 10px;
 
   border: 1px solid var(--line);
+
   background: var(--bg-soft);
 
   padding: 9px 15px;
+
   border-radius: 30px;
 
   color: #aaa;
 
   font-size: 0.8rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
 
   margin-bottom: 30px;
@@ -262,55 +280,50 @@ button {
   height: 8px;
 
   background: white;
+
   border-radius: 50%;
 
   box-shadow: 0 0 12px white;
+
+  flex-shrink: 0;
 }
 
 /* =========================================================
    HERO TYPOGRAPHY
-   SHINE R = OUTLINE
-   MATHEW. = SOLID
 ========================================================= */
 
 .hero h1 {
   font-size: clamp(4rem, 10vw, 9rem);
 
-  line-height: 0.82;
+  line-height: 0.88;
 
-  letter-spacing: -0.075em;
+  letter-spacing: -0.07em;
 
   font-weight: 900;
+}
+
+/* First name = outline */
+
+.hero h1 span {
+  display: block;
 
   color: transparent;
 
-  -webkit-text-stroke: 1.5px #777;
-}
+  -webkit-text-stroke: 1px #777;
 
-/* MATHEW. becomes SOLID */
-
-.hero h1 span {
-  display: inline-block;
-
-  color: #f5f5f5;
-
-  -webkit-text-stroke: 0;
-
-  font-weight: 900;
+  text-stroke: 1px #777;
 }
 
 /* =========================================================
-   HERO POSITIONING
+   POSITIONING
 ========================================================= */
 
 .hero-positioning {
-  margin-top: 42px;
+  margin-top: 30px;
 
   font-size: clamp(1rem, 2.2vw, 1.4rem);
 
   letter-spacing: 0.1em;
-
-  font-weight: 700;
 }
 
 .hero-positioning strong {
@@ -318,7 +331,7 @@ button {
 }
 
 /* =========================================================
-   HERO DESCRIPTION
+   DESCRIPTION
 ========================================================= */
 
 .hero-description {
@@ -329,8 +342,6 @@ button {
   color: #aaa;
 
   font-size: clamp(1rem, 2vw, 1.25rem);
-
-  line-height: 1.65;
 }
 
 .hero-description strong {
@@ -343,14 +354,12 @@ button {
 
 .hero-buttons {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 14px;
 
   margin-top: 35px;
-
-  position: relative;
-  z-index: 6;
 }
 
 .primary-button,
@@ -359,6 +368,7 @@ button {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 12px;
@@ -372,16 +382,19 @@ button {
 
 .primary-button {
   background: white;
+
   color: black;
 }
 
 .primary-button:hover {
   background: transparent;
+
   color: white;
 }
 
 .secondary-button {
   color: white;
+
   border-color: var(--line);
 }
 
@@ -405,11 +418,13 @@ button {
   border-top: 1px solid var(--line);
 
   position: relative;
-  z-index: 7;
+
+  z-index: 8;
 }
 
 .stat {
   display: flex;
+
   flex-direction: column;
 }
 
@@ -433,7 +448,8 @@ button {
 .hero-photo-wrapper {
   position: absolute;
 
-  right: 2%;
+  right: 3%;
+
   bottom: 0;
 
   width: min(34vw, 390px);
@@ -454,34 +470,38 @@ button {
 
   object-position: center top;
 
-  /* FULL COLOR */
+  /*
+    IMPORTANT:
+    KEEP PHOTO IN NATURAL COLOR
+  */
+
   filter:
     saturate(1.15)
     contrast(1.03)
-    brightness(1.02);
+    brightness(1.02) !important;
 
   -webkit-filter:
     saturate(1.15)
     contrast(1.03)
-    brightness(1.02);
+    brightness(1.02) !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
-  border: 1px solid #333;
+  border: none;
 
   mask-image:
     linear-gradient(
       to bottom,
-      black 84%,
+      black 88%,
       transparent 100%
     );
 
   -webkit-mask-image:
     linear-gradient(
       to bottom,
-      black 84%,
+      black 88%,
       transparent 100%
     );
 
@@ -542,24 +562,26 @@ button {
   display: block;
 
   width: 100%;
+
   height: 390px;
 
   object-fit: cover;
+
   object-position: center;
 
   filter:
     saturate(1.12)
     contrast(1.02)
-    brightness(1.02);
+    brightness(1.02) !important;
 
   -webkit-filter:
     saturate(1.12)
     contrast(1.02)
-    brightness(1.02);
+    brightness(1.02) !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition: transform 0.5s ease;
 }
@@ -809,11 +831,11 @@ button {
 
   background-repeat: no-repeat;
 
-  filter: none;
+  filter: none !important;
 
-  -webkit-filter: none;
+  -webkit-filter: none !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition:
     transform 0.15s ease,
@@ -821,9 +843,9 @@ button {
 }
 
 .puzzle-piece:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.2) !important;
 
-  -webkit-filter: brightness(1.2);
+  -webkit-filter: brightness(1.2) !important;
 }
 
 .puzzle-piece.empty {
@@ -831,9 +853,9 @@ button {
 
   cursor: default;
 
-  filter: none;
+  filter: none !important;
 
-  -webkit-filter: none;
+  -webkit-filter: none !important;
 }
 
 .puzzle-controls {
@@ -1079,16 +1101,16 @@ button {
   filter:
     saturate(1.12)
     contrast(1.02)
-    brightness(1.02);
+    brightness(1.02) !important;
 
   -webkit-filter:
     saturate(1.12)
     contrast(1.02)
-    brightness(1.02);
+    brightness(1.02) !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition: transform 0.5s ease;
 }
@@ -1116,7 +1138,7 @@ button {
 }
 
 /* =========================================================
-   AI IDEAS VISUAL CARD
+   AI VISUAL CARD
 ========================================================= */
 
 .visual-ai-card {
@@ -1395,7 +1417,7 @@ button {
   .hero {
     min-height: 1050px;
 
-    padding: 75px 0 0;
+    padding: 85px 0 0;
 
     display: block;
 
@@ -1405,44 +1427,34 @@ button {
   }
 
   .hero::before {
-    width: 400px;
+    width: 360px;
 
-    height: 400px;
+    height: 360px;
 
-    right: -260px;
+    right: -230px;
 
     top: 80px;
   }
 
+  /*
+     CONTENT ABOVE PHOTO
+  */
+
   .hero-content {
-    width: 100%;
+    width: calc(100% - 70px);
 
     max-width: none;
 
+    margin-left: 35px;
+
     position: relative;
 
-    z-index: 5;
+    z-index: 10;
   }
 
   /* =======================================================
-     MOBILE TYPOGRAPHY
+     STATUS
   ======================================================= */
-
-  .hero h1 {
-    font-size: clamp(3.5rem, 14vw, 7rem);
-
-    line-height: 0.82;
-
-    letter-spacing: -0.075em;
-
-    -webkit-text-stroke: 1.2px #777;
-  }
-
-  .hero h1 span {
-    color: white;
-
-    -webkit-text-stroke: 0;
-  }
 
   .status-pill {
     font-size: 0.7rem;
@@ -1451,33 +1463,50 @@ button {
 
     white-space: nowrap;
 
-    margin-bottom: 32px;
+    margin-bottom: 35px;
+  }
+
+  /* =======================================================
+     TYPOGRAPHY
+  ======================================================= */
+
+  .hero h1 {
+    font-size:
+      clamp(
+        3.6rem,
+        15vw,
+        6rem
+      );
+
+    line-height: 0.87;
+
+    letter-spacing: -0.065em;
+  }
+
+  .hero h1 span {
+    -webkit-text-stroke: 1px #777;
   }
 
   .hero-positioning {
-    margin-top: 38px;
+    margin-top: 28px;
 
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 
     letter-spacing: 0.08em;
 
-    position: relative;
-
-    z-index: 6;
+    white-space: normal;
   }
 
   .hero-description {
-    width: min(100%, 500px);
+    width: 100%;
 
     margin-top: 18px;
 
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 
     line-height: 1.65;
 
-    position: relative;
-
-    z-index: 6;
+    max-width: 530px;
   }
 
   /* =======================================================
@@ -1485,13 +1514,11 @@ button {
   ======================================================= */
 
   .hero-buttons {
-    width: min(100%, 360px);
-
     display: flex;
 
     flex-direction: column;
 
-    align-items: stretch;
+    align-items: flex-start;
 
     gap: 12px;
 
@@ -1499,14 +1526,16 @@ button {
 
     position: relative;
 
-    z-index: 8;
+    z-index: 15;
   }
 
   .primary-button,
   .secondary-button {
-    width: 100%;
+    width: 310px;
 
-    min-height: 56px;
+    max-width: 100%;
+
+    min-height: 58px;
 
     padding: 14px 12px;
 
@@ -1516,28 +1545,37 @@ button {
   }
 
   /* =======================================================
-     LARGE MOBILE PHOTO
-     REPLACES OLD NARROW STRIP
+     LARGE MOBILE HERO PHOTO
+     
+     IMPORTANT:
+     PHOTO IS NOT A SMALL SIDE STRIP.
+     
+     IT BECOMES A LARGE VISUAL LAYER
+     ACROSS THE LOWER HERO.
   ======================================================= */
 
   .hero-photo-wrapper {
     position: absolute;
 
-    top: 500px;
+    left: 0;
 
-    right: -20px;
+    right: 0;
+
+    top: 470px;
 
     bottom: auto;
 
-    width: min(86vw, 520px);
+    width: 100%;
 
-    height: 650px;
+    height: 700px;
 
     margin: 0;
 
-    z-index: 2;
+    z-index: 3;
 
     pointer-events: none;
+
+    overflow: hidden;
   }
 
   .hero-photo {
@@ -1545,37 +1583,49 @@ button {
 
     width: 100%;
 
-    height: 650px;
+    height: 700px;
 
     max-height: none;
 
     object-fit: cover;
 
-    object-position: center top;
+    /*
+       THIS IS THE IMPORTANT PART.
 
-    /* TRUE COLOR PHOTO */
+       Move the subject upward and keep
+       the body large in the frame.
+    */
+
+    object-position: center 28%;
+
     filter:
       saturate(1.18)
       contrast(1.04)
-      brightness(1.02);
+      brightness(1.03) !important;
 
     -webkit-filter:
       saturate(1.18)
       contrast(1.04)
-      brightness(1.02);
+      brightness(1.03) !important;
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    mix-blend-mode: normal;
+    mix-blend-mode: normal !important;
 
     border: none;
+
+    /*
+       Fade naturally into black at top
+       and bottom.
+    */
 
     mask-image:
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 7%,
-        black 88%,
+        rgba(0,0,0,0.25) 8%,
+        black 18%,
+        black 82%,
         transparent 100%
       );
 
@@ -1583,75 +1633,70 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 7%,
-        black 88%,
+        rgba(0,0,0,0.25) 8%,
+        black 18%,
+        black 82%,
         transparent 100%
+      );
+  }
+
+  /*
+     DARK GRADIENT OVER PHOTO.
+     Keeps the text readable without
+     making the actual image grayscale.
+  */
+
+  .hero-photo-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+      linear-gradient(
+        to bottom,
+        #080808 0%,
+        rgba(8,8,8,0.65) 8%,
+        rgba(8,8,8,0.05) 25%,
+        rgba(8,8,8,0) 60%,
+        rgba(8,8,8,0.25) 80%,
+        #080808 100%
       );
   }
 
   /* =======================================================
      STATS
-     FLOAT OVER PHOTO
   ======================================================= */
 
   .hero-stats {
-    position: absolute;
+    width: calc(100% - 70px);
 
-    left: 0;
+    margin-left: 35px;
 
-    right: 0;
+    display: flex;
 
-    top: 880px;
+    justify-content: space-between;
 
-    width: 100%;
+    gap: 15px;
 
-    min-height: 135px;
+    margin-top: 125px;
 
-    display: grid;
+    padding: 25px 0 0;
 
-    grid-template-columns: repeat(3, 1fr);
+    position: relative;
 
-    align-items: center;
-
-    gap: 0;
-
-    margin: 0;
-
-    padding: 22px 15px;
-
-    background: rgba(5, 5, 5, 0.88);
-
-    border: 1px solid #333;
-
-    border-radius: 12px;
-
-    backdrop-filter: blur(12px);
-
-    -webkit-backdrop-filter: blur(12px);
-
-    z-index: 10;
-  }
-
-  .stat {
-    min-width: 0;
-
-    align-items: center;
-
-    text-align: center;
+    z-index: 20;
   }
 
   .stat strong {
-    font-size: 1.7rem;
-
-    line-height: 1;
+    font-size: 1.25rem;
   }
 
   .stat span {
-    margin-top: 8px;
-
-    font-size: 0.65rem;
-
-    letter-spacing: 0.12em;
+    font-size: 0.6rem;
   }
 
   /* =======================================================
@@ -1746,16 +1791,16 @@ button {
     filter:
       saturate(1.12)
       contrast(1.02)
-      brightness(1.02);
+      brightness(1.02) !important;
 
     -webkit-filter:
       saturate(1.12)
       contrast(1.02)
-      brightness(1.02);
+      brightness(1.02) !important;
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    mix-blend-mode: normal;
+    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
@@ -1785,42 +1830,27 @@ button {
     padding: 0 6%;
   }
 
-  .logo {
-    font-size: 1.35rem;
-  }
+  /* =======================================================
+     HERO PHONE
+  ======================================================= */
 
   .hero {
-    min-height: 990px;
+    min-height: 1040px;
 
     padding-top: 75px;
 
     padding-bottom: 0;
   }
 
+  .hero-content {
+    width: calc(100% - 70px);
+
+    margin-left: 35px;
+  }
+
   /* =======================================================
-     PHONE TYPOGRAPHY
+     STATUS
   ======================================================= */
-
-  .hero h1 {
-    font-size:
-      clamp(
-        3.15rem,
-        15.8vw,
-        5.5rem
-      );
-
-    line-height: 0.82;
-
-    letter-spacing: -0.075em;
-
-    -webkit-text-stroke: 1px #777;
-  }
-
-  .hero h1 span {
-    color: #f5f5f5;
-
-    -webkit-text-stroke: 0;
-  }
 
   .status-pill {
     font-size: 0.63rem;
@@ -1828,24 +1858,47 @@ button {
     letter-spacing: 0.06em;
 
     padding: 8px 10px;
-
-    margin-bottom: 30px;
   }
 
-  .hero-positioning {
-    margin-top: 35px;
+  /* =======================================================
+     NAME
+  ======================================================= */
 
+  .hero h1 {
+    font-size:
+      clamp(
+        3.2rem,
+        16vw,
+        5.5rem
+      );
+
+    line-height: 0.86;
+  }
+
+  .hero h1 span {
+    -webkit-text-stroke: 1px #777;
+  }
+
+  /* =======================================================
+     POSITIONING
+  ======================================================= */
+
+  .hero-positioning {
     font-size: 0.72rem;
 
     line-height: 1.5;
   }
+
+  /* =======================================================
+     DESCRIPTION
+  ======================================================= */
 
   .hero-description {
     font-size: 0.9rem;
 
     line-height: 1.65;
 
-    max-width: 330px;
+    max-width: 340px;
   }
 
   /* =======================================================
@@ -1853,8 +1906,6 @@ button {
   ======================================================= */
 
   .hero-buttons {
-    width: min(100%, 300px);
-
     gap: 10px;
 
     margin-top: 28px;
@@ -1864,57 +1915,74 @@ button {
   .secondary-button {
     min-height: 54px;
 
-    width: 100%;
+    width: 280px;
+
+    max-width: 100%;
 
     font-size: 0.82rem;
   }
 
   /* =======================================================
-     LARGE COLOR PHOTO
-     MOBILE REFERENCE STYLE
+     MOBILE PHOTO
+     
+     LARGE COLOR IMAGE
+     FULL WIDTH
+     SUBJECT LOWER RIGHT / CENTER
   ======================================================= */
 
   .hero-photo-wrapper {
-    top: 490px;
+    left: 0;
 
-    right: -18px;
+    right: 0;
 
-    width: 92vw;
+    top: 455px;
 
-    height: 590px;
+    width: 100%;
 
-    z-index: 2;
+    height: 670px;
+
+    overflow: hidden;
   }
 
   .hero-photo {
     width: 100%;
 
-    height: 590px;
+    height: 670px;
 
     object-fit: cover;
 
-    object-position: center top;
+    /*
+       Change this value if the subject
+       needs to move up/down.
+
+       Lower % = image moves upward.
+       Higher % = image moves downward.
+    */
+
+    object-position: center 27%;
 
     filter:
-      saturate(1.2)
+      saturate(1.18)
       contrast(1.04)
-      brightness(1.02);
+      brightness(1.03) !important;
 
     -webkit-filter:
-      saturate(1.2)
+      saturate(1.18)
       contrast(1.04)
-      brightness(1.02);
+      brightness(1.03) !important;
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    mix-blend-mode: normal;
+    mix-blend-mode: normal !important;
+
+    border: none;
 
     mask-image:
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 7%,
-        black 90%,
+        black 15%,
+        black 83%,
         transparent 100%
       );
 
@@ -1922,74 +1990,53 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 7%,
-        black 90%,
+        black 15%,
+        black 83%,
         transparent 100%
       );
   }
 
+  .hero-photo-wrapper::after {
+    background:
+      linear-gradient(
+        to bottom,
+        #080808 0%,
+        rgba(8,8,8,0.72) 9%,
+        rgba(8,8,8,0.08) 24%,
+        rgba(8,8,8,0) 55%,
+        rgba(8,8,8,0.2) 80%,
+        #080808 100%
+      );
+  }
+
   /* =======================================================
-     STATS OVER PHOTO
+     STATS
   ======================================================= */
 
   .hero-stats {
-    top: 825px;
+    width: calc(100% - 70px);
 
-    left: 2%;
+    margin-left: 35px;
 
-    right: 2%;
+    margin-top: 115px;
 
-    width: 96%;
+    gap: 12px;
 
-    min-height: 125px;
+    padding-top: 25px;
 
-    padding: 20px 8px;
+    position: relative;
 
-    border-radius: 12px;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    background: rgba(5, 5, 5, 0.9);
-
-    border: 1px solid #333;
-
-    backdrop-filter: blur(10px);
-
-    -webkit-backdrop-filter: blur(10px);
+    z-index: 30;
   }
 
   .stat strong {
-    font-size: 1.45rem;
+    font-size: 1.15rem;
   }
 
   .stat span {
-    font-size: 0.53rem;
+    font-size: 0.55rem;
 
-    letter-spacing: 0.1em;
-
-    margin-top: 7px;
-  }
-
-  /* =======================================================
-     ABOUT
-  ======================================================= */
-
-  .about-photo {
-    height: 330px;
-
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02);
-
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02);
-
-    opacity: 1;
-
-    mix-blend-mode: normal;
+    letter-spacing: 0.12em;
   }
 
   /* =======================================================
@@ -2015,6 +2062,28 @@ button {
   }
 
   /* =======================================================
+     ABOUT PHOTO
+  ======================================================= */
+
+  .about-photo {
+    height: 330px;
+
+    filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
+
+    -webkit-filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
+
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
+  }
+
+  /* =======================================================
      VISUAL PHOTOS
   ======================================================= */
 
@@ -2024,16 +2093,16 @@ button {
     filter:
       saturate(1.12)
       contrast(1.02)
-      brightness(1.02);
+      brightness(1.02) !important;
 
     -webkit-filter:
       saturate(1.12)
       contrast(1.02)
-      brightness(1.02);
+      brightness(1.02) !important;
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    mix-blend-mode: normal;
+    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
@@ -2080,80 +2149,26 @@ button {
 }
 
 /* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .hero {
-    min-height: 950px;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-
-    letter-spacing: -0.07em;
-  }
-
-  .hero-positioning {
-    font-size: 0.68rem;
-  }
-
-  .hero-description {
-    font-size: 0.86rem;
-  }
-
-  .hero-buttons {
-    width: 280px;
-  }
-
-  .hero-photo-wrapper {
-    top: 485px;
-
-    width: 96vw;
-
-    height: 550px;
-  }
-
-  .hero-photo {
-    height: 550px;
-  }
-
-  .hero-stats {
-    top: 800px;
-
-    min-height: 115px;
-  }
-
-  .stat strong {
-    font-size: 1.25rem;
-  }
-
-  .stat span {
-    font-size: 0.48rem;
-  }
-}
-
-/* =========================================================
    PHOTO COLOR PROTECTION
+   NEVER CONVERT REAL PHOTOS TO GRAYSCALE
 ========================================================= */
 
 img.hero-photo,
 img.about-photo,
 img.visual-photo {
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   filter:
     saturate(1.18)
-    contrast(1.03)
-    brightness(1.02);
+    contrast(1.04)
+    brightness(1.03) !important;
 
   -webkit-filter:
     saturate(1.18)
-    contrast(1.03)
-    brightness(1.02);
+    contrast(1.04)
+    brightness(1.03) !important;
 }
 
 /* =========================================================
@@ -2161,13 +2176,13 @@ img.visual-photo {
 ========================================================= */
 
 .puzzle-piece {
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 }
 
 .puzzle-piece.empty {
-  filter: none;
+  filter: none !important;
 
-  -webkit-filter: none;
+  -webkit-filter: none !important;
 }
 
 /* =========================================================
