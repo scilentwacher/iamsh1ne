@@ -1,7 +1,8 @@
 /* =========================================================
    SHINE PORTFOLIO
    PREMIUM DARK EDITORIAL
-   ========================================================= */
+   RESPONSIVE MOBILE PORTRAIT HERO
+========================================================= */
 
 :root {
   --bg: #080808;
@@ -14,6 +15,7 @@
   --white: #fff;
   --max-width: 1200px;
 }
+
 
 /* =========================================================
    RESET
@@ -306,9 +308,11 @@ button {
   letter-spacing: -0.07em;
 
   font-weight: 900;
-}
 
-/* SHINER = OUTLINE */
+  position: relative;
+
+  z-index: 10;
+}
 
 .hero h1 span {
   display: block;
@@ -316,6 +320,7 @@ button {
   color: transparent;
 
   -webkit-text-stroke: 1px #777;
+
   text-stroke: 1px #777;
 }
 
@@ -451,8 +456,7 @@ button {
 
 
 /* =========================================================
-   HERO PHOTO
-   DESKTOP
+   HERO PHOTO — DESKTOP
 ========================================================= */
 
 .hero-photo-wrapper {
@@ -1384,7 +1388,7 @@ button {
 
 
 /* =========================================================
-   TABLET
+   TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1435,9 +1439,10 @@ button {
   ======================================================= */
 
   .hero {
-    min-height: 1050px;
 
-    padding: 85px 0 0;
+    min-height: 1000px;
+
+    padding: 70px 0 0;
 
     display: block;
 
@@ -1446,17 +1451,27 @@ button {
     overflow: hidden;
   }
 
+
   .hero::before {
-    width: 360px;
 
-    height: 360px;
+    width: 430px;
 
-    right: -230px;
+    height: 430px;
 
-    top: 80px;
+    right: -250px;
+
+    top: 100px;
+
+    border-color: #1d1d1d;
+
+    box-shadow:
+      0 0 0 70px #0d0d0d,
+      0 0 0 140px #0a0a0a;
   }
 
+
   .hero-content {
+
     width: calc(100% - 70px);
 
     max-width: none;
@@ -1472,142 +1487,175 @@ button {
   /* STATUS */
 
   .status-pill {
-    font-size: 0.7rem;
 
-    padding: 8px 12px;
+    font-size: 0.67rem;
 
-    white-space: nowrap;
+    padding: 8px 11px;
 
-    margin-bottom: 35px;
+    margin-bottom: 28px;
+
+    letter-spacing: 0.06em;
   }
 
 
   /* TYPOGRAPHY */
 
   .hero h1 {
-    font-size:
-      clamp(
-        3.6rem,
-        15vw,
-        6rem
-      );
 
-    line-height: 0.87;
+    font-size: clamp(
+      3.5rem,
+      15vw,
+      6.5rem
+    );
 
-    letter-spacing: -0.065em;
+    line-height: 0.84;
+
+    letter-spacing: -0.075em;
+
+    font-weight: 900;
+
+    position: relative;
+
+    z-index: 12;
   }
 
+
   .hero h1 span {
-    -webkit-text-stroke: 1px #777;
+
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.2px #777;
+
+    text-stroke: 1.2px #777;
   }
 
 
   /* POSITIONING */
 
   .hero-positioning {
-    margin-top: 28px;
 
-    font-size: 0.78rem;
+    margin-top: 30px;
 
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
 
-    white-space: normal;
+    line-height: 1.5;
+
+    letter-spacing: 0.075em;
+
+    max-width: 280px;
+
+    position: relative;
+
+    z-index: 15;
   }
 
 
   /* DESCRIPTION */
 
   .hero-description {
-    width: 100%;
+
+    width: 72%;
+
+    max-width: 320px;
 
     margin-top: 18px;
 
-    font-size: 0.92rem;
+    font-size: 0.88rem;
 
     line-height: 1.65;
 
-    max-width: 530px;
+    color: #aaa;
+
+    position: relative;
+
+    z-index: 15;
   }
 
 
   /* BUTTONS */
 
   .hero-buttons {
+
     display: flex;
 
     flex-direction: column;
 
     align-items: stretch;
 
-    gap: 12px;
+    gap: 10px;
 
-    margin-top: 30px;
+    width: 70%;
+
+    margin-top: 28px;
 
     position: relative;
 
     z-index: 20;
   }
 
+
   .primary-button,
   .secondary-button {
+
     width: 100%;
 
-    max-width: 100%;
-
-    min-height: 58px;
+    min-height: 55px;
 
     padding: 14px 12px;
 
-    font-size: 0.9rem;
+    font-size: 0.82rem;
 
     text-align: center;
-
-    position: relative;
-
-    z-index: 25;
   }
 
 
   /* =======================================================
-     LARGE MOBILE PHOTO
+     RIGHT SIDE PORTRAIT
   ======================================================= */
 
   .hero-photo-wrapper {
+
     position: absolute;
 
-    left: 0;
+    top: 200px;
 
     right: 0;
 
-    top: 470px;
+    left: auto;
 
     bottom: auto;
 
-    width: 100%;
+    width: 42%;
 
-    height: 700px;
+    height: 650px;
 
     margin: 0;
 
-    z-index: 3;
-
-    pointer-events: none;
+    z-index: 4;
 
     overflow: hidden;
+
+    pointer-events: none;
   }
 
+
   .hero-photo {
+
     display: block;
 
     width: 100%;
 
-    height: 700px;
+    height: 650px;
 
     max-height: none;
 
     object-fit: cover;
 
     object-position: center 27%;
+
+    border: none;
 
     filter:
       saturate(1.18)
@@ -1623,15 +1671,12 @@ button {
 
     mix-blend-mode: normal !important;
 
-    border: none;
-
     mask-image:
       linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0,0,0,0.25) 8%,
-        black 18%,
-        black 82%,
+        black 10%,
+        black 88%,
         transparent 100%
       );
 
@@ -1639,14 +1684,15 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0,0,0,0.25) 8%,
-        black 18%,
-        black 82%,
+        black 10%,
+        black 88%,
         transparent 100%
       );
   }
 
+
   .hero-photo-wrapper::after {
+
     content: "";
 
     position: absolute;
@@ -1659,10 +1705,9 @@ button {
       linear-gradient(
         to bottom,
         #080808 0%,
-        rgba(8,8,8,0.65) 8%,
-        rgba(8,8,8,0.05) 25%,
-        rgba(8,8,8,0) 60%,
-        rgba(8,8,8,0.25) 80%,
+        rgba(8,8,8,0.35) 8%,
+        transparent 25%,
+        transparent 75%,
         #080808 100%
       );
   }
@@ -1673,104 +1718,116 @@ button {
   ======================================================= */
 
   .hero-stats {
+
     width: calc(100% - 70px);
 
     margin-left: 35px;
+
+    margin-top: 95px;
+
+    padding-top: 24px;
 
     display: flex;
 
     justify-content: space-between;
 
-    gap: 15px;
-
-    margin-top: 125px;
-
-    padding: 25px 0;
+    gap: 12px;
 
     position: relative;
 
     z-index: 30;
+
+    border-top: 1px solid var(--line);
   }
+
 
   .stat {
+
     flex: 1;
 
-    text-align: center;
+    text-align: left;
+
+    display: flex;
+
+    flex-direction: column;
   }
 
+
   .stat strong {
+
     font-size: 1.25rem;
   }
 
+
   .stat span {
-    font-size: 0.6rem;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.13em;
+
+    color: #777;
   }
 
 
   /* =======================================================
-     ABOUT
+     OTHER SECTIONS
   ======================================================= */
 
   .about {
+
     grid-template-columns: 1fr;
 
     gap: 35px;
   }
 
   .about .section-heading {
+
     grid-column: auto;
   }
-
-
-  /* =======================================================
-     GRIDS
-  ======================================================= */
 
   .skills-grid,
   .projects-grid,
   .ai-grid {
+
     grid-template-columns: 1fr;
   }
 
   .interaction-grid,
   .visual-photo-section {
+
     grid-template-columns: 1fr;
   }
 
-
-  /* =======================================================
-     SECTIONS
-  ======================================================= */
-
   .section {
+
     padding: 90px 0;
   }
 
 
-  /* =======================================================
-     PUZZLE
-  ======================================================= */
+  /* PUZZLE */
 
   .puzzle-section {
+
     padding: 25px 15px;
   }
 
   .puzzle-header {
+
     flex-direction: column;
 
     align-items: flex-start;
   }
 
 
-  /* =======================================================
-     CONTACT
-  ======================================================= */
+  /* CONTACT */
 
   .contact-card {
+
     padding: 65px 20px;
   }
 
   .contact-card h2 {
+
     font-size:
       clamp(
         3rem,
@@ -1780,6 +1837,7 @@ button {
   }
 
   .email-button {
+
     max-width: 100%;
 
     font-size: 0.85rem;
@@ -1790,42 +1848,28 @@ button {
   }
 
 
-  /* =======================================================
-     VISUAL PHOTOS
-  ======================================================= */
+  /* VISUAL PHOTOS */
 
   .visual-photo-card {
+
     min-height: auto;
   }
 
   .visual-photo {
+
     height: 350px;
-
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    opacity: 1 !important;
-
-    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
+
     min-height: 350px;
   }
 
 
-  /* =======================================================
-     FOOTER
-  ======================================================= */
+  /* FOOTER */
 
   .footer {
+
     flex-direction: column;
 
     text-align: center;
@@ -1840,6 +1884,7 @@ button {
 @media (max-width: 500px) {
 
   .header {
+
     height: 65px;
 
     padding: 0 6%;
@@ -1851,176 +1896,144 @@ button {
   ======================================================= */
 
   .hero {
-    min-height: 1050px;
 
-    padding-top: 75px;
+    min-height: 960px;
+
+    padding-top: 70px;
 
     padding-bottom: 0;
   }
 
-  .hero-content {
-    width: calc(100% - 70px);
 
-    margin-left: 35px;
+  .hero-content {
+
+    width: calc(100% - 50px);
+
+    margin-left: 25px;
   }
 
 
-  /* =======================================================
-     STATUS
-  ======================================================= */
+  /* STATUS */
 
   .status-pill {
-    font-size: 0.63rem;
 
-    letter-spacing: 0.06em;
+    font-size: 0.60rem;
 
-    padding: 8px 10px;
+    letter-spacing: 0.05em;
+
+    padding: 7px 9px;
+
+    margin-bottom: 25px;
   }
 
 
-  /* =======================================================
-     NAME
-  ======================================================= */
+  /* NAME */
 
   .hero h1 {
+
     font-size:
       clamp(
-        3.2rem,
-        16vw,
-        5.5rem
+        3.1rem,
+        15.8vw,
+        5rem
       );
 
-    line-height: 0.86;
+    line-height: 0.84;
+
+    letter-spacing: -0.075em;
   }
+
 
   .hero h1 span {
+
     -webkit-text-stroke: 1px #777;
+
+    text-stroke: 1px #777;
   }
 
 
-  /* =======================================================
-     POSITIONING
-  ======================================================= */
+  /* POSITIONING */
 
   .hero-positioning {
-    font-size: 0.72rem;
 
-    line-height: 1.5;
+    margin-top: 27px;
+
+    max-width: 245px;
+
+    font-size: 0.67rem;
+
+    line-height: 1.55;
+
+    letter-spacing: 0.06em;
   }
 
 
-  /* =======================================================
-     DESCRIPTION
-  ======================================================= */
+  /* DESCRIPTION */
 
   .hero-description {
-    font-size: 0.9rem;
+
+    width: 64%;
+
+    max-width: 250px;
+
+    font-size: 0.82rem;
 
     line-height: 1.65;
 
-    max-width: 340px;
+    margin-top: 16px;
   }
 
 
-  /* =======================================================
-     BUTTONS
-  ======================================================= */
+  /* BUTTONS */
 
   .hero-buttons {
-    gap: 10px;
 
-    margin-top: 28px;
+    width: 63%;
 
-    width: 100%;
+    gap: 9px;
+
+    margin-top: 25px;
   }
+
 
   .primary-button,
   .secondary-button {
-    min-height: 54px;
+
+    min-height: 52px;
 
     width: 100%;
 
-    max-width: 100%;
+    font-size: 0.78rem;
 
-    font-size: 0.82rem;
+    padding: 12px 8px;
   }
 
 
   /* =======================================================
-     LARGE MOBILE PHOTO
+     PORTRAIT
   ======================================================= */
 
   .hero-photo-wrapper {
-    left: 0;
+
+    top: 185px;
 
     right: 0;
 
-    top: 455px;
+    width: 42%;
 
-    width: 100%;
-
-    height: 670px;
-
-    overflow: hidden;
-
-    z-index: 3;
+    height: 640px;
   }
 
+
   .hero-photo {
+
     width: 100%;
 
-    height: 670px;
+    height: 640px;
 
     object-fit: cover;
 
     object-position: center 27%;
-
-    filter:
-      saturate(1.18)
-      contrast(1.04)
-      brightness(1.03) !important;
-
-    -webkit-filter:
-      saturate(1.18)
-      contrast(1.04)
-      brightness(1.03) !important;
-
-    opacity: 1 !important;
-
-    mix-blend-mode: normal !important;
-
-    border: none;
-
-    mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 15%,
-        black 83%,
-        transparent 100%
-      );
-
-    -webkit-mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 15%,
-        black 83%,
-        transparent 100%
-      );
-  }
-
-  .hero-photo-wrapper::after {
-    background:
-      linear-gradient(
-        to bottom,
-        #080808 0%,
-        rgba(8,8,8,0.72) 9%,
-        rgba(8,8,8,0.08) 24%,
-        rgba(8,8,8,0) 55%,
-        rgba(8,8,8,0.2) 80%,
-        #080808 100%
-      );
   }
 
 
@@ -2029,43 +2042,43 @@ button {
   ======================================================= */
 
   .hero-stats {
-    width: calc(100% - 70px);
 
-    margin-left: 35px;
+    width: calc(100% - 50px);
 
-    margin-top: 115px;
+    margin-left: 25px;
 
-    gap: 12px;
+    margin-top: 90px;
 
-    padding-top: 25px;
+    padding-top: 22px;
 
-    position: relative;
-
-    z-index: 30;
+    gap: 8px;
   }
+
 
   .stat {
-    flex: 1;
 
-    text-align: center;
+    text-align: left;
   }
+
 
   .stat strong {
-    font-size: 1.15rem;
+
+    font-size: 1.1rem;
   }
+
 
   .stat span {
-    font-size: 0.55rem;
 
-    letter-spacing: 0.12em;
+    font-size: 0.50rem;
+
+    letter-spacing: 0.1em;
   }
 
 
-  /* =======================================================
-     PROJECTS
-  ======================================================= */
+  /* PROJECTS */
 
   .project-card {
+
     padding: 25px;
 
     gap: 15px;
@@ -2074,102 +2087,72 @@ button {
   }
 
 
-  /* =======================================================
-     CARDS
-  ======================================================= */
+  /* CARDS */
 
   .skill-card,
   .interaction-card,
   .ai-card {
+
     padding: 25px;
   }
 
 
-  /* =======================================================
-     ABOUT PHOTO
-  ======================================================= */
+  /* ABOUT PHOTO */
 
   .about-photo {
+
     height: 330px;
-
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    opacity: 1 !important;
-
-    mix-blend-mode: normal !important;
   }
 
 
-  /* =======================================================
-     VISUAL PHOTOS
-  ======================================================= */
+  /* VISUAL PHOTOS */
 
   .visual-photo {
+
     height: 300px;
-
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
-
-    opacity: 1 !important;
-
-    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
+
     min-height: 300px;
   }
 
 
-  /* =======================================================
-     SECTION SPACING
-  ======================================================= */
+  /* SECTION SPACING */
 
   .section {
+
     padding: 75px 0;
   }
 
   .section-heading {
+
     margin-bottom: 45px;
   }
 
 
-  /* =======================================================
-     PUZZLE
-  ======================================================= */
+  /* PUZZLE */
 
   .puzzle-header h3 {
+
     font-size: 1.6rem;
   }
 
 
-  /* =======================================================
-     CONTACT
-  ======================================================= */
+  /* CONTACT */
 
   .contact-card {
+
     padding: 55px 18px;
   }
 
   .social-links {
+
     gap: 8px;
   }
 
   .social-links a {
+
     width: 45px;
 
     height: 45px;
@@ -2184,50 +2167,70 @@ button {
 @media (max-width: 380px) {
 
   .hero {
-    min-height: 1020px;
+
+    min-height: 930px;
   }
+
 
   .hero-content {
-    width: calc(100% - 50px);
 
-    margin-left: 25px;
+    width: calc(100% - 40px);
+
+    margin-left: 20px;
   }
+
 
   .hero h1 {
-    font-size: 3rem;
+
+    font-size: 2.85rem;
   }
+
 
   .hero-description {
-    font-size: 0.84rem;
+
+    width: 62%;
+
+    font-size: 0.78rem;
   }
+
+
+  .hero-buttons {
+
+    width: 61%;
+  }
+
 
   .hero-photo-wrapper {
-    top: 450px;
 
-    height: 650px;
+    top: 180px;
+
+    width: 43%;
+
+    height: 620px;
   }
 
-  .hero-photo {
-    width: 100%;
 
-    height: 650px;
+  .hero-photo {
+
+    height: 620px;
 
     object-position: center 27%;
   }
 
+
   .hero-stats {
-    width: calc(100% - 50px);
 
-    margin-left: 25px;
+    width: calc(100% - 40px);
 
-    margin-top: 110px;
+    margin-left: 20px;
+
+    margin-top: 85px;
   }
 }
 
 
 /* =========================================================
    PHOTO COLOR PROTECTION
-   REAL PHOTOS NEVER BECOME GRAYSCALE
 ========================================================= */
 
 img.hero-photo,
@@ -2255,10 +2258,12 @@ img.visual-photo {
 ========================================================= */
 
 .puzzle-piece {
+
   mix-blend-mode: normal !important;
 }
 
 .puzzle-piece.empty {
+
   filter: none !important;
 
   -webkit-filter: none !important;
@@ -2278,6 +2283,7 @@ img.visual-photo {
   *,
   *::before,
   *::after {
+
     animation-duration: 0.01ms !important;
 
     animation-iteration-count: 1 !important;
