@@ -2207,3 +2207,353 @@ img.visual-photo {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   FINAL MOBILE HERO FIX
+   PHOTO MUST STAY ON RIGHT SIDE
+   COLOR PHOTO — NEVER BELOW BUTTONS
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /* HERO CONTAINER */
+  .hero {
+    position: relative !important;
+    display: block !important;
+    overflow: hidden !important;
+    min-height: 850px !important;
+  }
+
+  /* HERO CONTENT — LEAVE SPACE FOR PHOTO */
+  .hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+
+    width: calc(100% - 125px) !important;
+    max-width: none !important;
+  }
+
+  /* =======================================================
+     PHOTO WRAPPER
+     FORCE IT OUT OF NORMAL DOCUMENT FLOW
+  ======================================================= */
+
+  .hero-photo-wrapper {
+    position: absolute !important;
+
+    right: 0 !important;
+    left: auto !important;
+
+    top: 245px !important;
+    bottom: auto !important;
+
+    width: 115px !important;
+    height: 560px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    z-index: 4 !important;
+
+    pointer-events: none !important;
+
+    overflow: hidden !important;
+  }
+
+  /* =======================================================
+     PHOTO
+     COLOR + VERTICAL RIGHT-SIDE PORTRAIT
+  ======================================================= */
+
+  .hero-photo-wrapper .hero-photo,
+  img.hero-photo {
+
+    position: absolute !important;
+
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+
+    display: block !important;
+
+    width: 115px !important;
+    height: 560px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    /* ORIGINAL COLOR */
+    filter: saturate(1.15) contrast(1.03) brightness(1.02) !important;
+    -webkit-filter: saturate(1.15) contrast(1.03) brightness(1.02) !important;
+
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
+
+    border: 1px solid #333 !important;
+
+    /* Fade only at bottom */
+    mask-image: linear-gradient(
+      to bottom,
+      black 82%,
+      transparent 100%
+    ) !important;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 82%,
+      transparent 100%
+    ) !important;
+  }
+
+  /* =======================================================
+     BUTTONS
+     KEEP THEM ON LEFT
+  ======================================================= */
+
+  .hero-buttons {
+    position: relative !important;
+    z-index: 12 !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    gap: 10px !important;
+
+    margin-top: 30px !important;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100% !important;
+
+    min-height: 54px !important;
+
+    position: relative !important;
+    z-index: 15 !important;
+  }
+
+  /* =======================================================
+     STATS
+     BELOW HERO CONTENT — NOT OVER PHOTO
+  ======================================================= */
+
+  .hero-stats {
+    position: relative !important;
+
+    z-index: 20 !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+
+    justify-content: space-between !important;
+
+    gap: 12px !important;
+
+    margin-top: 65px !important;
+
+    padding-top: 25px !important;
+
+    border-top: 1px solid var(--line) !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .hero {
+    min-height: 850px !important;
+
+    padding-top: 75px !important;
+    padding-bottom: 55px !important;
+  }
+
+  /* LEFT CONTENT */
+  .hero-content {
+    width: calc(100% - 120px) !important;
+  }
+
+  /* RIGHT PHOTO */
+  .hero-photo-wrapper {
+    position: absolute !important;
+
+    right: 0 !important;
+    left: auto !important;
+
+    top: 245px !important;
+
+    width: 110px !important;
+    height: 540px !important;
+
+    z-index: 4 !important;
+  }
+
+  .hero-photo-wrapper .hero-photo,
+  img.hero-photo {
+
+    position: absolute !important;
+
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+
+    width: 110px !important;
+    height: 540px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    filter:
+      saturate(1.15)
+      contrast(1.03)
+      brightness(1.02) !important;
+
+    -webkit-filter:
+      saturate(1.15)
+      contrast(1.03)
+      brightness(1.02) !important;
+
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
+
+    border: 1px solid #333 !important;
+
+    mask-image: linear-gradient(
+      to bottom,
+      black 82%,
+      transparent 100%
+    ) !important;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 82%,
+      transparent 100%
+    ) !important;
+  }
+
+  /* TEXT */
+  .hero h1 {
+    position: relative !important;
+    z-index: 11 !important;
+
+    font-size: clamp(
+      3.2rem,
+      16vw,
+      5.5rem
+    ) !important;
+
+    line-height: 0.88 !important;
+  }
+
+  .hero-positioning {
+    position: relative !important;
+    z-index: 11 !important;
+  }
+
+  .hero-description {
+    position: relative !important;
+    z-index: 11 !important;
+
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* BUTTONS */
+  .hero-buttons {
+    position: relative !important;
+    z-index: 15 !important;
+
+    width: 100% !important;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100% !important;
+
+    min-height: 54px !important;
+  }
+
+  /* STATS */
+  .hero-stats {
+    position: relative !important;
+    z-index: 20 !important;
+
+    margin-top: 60px !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-content {
+    width: calc(100% - 105px) !important;
+  }
+
+  .hero-photo-wrapper {
+    width: 95px !important;
+    height: 500px !important;
+
+    top: 245px !important;
+  }
+
+  .hero-photo-wrapper .hero-photo,
+  img.hero-photo {
+    width: 95px !important;
+    height: 500px !important;
+  }
+
+  .hero h1 {
+    font-size: 3rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.84rem !important;
+  }
+}
+
+
+/* =========================================================
+   COLOR PROTECTION
+========================================================= */
+
+.hero-photo,
+.hero-photo-wrapper img {
+  opacity: 1 !important;
+
+  filter:
+    saturate(1.15)
+    contrast(1.03)
+    brightness(1.02) !important;
+
+  -webkit-filter:
+    saturate(1.15)
+    contrast(1.03)
+    brightness(1.02) !important;
+
+  mix-blend-mode: normal !important;
+}
