@@ -1,7 +1,8 @@
 /* =========================================================
    SHINE PORTFOLIO
    COMPLETE MAIN STYLESHEET
-   PREMIUM DARK EDITORIAL + NATURAL COLOR PHOTOS
+   PREMIUM DARK EDITORIAL
+   HERO PHOTO = COLOR + RIGHT SIDE ON MOBILE
 ========================================================= */
 
 :root {
@@ -55,6 +56,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 1000;
+
   width: 100%;
   height: 76px;
 
@@ -65,6 +67,7 @@ button {
   padding: 0 5%;
 
   background: rgba(8, 8, 8, 0.9);
+
   border-bottom: 1px solid var(--line);
 
   backdrop-filter: blur(15px);
@@ -94,9 +97,13 @@ button {
 
 .desktop-nav a {
   color: #999;
+
   font-size: 0.76rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
+
   transition: 0.3s ease;
 }
 
@@ -106,21 +113,28 @@ button {
 
 .menu-button {
   display: none;
+
   width: 42px;
   height: 42px;
 
   border: 1px solid var(--line);
+
   background: transparent;
 
   cursor: pointer;
+
   padding: 9px;
 }
 
 .menu-button span {
   display: block;
+
   height: 2px;
+
   background: white;
+
   margin: 5px 0;
+
   transition: 0.3s ease;
 }
 
@@ -155,6 +169,7 @@ button {
 
 .section {
   padding: 130px 0;
+
   border-top: 1px solid var(--line);
 }
 
@@ -164,20 +179,27 @@ button {
 
 .section-number {
   color: #777;
+
   font-size: 0.75rem;
+
   letter-spacing: 0.18em;
 }
 
 .section-heading h2 {
   margin-top: 15px;
+
   font-size: clamp(2.5rem, 6vw, 5rem);
+
   line-height: 1;
+
   letter-spacing: -0.05em;
 }
 
 .section-heading p {
   margin-top: 18px;
+
   color: var(--muted);
+
   max-width: 650px;
 }
 
@@ -189,11 +211,13 @@ button {
   min-height: calc(100vh - 76px);
 
   display: flex;
+
   align-items: center;
 
   padding: 100px 0;
 
   position: relative;
+
   overflow: hidden;
 }
 
@@ -209,6 +233,7 @@ button {
   top: 80px;
 
   border: 1px solid #222;
+
   border-radius: 50%;
 
   box-shadow:
@@ -220,25 +245,33 @@ button {
 
 .hero-content {
   position: relative;
+
   z-index: 3;
+
   max-width: 850px;
 }
 
 .status-pill {
   display: inline-flex;
+
   align-items: center;
+
   gap: 10px;
 
   border: 1px solid var(--line);
+
   background: var(--bg-soft);
 
   padding: 9px 15px;
+
   border-radius: 30px;
 
   color: #aaa;
+
   font-size: 0.8rem;
 
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
 
   margin-bottom: 30px;
@@ -249,6 +282,7 @@ button {
   height: 8px;
 
   background: white;
+
   border-radius: 50%;
 
   box-shadow: 0 0 12px white;
@@ -258,12 +292,15 @@ button {
   font-size: clamp(4rem, 10vw, 9rem);
 
   line-height: 0.88;
+
   letter-spacing: -0.07em;
+
   font-weight: 900;
 }
 
 .hero h1 span {
   color: transparent;
+
   -webkit-text-stroke: 1px #777;
 }
 
@@ -299,6 +336,7 @@ button {
 
 .hero-buttons {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 14px;
@@ -312,6 +350,7 @@ button {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 12px;
@@ -325,16 +364,19 @@ button {
 
 .primary-button {
   background: white;
+
   color: black;
 }
 
 .primary-button:hover {
   background: transparent;
+
   color: white;
 }
 
 .secondary-button {
   color: white;
+
   border-color: var(--line);
 }
 
@@ -360,6 +402,7 @@ button {
 
 .stat {
   display: flex;
+
   flex-direction: column;
 }
 
@@ -377,13 +420,14 @@ button {
 
 /* =========================================================
    HERO PHOTO
-   NATURAL ORIGINAL COLOR
+   DESKTOP
 ========================================================= */
 
 .hero-photo-wrapper {
   position: absolute;
 
   right: 3%;
+
   bottom: 0;
 
   width: min(34vw, 390px);
@@ -397,13 +441,20 @@ button {
   display: block;
 
   width: 100%;
+
   max-height: 620px;
 
   object-fit: cover;
+
   object-position: center top;
 
-  filter: none !important;
-  -webkit-filter: none !important;
+  /*
+     FORCE NATURAL COLOR
+  */
+
+  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+
+  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
 
   opacity: 1 !important;
 
@@ -466,9 +517,11 @@ button {
   border: 1px solid var(--line);
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
+
   justify-content: flex-end;
 
   overflow: hidden;
@@ -480,13 +533,16 @@ button {
   display: block;
 
   width: 100%;
+
   height: 390px;
 
   object-fit: cover;
+
   object-position: center;
 
-  filter: none !important;
-  -webkit-filter: none !important;
+  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+
+  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
 
   opacity: 1 !important;
 
@@ -575,6 +631,7 @@ button {
   border: 1px solid #444;
 
   display: grid;
+
   place-items: center;
 
   margin-bottom: 28px;
@@ -638,6 +695,7 @@ button {
   border: 1px solid #444;
 
   display: grid;
+
   place-items: center;
 
   font-weight: 900;
@@ -739,6 +797,7 @@ button {
   background-repeat: no-repeat;
 
   filter: none !important;
+
   -webkit-filter: none !important;
 
   mix-blend-mode: normal !important;
@@ -750,6 +809,7 @@ button {
 
 .puzzle-piece:hover {
   filter: brightness(1.2) !important;
+
   -webkit-filter: brightness(1.2) !important;
 }
 
@@ -759,6 +819,7 @@ button {
   cursor: default;
 
   filter: none !important;
+
   -webkit-filter: none !important;
 }
 
@@ -790,6 +851,7 @@ button {
 
 .puzzle-button:hover {
   background: white;
+
   color: black;
 }
 
@@ -921,6 +983,7 @@ button {
   position: absolute;
 
   right: -10px;
+
   bottom: -35px;
 
   font-size: 8rem;
@@ -1000,8 +1063,9 @@ button {
 
   display: block;
 
-  filter: none !important;
-  -webkit-filter: none !important;
+  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+
+  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
 
   opacity: 1 !important;
 
@@ -1100,6 +1164,7 @@ button {
   top: 30px;
 
   width: 11px;
+
   height: 11px;
 
   background: white;
@@ -1202,6 +1267,7 @@ button {
 
 .social-links a {
   width: 48px;
+
   height: 48px;
 
   border: 1px solid #333;
@@ -1259,6 +1325,8 @@ button {
 
 /* =========================================================
    TABLET
+   IMPORTANT:
+   HERO PHOTO STAYS BESIDE CONTENT
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1303,41 +1371,41 @@ button {
     color: white;
   }
 
-  /* =====================================================
-     MOBILE HERO
-     PHOTO STAYS ON RIGHT SIDE
-  ===================================================== */
+  /* =======================================================
+     HERO MOBILE
+     PHOTO ON RIGHT — NOT BELOW
+  ======================================================= */
 
   .hero {
-    min-height: calc(100vh - 65px);
+    min-height: auto;
 
-    padding: 70px 0 55px;
+    padding: 85px 0 60px;
 
     display: block;
 
     position: relative;
+
+    overflow: hidden;
+  }
+
+  .hero::before {
+    width: 360px;
+
+    height: 360px;
+
+    right: -230px;
+
+    top: 80px;
   }
 
   .hero-content {
-    width: 100%;
+    width: calc(100% - 135px);
 
     max-width: none;
-
-    padding-right: 125px;
 
     position: relative;
 
     z-index: 5;
-  }
-
-  .hero::before {
-    width: 320px;
-
-    height: 320px;
-
-    right: -210px;
-
-    top: 40px;
   }
 
   .status-pill {
@@ -1345,65 +1413,95 @@ button {
 
     padding: 8px 12px;
 
-    margin-bottom: 35px;
-
     white-space: nowrap;
+
+    margin-bottom: 35px;
   }
 
   .hero h1 {
-    font-size: clamp(3.8rem, 15vw, 7rem);
+    font-size: clamp(3.4rem, 11vw, 6rem);
 
     line-height: 0.88;
 
-    letter-spacing: -0.07em;
+    letter-spacing: -0.065em;
   }
 
   .hero-positioning {
-    margin-top: 35px;
+    margin-top: 28px;
 
-    font-size: 0.9rem;
+    font-size: 0.78rem;
 
     letter-spacing: 0.08em;
 
-    max-width: 500px;
+    white-space: normal;
   }
 
   .hero-description {
-    max-width: 470px;
+    width: 100%;
 
-    margin-top: 22px;
+    margin-top: 18px;
 
-    font-size: 1rem;
+    font-size: 0.92rem;
 
-    line-height: 1.75;
+    line-height: 1.65;
   }
 
-  /* =====================================================
-     RIGHT-SIDE HERO PHOTO
-  ===================================================== */
+  .hero-buttons {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+
+    margin-top: 30px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+
+    min-height: 58px;
+
+    padding: 14px 12px;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+  }
+
+  /* =======================================================
+     PHOTO
+     FORCE RIGHT SIDE
+  ======================================================= */
 
   .hero-photo-wrapper {
     position: absolute;
 
     right: 0;
 
-    bottom: 35px;
+    top: 265px;
 
-    width: 125px;
+    bottom: auto;
 
-    height: 520px;
+    width: 122px;
 
-    z-index: 2;
+    height: 560px;
 
     margin: 0;
+
+    z-index: 2;
 
     pointer-events: none;
   }
 
   .hero-photo {
-    width: 100%;
+    display: block;
 
-    height: 100%;
+    width: 122px;
+
+    height: 560px;
 
     max-height: none;
 
@@ -1411,74 +1509,61 @@ button {
 
     object-position: center top;
 
-    display: block;
+    /*
+       FORCE COLOR
+    */
 
-    filter: none !important;
+    filter:
+      saturate(1.2)
+      contrast(1.03)
+      brightness(1.02) !important;
 
-    -webkit-filter: none !important;
+    -webkit-filter:
+      saturate(1.2)
+      contrast(1.03)
+      brightness(1.02) !important;
 
     opacity: 1 !important;
 
     mix-blend-mode: normal !important;
 
-    border: 1px solid #292929;
+    border: 1px solid #333;
 
     mask-image:
       linear-gradient(
         to bottom,
-        black 88%,
+        black 82%,
         transparent 100%
       );
 
     -webkit-mask-image:
       linear-gradient(
         to bottom,
-        black 88%,
+        black 82%,
         transparent 100%
       );
   }
 
-  /* =====================================================
-     BUTTONS
-  ===================================================== */
-
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    width: 100%;
-
-    max-width: 470px;
-
-    margin-top: 35px;
-  }
-
-  .primary-button,
-  .secondary-button {
-    min-height: 58px;
-
-    width: 100%;
-  }
-
-  /* =====================================================
-     HERO STATS
-  ===================================================== */
+  /* =======================================================
+     STATS
+  ======================================================= */
 
   .hero-stats {
-    position: relative;
+    width: 100%;
 
-    z-index: 5;
-
-    width: calc(100% - 10px);
-
-    gap: 20px;
+    display: flex;
 
     justify-content: space-between;
+
+    gap: 20px;
 
     margin-top: 65px;
 
     padding-top: 25px;
+
+    position: relative;
+
+    z-index: 5;
   }
 
   .stat strong {
@@ -1486,12 +1571,12 @@ button {
   }
 
   .stat span {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
   }
 
-  /* =====================================================
+  /* =======================================================
      ABOUT
-  ===================================================== */
+  ======================================================= */
 
   .about {
     grid-template-columns: 1fr;
@@ -1503,9 +1588,9 @@ button {
     grid-column: auto;
   }
 
-  /* =====================================================
+  /* =======================================================
      GRIDS
-  ===================================================== */
+  ======================================================= */
 
   .skills-grid,
   .projects-grid,
@@ -1518,17 +1603,17 @@ button {
     grid-template-columns: 1fr;
   }
 
-  /* =====================================================
+  /* =======================================================
      SECTIONS
-  ===================================================== */
+  ======================================================= */
 
   .section {
     padding: 90px 0;
   }
 
-  /* =====================================================
+  /* =======================================================
      PUZZLE
-  ===================================================== */
+  ======================================================= */
 
   .puzzle-section {
     padding: 25px 15px;
@@ -1540,9 +1625,9 @@ button {
     align-items: flex-start;
   }
 
-  /* =====================================================
+  /* =======================================================
      CONTACT
-  ===================================================== */
+  ======================================================= */
 
   .contact-card {
     padding: 65px 20px;
@@ -1567,9 +1652,9 @@ button {
     word-break: break-all;
   }
 
-  /* =====================================================
+  /* =======================================================
      VISUAL PHOTOS
-  ===================================================== */
+  ======================================================= */
 
   .visual-photo-card {
     min-height: auto;
@@ -1578,9 +1663,15 @@ button {
   .visual-photo {
     height: 350px;
 
-    filter: none !important;
+    filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
-    -webkit-filter: none !important;
+    -webkit-filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
     opacity: 1 !important;
 
@@ -1591,9 +1682,9 @@ button {
     min-height: 350px;
   }
 
-  /* =====================================================
+  /* =======================================================
      FOOTER
-  ===================================================== */
+  ======================================================= */
 
   .footer {
     flex-direction: column;
@@ -1614,154 +1705,108 @@ button {
     padding: 0 6%;
   }
 
-  /* =====================================================
-     PHONE HERO
-  ===================================================== */
-
   .hero {
-    min-height: calc(100vh - 65px);
+    padding-top: 75px;
 
-    padding-top: 65px;
-
-    padding-bottom: 45px;
+    padding-bottom: 55px;
   }
 
   .hero-content {
-    padding-right: 108px;
+    width: calc(100% - 128px);
   }
 
   .status-pill {
-    font-size: 0.64rem;
+    font-size: 0.63rem;
+
+    letter-spacing: 0.06em;
 
     padding: 8px 10px;
-
-    gap: 7px;
-
-    margin-bottom: 32px;
-
-    max-width: 100%;
-  }
-
-  .status-dot {
-    width: 7px;
-
-    height: 7px;
-
-    flex-shrink: 0;
   }
 
   .hero h1 {
     font-size:
       clamp(
         3.2rem,
-        17vw,
+        16vw,
         5.5rem
       );
-
-    line-height: 0.86;
   }
 
   .hero-positioning {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
 
     line-height: 1.5;
-
-    margin-top: 32px;
   }
 
   .hero-description {
-    font-size: 0.93rem;
+    font-size: 0.9rem;
 
-    line-height: 1.75;
-
-    margin-top: 18px;
+    line-height: 1.65;
   }
 
-  /* =====================================================
-     PHONE RIGHT PHOTO
-  ===================================================== */
+  /* =======================================================
+     MOBILE HERO PHOTO
+  ======================================================= */
 
   .hero-photo-wrapper {
     right: 0;
 
-    bottom: 30px;
+    top: 250px;
 
-    width: 105px;
+    width: 112px;
 
-    height: 455px;
+    height: 520px;
   }
 
   .hero-photo {
-    width: 100%;
+    width: 112px;
 
-    height: 100%;
+    height: 520px;
 
     object-fit: cover;
 
     object-position: center top;
 
-    filter: none !important;
+    filter:
+      saturate(1.2)
+      contrast(1.03)
+      brightness(1.02) !important;
 
-    -webkit-filter: none !important;
+    -webkit-filter:
+      saturate(1.2)
+      contrast(1.03)
+      brightness(1.02) !important;
 
     opacity: 1 !important;
 
     mix-blend-mode: normal !important;
-
-    border: 1px solid #292929;
-
-    mask-image:
-      linear-gradient(
-        to bottom,
-        black 88%,
-        transparent 100%
-      );
-
-    -webkit-mask-image:
-      linear-gradient(
-        to bottom,
-        black 88%,
-        transparent 100%
-      );
   }
 
-  /* =====================================================
+  /* =======================================================
      BUTTONS
-  ===================================================== */
+  ======================================================= */
 
   .hero-buttons {
-    width: 100%;
-
-    max-width: none;
-
-    gap: 12px;
-
-    margin-top: 30px;
+    gap: 10px;
   }
 
   .primary-button,
   .secondary-button {
+    min-height: 54px;
+
     width: 100%;
 
-    min-height: 58px;
-
-    padding: 14px 15px;
-
-    font-size: 0.95rem;
+    font-size: 0.82rem;
   }
 
-  /* =====================================================
+  /* =======================================================
      STATS
-  ===================================================== */
+  ======================================================= */
 
   .hero-stats {
-    width: 100%;
-
-    gap: 10px;
-
     margin-top: 55px;
 
-    padding-top: 22px;
+    gap: 12px;
   }
 
   .stat strong {
@@ -1774,9 +1819,9 @@ button {
     letter-spacing: 0.12em;
   }
 
-  /* =====================================================
+  /* =======================================================
      PROJECTS
-  ===================================================== */
+  ======================================================= */
 
   .project-card {
     padding: 25px;
@@ -1786,9 +1831,9 @@ button {
     min-height: 260px;
   }
 
-  /* =====================================================
+  /* =======================================================
      CARDS
-  ===================================================== */
+  ======================================================= */
 
   .skill-card,
   .interaction-card,
@@ -1796,32 +1841,44 @@ button {
     padding: 25px;
   }
 
-  /* =====================================================
+  /* =======================================================
      ABOUT PHOTO
-  ===================================================== */
+  ======================================================= */
 
   .about-photo {
     height: 330px;
 
-    filter: none !important;
+    filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
-    -webkit-filter: none !important;
+    -webkit-filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
     opacity: 1 !important;
 
     mix-blend-mode: normal !important;
   }
 
-  /* =====================================================
+  /* =======================================================
      VISUAL PHOTOS
-  ===================================================== */
+  ======================================================= */
 
   .visual-photo {
     height: 300px;
 
-    filter: none !important;
+    filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
-    -webkit-filter: none !important;
+    -webkit-filter:
+      saturate(1.12)
+      contrast(1.02)
+      brightness(1.02) !important;
 
     opacity: 1 !important;
 
@@ -1832,9 +1889,9 @@ button {
     min-height: 300px;
   }
 
-  /* =====================================================
+  /* =======================================================
      SECTION SPACING
-  ===================================================== */
+  ======================================================= */
 
   .section {
     padding: 75px 0;
@@ -1844,17 +1901,17 @@ button {
     margin-bottom: 45px;
   }
 
-  /* =====================================================
+  /* =======================================================
      PUZZLE
-  ===================================================== */
+  ======================================================= */
 
   .puzzle-header h3 {
     font-size: 1.6rem;
   }
 
-  /* =====================================================
+  /* =======================================================
      CONTACT
-  ===================================================== */
+  ======================================================= */
 
   .contact-card {
     padding: 55px 18px;
@@ -1872,87 +1929,34 @@ button {
 }
 
 /* =========================================================
-   VERY SMALL PHONES
+   FINAL PHOTO PROTECTION
+   NEVER MAKE REAL PHOTOS GRAYSCALE
 ========================================================= */
 
-@media (max-width: 380px) {
+img.hero-photo,
+img.about-photo,
+img.visual-photo {
+  opacity: 1 !important;
 
-  .hero-content {
-    padding-right: 92px;
-  }
+  mix-blend-mode: normal !important;
 
-  .hero-photo-wrapper {
-    width: 90px;
+  filter:
+    saturate(1.2)
+    contrast(1.03)
+    brightness(1.02) !important;
 
-    height: 410px;
-
-    bottom: 25px;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero-positioning {
-    font-size: 0.7rem;
-  }
-
-  .hero-description {
-    font-size: 0.86rem;
-  }
-
-  .hero-stats {
-    gap: 7px;
-  }
-
-  .stat strong {
-    font-size: 1rem;
-  }
-
-  .stat span {
-    font-size: 0.5rem;
-  }
+  -webkit-filter:
+    saturate(1.2)
+    contrast(1.03)
+    brightness(1.02) !important;
 }
 
 /* =========================================================
-   FINAL PHOTO COLOR PROTECTION
-   NEVER DESATURATE REAL PHOTOS
+   PUZZLE COLOR PROTECTION
 ========================================================= */
 
-img {
-  filter: none !important;
-
-  -webkit-filter: none !important;
-
-  opacity: 1 !important;
-
-  mix-blend-mode: normal !important;
-}
-
-.hero-photo,
-.about-photo,
-.visual-photo {
-  filter: none !important;
-
-  -webkit-filter: none !important;
-
-  opacity: 1 !important;
-
-  mix-blend-mode: normal !important;
-}
-
 .puzzle-piece {
-  filter: none !important;
-
-  -webkit-filter: none !important;
-
   mix-blend-mode: normal !important;
-}
-
-.puzzle-piece:hover {
-  filter: brightness(1.2) !important;
-
-  -webkit-filter: brightness(1.2) !important;
 }
 
 .puzzle-piece.empty {
