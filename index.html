@@ -1,2705 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<meta name="description" content="Shine R Mathew — Student, Creator and Developer.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta name="theme-color" content="#050505">
+  <meta
+    name="description"
+    content="Shine R Mathew — Student, Creator and Developer. Personal portfolio showcasing web development, UI design, digital creation and AI exploration."
+  >
 
-<title>Shine R Mathew | Creator • Developer | Portfolio</title>
+  <meta
+    name="author"
+    content="Shine R Mathew"
+  >
 
-<style>
+  <title>Shine R Mathew — Portfolio</title>
 
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-
-  background: #050505;
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-body.menu-open {
-  overflow: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-::selection {
-  background: #00e5ff;
-  color: #000;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: -3;
-
-  background:
-    linear-gradient(
-      rgba(255,255,255,0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.018) 1px,
-      transparent 1px
-    );
-
-  background-size: 70px 70px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 85%
-    );
-}
-
-body::after {
-  content: "";
-
-  position: fixed;
-
-  width: 500px;
-  height: 500px;
-
-  left: 50%;
-  top: 20%;
-
-  transform: translate(-50%, -50%);
-
-  background: rgba(0,229,255,0.06);
-
-  filter: blur(120px);
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  z-index: -4;
-}
-
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00e5ff;
-  border-radius: 10px;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar {
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 6%;
-
-  background: rgba(5,5,5,0.72);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border-bottom:
-    1px solid rgba(255,255,255,0.08);
-
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.logo span {
-  color: #00e5ff;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-
-  gap: 30px;
-
-  list-style: none;
-}
-
-.desktop-nav a {
-  position: relative;
-
-  color: #aaa;
-
-  font-size: 14px;
-
-  transition: 0.3s ease;
-}
-
-.desktop-nav a::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 0;
-  height: 2px;
-
-  background: #00e5ff;
-
-  transition: 0.3s ease;
-}
-
-.desktop-nav a:hover {
-  color: #fff;
-}
-
-.desktop-nav a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================================================
-   MENU BUTTON
-========================================================= */
-
-.menu-button {
-  display: none;
-
-  width: 52px;
-  height: 52px;
-
-  border:
-    1px solid rgba(255,255,255,0.12);
-
-  border-radius: 15px;
-
-  background:
-    rgba(255,255,255,0.06);
-
-  color: white;
-
-  cursor: pointer;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-
-  gap: 6px;
-}
-
-.menu-button span {
-  width: 23px;
-  height: 2px;
-
-  background: white;
-
-  transition: 0.3s ease;
-}
-
-.menu-button.active span:nth-child(1) {
-  transform:
-    translateY(8px)
-    rotate(45deg);
-}
-
-.menu-button.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-button.active span:nth-child(3) {
-  transform:
-    translateY(-8px)
-    rotate(-45deg);
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu {
-  position: fixed;
-
-  inset: 76px 0 0;
-
-  background:
-    radial-gradient(
-      circle at 50% 10%,
-      rgba(0,229,255,0.12),
-      transparent 35%
-    ),
-    rgba(5,5,5,0.97);
-
-  backdrop-filter: blur(25px);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.35s ease;
-
-  z-index: 999;
-}
-
-.mobile-menu.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.mobile-menu ul {
-  list-style: none;
-  text-align: center;
-}
-
-.mobile-menu li {
-  margin: 24px 0;
-
-  transform: translateY(20px);
-
-  opacity: 0;
-
-  transition: 0.35s ease;
-}
-
-.mobile-menu.active li {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.mobile-menu a {
-  font-size: 32px;
-  font-weight: 800;
-}
-
-.mobile-menu a:hover {
-  color: #00e5ff;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-  min-height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding:
-    150px
-    20px
-    80px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(0,229,255,0.12),
-      transparent 35%
-    );
-}
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 1px;
-  height: 100%;
-
-  left: 50%;
-  top: 0;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,229,255,0.18),
-      transparent
-    );
-}
-
-.hero-content {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 1000px;
-}
-
-.status {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 10px 20px;
-
-  border:
-    1px solid rgba(0,229,255,0.3);
-
-  border-radius: 50px;
-
-  background:
-    rgba(0,229,255,0.04);
-
-  color: #00e5ff;
-
-  font-weight: 700;
-
-  font-size: 14px;
-
-  margin-bottom: 30px;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-
-  background: #00e5ff;
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 10px #00e5ff;
-
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-
-  0%,100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: .45;
-    transform: scale(.7);
-  }
-}
-
-.hero h1 {
-  font-size:
-    clamp(52px, 11vw, 120px);
-
-  line-height: .92;
-
-  letter-spacing: -5px;
-
-  font-weight: 950;
-
-  margin-bottom: 30px;
-}
-
-.hero h1 .cyan {
-  color: #00e5ff;
-
-  text-shadow:
-    0 0 35px rgba(0,229,255,0.18);
-}
-
-.hero-description {
-  max-width: 720px;
-
-  margin: auto;
-
-  color: #999;
-
-  font-size:
-    clamp(17px, 2vw, 21px);
-}
-
-.hero-description strong {
-  color: white;
-}
-
-.hero-buttons {
-  margin-top: 38px;
-
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 14px;
-}
-
-.btn {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-width: 190px;
-
-  padding: 16px 25px;
-
-  border-radius: 16px;
-
-  font-weight: 800;
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease;
-}
-
-.btn-primary {
-  background: #00e5ff;
-
-  color: #000;
-
-  box-shadow:
-    0 0 30px rgba(0,229,255,0.18);
-}
-
-.btn-primary:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 15px 40px rgba(0,229,255,0.25);
-}
-
-.btn-secondary {
-  border:
-    1px solid rgba(255,255,255,0.12);
-
-  background:
-    rgba(255,255,255,0.04);
-
-  color: white;
-}
-
-.btn-secondary:hover {
-  transform: translateY(-4px);
-
-  border-color:
-    rgba(0,229,255,0.5);
-
-  color: #00e5ff;
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.hero-stats {
-  margin-top: 80px;
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 70px;
-}
-
-.stat strong {
-  display: block;
-
-  font-size: 34px;
-
-  line-height: 1;
-}
-
-.stat span {
-  display: block;
-
-  margin-top: 9px;
-
-  color: #666;
-
-  font-size: 12px;
-
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section {
-  position: relative;
-
-  padding: 130px 6%;
-}
-
-.section-dark {
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(0,229,255,0.05),
-      transparent 35%
-    );
-}
-
-.section-header {
-  max-width: 800px;
-
-  margin:
-    0 auto 70px;
-
-  text-align: center;
-}
-
-.section-number {
-  color: #00e5ff;
-
-  font-size: 14px;
-
-  font-weight: 900;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-}
-
-.section-header h2 {
-  margin-top: 14px;
-
-  font-size:
-    clamp(40px, 7vw, 70px);
-
-  line-height: 1;
-
-  letter-spacing: -2px;
-}
-
-.section-header p {
-  margin-top: 25px;
-
-  color: #888;
-
-  font-size: 18px;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-  max-width: 1100px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    .9fr 1.1fr;
-
-  gap: 60px;
-
-  align-items: center;
-}
-
-.identity-card {
-  min-height: 430px;
-
-  border:
-    1px solid rgba(255,255,255,0.1);
-
-  border-radius: 30px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(0,229,255,0.11),
-      transparent 50%
-    ),
-    rgba(255,255,255,0.025);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.identity-card::before,
-.identity-card::after {
-  content: "";
-
-  position: absolute;
-
-  border:
-    1px solid rgba(0,229,255,0.2);
-
-  border-radius: 50%;
-}
-
-.identity-card::before {
-  width: 300px;
-  height: 300px;
-}
-
-.identity-card::after {
-  width: 390px;
-  height: 390px;
-}
-
-.initials {
-  width: 220px;
-  height: 220px;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background: #050505;
-
-  border:
-    2px solid #00e5ff;
-
-  box-shadow:
-    0 0 50px rgba(0,229,255,0.18);
-
-  font-size: 55px;
-
-  font-weight: 950;
-
-  color: #00e5ff;
-
-  position: relative;
-
-  z-index: 2;
-}
-
-.identity-name {
-  position: absolute;
-
-  bottom: 28px;
-
-  left: 8%;
-  right: 8%;
-
-  padding: 16px;
-
-  text-align: center;
-
-  background:
-    rgba(0,0,0,.65);
-
-  border:
-    1px solid rgba(255,255,255,.08);
-
-  border-radius: 18px;
-
-  color: #aaa;
-}
-
-.about-text h3 {
-  font-size:
-    clamp(34px, 5vw, 54px);
-
-  line-height: 1.05;
-}
-
-.about-text h3 span {
-  color: #00e5ff;
-}
-
-.about-text p {
-  margin-top: 25px;
-
-  color: #999;
-
-  font-size: 18px;
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-grid {
-  max-width: 1150px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap: 20px;
-}
-
-.skill-card {
-  padding: 40px;
-
-  min-height: 250px;
-
-  border:
-    1px solid rgba(255,255,255,0.1);
-
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.015)
-    );
-
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-8px);
-
-  border-color:
-    rgba(0,229,255,.4);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
-}
-
-.skill-icon {
-  width: 65px;
-  height: 65px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 18px;
-
-  background:
-    rgba(0,229,255,.07);
-
-  border:
-    1px solid rgba(0,229,255,.18);
-
-  color: #00e5ff;
-
-  font-size: 25px;
-
-  margin-bottom: 28px;
-}
-
-.skill-card h3 {
-  font-size: 24px;
-}
-
-.skill-card p {
-  margin-top: 12px;
-
-  color: #888;
-}
-
-
-/* =========================================================
-   PROJECTS
-========================================================= */
-
-.projects-grid {
-  max-width: 1150px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap: 25px;
-}
-
-.project-card {
-  border:
-    1px solid rgba(255,255,255,.1);
-
-  border-radius: 30px;
-
-  overflow: hidden;
-
-  background: #0b0b0b;
-
-  transition: .35s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-
-  border-color:
-    rgba(0,229,255,.4);
-}
-
-.project-visual {
-  height: 280px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(0,229,255,.17),
-      transparent 55%
-    ),
-    #070707;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.08);
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.project-number {
-  font-size: 105px;
-
-  font-weight: 950;
-
-  color: #00e5ff;
-
-  text-shadow:
-    0 0 45px rgba(0,229,255,.25);
-
-  position: relative;
-
-  z-index: 2;
-}
-
-.project-grid-lines {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent 49.8%,
-      rgba(0,229,255,.15) 50%,
-      transparent 50.2%
-    ),
-    linear-gradient(
-      transparent 49.8%,
-      rgba(0,229,255,.15) 50%,
-      transparent 50.2%
-    );
-
-  background-size: 80px 80px;
-
-  opacity: .3;
-}
-
-.project-content {
-  padding: 35px;
-}
-
-.project-category {
-  color: #00e5ff;
-
-  font-size: 12px;
-
-  font-weight: 900;
-
-  letter-spacing: 4px;
-}
-
-.project-content h3 {
-  margin-top: 14px;
-
-  font-size: 28px;
-}
-
-.project-content p {
-  margin-top: 12px;
-
-  color: #888;
-}
-
-.project-link {
-  display: inline-block;
-
-  margin-top: 25px;
-
-  font-weight: 800;
-
-  transition: .3s ease;
-}
-
-.project-link:hover {
-  color: #00e5ff;
-
-  transform:
-    translateX(5px);
-}
-
-
-/* =========================================================
-   JOURNEY
-========================================================= */
-
-.timeline {
-  max-width: 900px;
-
-  margin: auto;
-
-  position: relative;
-}
-
-.timeline::before {
-  content: "";
-
-  position: absolute;
-
-  left: 18px;
-
-  top: 0;
-  bottom: 0;
-
-  width: 2px;
-
-  background:
-    linear-gradient(
-      #00e5ff,
-      rgba(0,229,255,.05)
-    );
-}
-
-.timeline-item {
-  position: relative;
-
-  padding-left: 70px;
-
-  margin-bottom: 28px;
-}
-
-.timeline-dot {
-  position: absolute;
-
-  left: 6px;
-
-  top: 35px;
-
-  width: 25px;
-  height: 25px;
-
-  border-radius: 50%;
-
-  background: #050505;
-
-  border:
-    2px solid #00e5ff;
-
-  box-shadow:
-    0 0 20px rgba(0,229,255,.35);
-}
-
-.timeline-card {
-  padding: 35px;
-
-  border:
-    1px solid rgba(255,255,255,.1);
-
-  border-radius: 26px;
-
-  background:
-    rgba(255,255,255,.035);
-}
-
-.timeline-label {
-  color: #00e5ff;
-
-  font-size: 13px;
-
-  font-weight: 900;
-
-  letter-spacing: 3px;
-}
-
-.timeline-card h3 {
-  margin-top: 12px;
-
-  font-size: 27px;
-}
-
-.timeline-card p {
-  margin-top: 12px;
-
-  color: #888;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-box {
-  max-width: 1000px;
-
-  margin: auto;
-
-  text-align: center;
-
-  padding: 80px 30px;
-
-  border:
-    1px solid rgba(0,229,255,.2);
-
-  border-radius: 35px;
-
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(0,229,255,.11),
-      transparent 50%
-    ),
-    rgba(255,255,255,.025);
-}
-
-.contact-box h2 {
-  font-size:
-    clamp(42px, 7vw, 70px);
-
-  line-height: 1;
-}
-
-.contact-box h2 span {
-  color: #00e5ff;
-}
-
-.contact-box p {
-  max-width: 650px;
-
-  margin: 25px auto;
-
-  color: #888;
-
-  font-size: 18px;
-}
-
-.email-button {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 17px 25px;
-
-  border-radius: 17px;
-
-  background:
-    rgba(0,0,0,.4);
-
-  border:
-    1px solid rgba(255,255,255,.1);
-
-  transition: .3s ease;
-}
-
-.email-button:hover {
-  border-color: #00e5ff;
-
-  color: #00e5ff;
-
-  transform:
-    translateY(-4px);
-}
-
-.socials {
-  margin-top: 25px;
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 14px;
-}
-
-.social {
-  width: 55px;
-  height: 55px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  border:
-    1px solid rgba(255,255,255,.1);
-
-  background:
-    rgba(255,255,255,.04);
-
-  font-weight: 900;
-
-  transition: .3s ease;
-}
-
-.social:hover {
-  color: #00e5ff;
-
-  border-color: #00e5ff;
-
-  transform:
-    translateY(-5px);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-  padding: 40px 20px;
-
-  text-align: center;
-
-  border-top:
-    1px solid rgba(255,255,255,.07);
-
-  color: #666;
-
-  font-size: 14px;
-}
-
-footer strong {
-  color: #aaa;
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-  opacity: 0;
-
-  transform:
-    translateY(35px);
-
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 850px) {
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: flex;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    letter-spacing: -3px;
-  }
-
-  section {
-    padding: 100px 5%;
-  }
-}
-
-
-@media (max-width: 600px) {
-
-  .navbar {
-    height: 68px;
-
-    padding: 0 5%;
-  }
-
-  .mobile-menu {
-    inset: 68px 0 0;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
-
-  .hero {
-    padding:
-      130px
-      20px
-      70px;
-  }
-
-  .hero h1 {
-    font-size:
-      clamp(48px, 15vw, 75px);
-
-    letter-spacing: -3px;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-stats {
-    gap: 25px;
-
-    margin-top: 65px;
-  }
-
-  .stat strong {
-    font-size: 26px;
-  }
-
-  .stat span {
-    font-size: 9px;
-
-    letter-spacing: 2px;
-  }
-
-  .section-header {
-    margin-bottom: 50px;
-  }
-
-  .section-header h2 {
-    font-size: 42px;
-  }
-
-  .section-header p {
-    font-size: 16px;
-  }
-
-  .identity-card {
-    min-height: 350px;
-  }
-
-  .initials {
-    width: 170px;
-    height: 170px;
-
-    font-size: 45px;
-  }
-
-  .identity-card::before {
-    width: 240px;
-    height: 240px;
-  }
-
-  .identity-card::after {
-    width: 300px;
-    height: 300px;
-  }
-
-  .about-text h3 {
-    font-size: 38px;
-  }
-
-  .skill-card {
-    padding: 30px;
-  }
-
-  .project-visual {
-    height: 220px;
-  }
-
-  .project-number {
-    font-size: 80px;
-  }
-
-  .project-content {
-    padding: 28px;
-  }
-
-  .timeline-item {
-    padding-left: 48px;
-  }
-
-  .timeline::before {
-    left: 10px;
-  }
-
-  .timeline-dot {
-    left: -2px;
-  }
-
-  .timeline-card {
-    padding: 28px;
-  }
-
-  .contact-box {
-    padding: 60px 22px;
-  }
-
-}
-
-
-/* =========================================================
-   EXTRA MOBILE FIX
-========================================================= */
-
-@media (max-width: 420px) {
-
-  .hero h1 {
-    font-size: 48px;
-
-    letter-spacing: -2px;
-  }
-
-  .status {
-    font-size: 12px;
-
-    padding:
-      9px 14px;
-  }
-
-  .hero-stats {
-    gap: 18px;
-  }
-
-  .stat strong {
-    font-size: 23px;
-  }
-
-  .stat span {
-    font-size: 8px;
-  }
-
-  .email-button {
-    max-width: 100%;
-
-    font-size: 14px;
-
-    word-break: break-all;
-  }
-
-}
-
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<!-- =======================================================
-     NAVIGATION
-======================================================== -->
+  <header class="header">
 
-<header class="navbar">
-
-  <a href="#home" class="logo">
-    SHINE<span>.</span>
-  </a>
-
-  <nav class="desktop-nav">
-
-    <a href="#home">Home</a>
-
-    <a href="#about">About</a>
-
-    <a href="#skills">Skills</a>
-
-    <a href="#projects">Projects</a>
-
-    <a href="#journey">Journey</a>
-
-    <a href="#contact">Contact</a>
-
-  </nav>
-
-
-  <button
-    class="menu-button"
-    id="menuButton"
-    aria-label="Open navigation menu"
-  >
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </button>
-
-</header>
-
-
-
-<!-- =======================================================
-     MOBILE NAVIGATION
-======================================================== -->
-
-<div
-  class="mobile-menu"
-  id="mobileMenu"
->
-
-  <ul>
-
-    <li>
-      <a href="#home">Home</a>
-    </li>
-
-    <li>
-      <a href="#about">About</a>
-    </li>
-
-    <li>
-      <a href="#skills">Skills</a>
-    </li>
-
-    <li>
-      <a href="#projects">Projects</a>
-    </li>
-
-    <li>
-      <a href="#journey">Journey</a>
-    </li>
-
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-
-  </ul>
-
-</div>
-
-
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-====================================================== -->
-
-<section
-  class="hero"
-  id="home"
->
-
-  <div class="hero-content reveal">
-
-
-    <div class="status">
-
-      <span class="status-dot"></span>
-
-      Welcome to my digital space
-
-    </div>
-
-
-    <h1>
-
-      SHINE R<br>
-
-      <span class="cyan">
-        MATHEW.
-      </span>
-
-    </h1>
-
-
-    <p class="hero-description">
-
-      Student. Creator. Developer.
-
-      <strong>
-        Building ideas that deserve to be seen.
-      </strong>
-
-    </p>
-
-
-    <div class="hero-buttons">
-
-      <a
-        href="#projects"
-        class="btn btn-primary"
-      >
-        Explore My Work →
-      </a>
-
-
-      <a
-        href="#contact"
-        class="btn btn-secondary"
-      >
-        Let's Connect
-      </a>
-
-    </div>
-
-
-    <div class="hero-stats">
-
-
-      <div class="stat">
-
-        <strong>
-          01
-        </strong>
-
-        <span>
-          Portfolio
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <strong>
-          ∞
-        </strong>
-
-        <span>
-          Ideas
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <strong>
-          24/7
-        </strong>
-
-        <span>
-          Creating
-        </span>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ABOUT
-====================================================== -->
-
-<section
-  id="about"
-  class="section-dark"
->
-
-
-  <div class="section-header reveal">
-
-
-    <div class="section-number">
-      01 — About
-    </div>
-
-
-    <h2>
-      Who I Am
-    </h2>
-
-
-    <p>
-      A little about the person behind the screen.
-    </p>
-
-
-  </div>
-
-
-
-  <div class="about-grid">
-
-
-    <div
-      class="identity-card reveal"
-    >
-
-
-      <div class="initials">
-        SRM
-      </div>
-
-
-      <div class="identity-name">
-        Shine R Mathew
-      </div>
-
-
-    </div>
-
-
-
-    <div
-      class="about-text reveal"
-    >
-
-
-      <h3>
-
-        Turning curiosity into
-
-        <span>
-          creation.
-        </span>
-
-      </h3>
-
-
-      <p>
-
-        I'm Shine R Mathew, a student and creative individual
-        interested in technology, design and digital creation.
-
-      </p>
-
-
-      <p>
-
-        My work sits at the intersection of learning and
-        experimentation — from building websites to exploring
-        artificial intelligence, visual storytelling and
-        creative digital projects.
-
-      </p>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SKILLS
-====================================================== -->
-
-<section
-  id="skills"
->
-
-
-  <div class="section-header reveal">
-
-
-    <div class="section-number">
-      02 — Skills
-    </div>
-
-
-    <h2>
-      What I Do
-    </h2>
-
-
-    <p>
-      Areas I'm interested in and continuously developing.
-    </p>
-
-
-  </div>
-
-
-
-  <div class="skills-grid">
-
-
-    <article
-      class="skill-card reveal"
-    >
-
-
-      <div class="skill-icon">
-        &lt;/&gt;
-      </div>
-
-
-      <h3>
-        Web Development
-      </h3>
-
-
-      <p>
-
-        Creating responsive websites using HTML, CSS and
-        JavaScript with a focus on clean interfaces.
-
-      </p>
-
-
-    </article>
-
-
-
-    <article
-      class="skill-card reveal"
-    >
-
-
-      <div class="skill-icon">
-        ✦
-      </div>
-
-
-      <h3>
-        UI & Design
-      </h3>
-
-
-      <p>
-
-        Designing modern interfaces with a focus on visual
-        impact, usability and responsive experiences.
-
-      </p>
-
-
-    </article>
-
-
-
-    <article
-      class="skill-card reveal"
-    >
-
-
-      <div class="skill-icon">
-        ▶
-      </div>
-
-
-      <h3>
-        Digital Creation
-      </h3>
-
-
-      <p>
-
-        Exploring video creation, digital storytelling,
-        visual concepts and creative media.
-
-      </p>
-
-
-    </article>
-
-
-
-    <article
-      class="skill-card reveal"
-    >
-
-
-      <div class="skill-icon">
-        AI
-      </div>
-
-
-      <h3>
-        AI Exploration
-      </h3>
-
-
-      <p>
-
-        Experimenting with artificial intelligence and
-        emerging creative technologies.
-
-      </p>
-
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECTS
-====================================================== -->
-
-<section
-  id="projects"
-  class="section-dark"
->
-
-
-  <div class="section-header reveal">
-
-
-    <div class="section-number">
-      03 — Projects
-    </div>
-
-
-    <h2>
-      Selected Work
-    </h2>
-
-
-    <p>
-
-      A collection of things I'm building,
-      experimenting with and exploring.
-
-    </p>
-
-
-  </div>
-
-
-
-  <div class="projects-grid">
-
-
-    <!-- PROJECT 1 -->
-
-    <article
-      class="project-card reveal"
-    >
-
-
-      <div class="project-visual">
-
-        <div class="project-grid-lines"></div>
-
-        <div class="project-number">
-          01
-        </div>
-
-      </div>
-
-
-      <div class="project-content">
-
-
-        <div class="project-category">
-          WEB
-        </div>
-
-
-        <h3>
-          Personal Portfolio
-        </h3>
-
-
-        <p>
-
-          A cinematic personal website designed to showcase
-          my skills, projects and creative work.
-
-        </p>
-
-
-        <a
-          href="https://scilentwatcher.github.io/shine-portfolio/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="project-link"
-        >
-          View Project →
-        </a>
-
-
-      </div>
-
-    </article>
-
-
-
-    <!-- PROJECT 2 -->
-
-    <article
-      class="project-card reveal"
-    >
-
-
-      <div class="project-visual">
-
-        <div class="project-grid-lines"></div>
-
-        <div class="project-number">
-          02
-        </div>
-
-      </div>
-
-
-      <div class="project-content">
-
-
-        <div class="project-category">
-          CREATIVE
-        </div>
-
-
-        <h3>
-          Digital Storytelling
-        </h3>
-
-
-        <p>
-
-          Exploring cinematic stories, visual concepts,
-          characters and AI-assisted creative production.
-
-        </p>
-
-
-        <a
-          href="#contact"
-          class="project-link"
-        >
-          Coming Soon →
-        </a>
-
-
-      </div>
-
-    </article>
-
-
-
-    <!-- PROJECT 3 -->
-
-    <article
-      class="project-card reveal"
-    >
-
-
-      <div class="project-visual">
-
-        <div class="project-grid-lines"></div>
-
-        <div class="project-number">
-          03
-        </div>
-
-      </div>
-
-
-      <div class="project-content">
-
-
-        <div class="project-category">
-          EXPERIMENT
-        </div>
-
-
-        <h3>
-          Interactive Web Projects
-        </h3>
-
-
-        <p>
-
-          Building small interactive experiences and
-          experimenting with modern web interfaces.
-
-        </p>
-
-
-        <a
-          href="#contact"
-          class="project-link"
-        >
-          Coming Soon →
-        </a>
-
-
-      </div>
-
-    </article>
-
-
-
-    <!-- PROJECT 4 -->
-
-    <article
-      class="project-card reveal"
-    >
-
-
-      <div class="project-visual">
-
-        <div class="project-grid-lines"></div>
-
-        <div class="project-number">
-          04
-        </div>
-
-      </div>
-
-
-      <div class="project-content">
-
-
-        <div class="project-category">
-          FUTURE
-        </div>
-
-
-        <h3>
-          More To Come
-        </h3>
-
-
-        <p>
-
-          New ideas, experiments and projects are currently
-          being developed.
-
-        </p>
-
-
-        <a
-          href="#contact"
-          class="project-link"
-        >
-          Stay Tuned →
-        </a>
-
-
-      </div>
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     JOURNEY
-====================================================== -->
-
-<section
-  id="journey"
->
-
-
-  <div class="section-header reveal">
-
-
-    <div class="section-number">
-      04 — Journey
-    </div>
-
-
-    <h2>
-      My Journey
-    </h2>
-
-
-    <p>
-
-      Learning, experimenting and building one project at a time.
-
-    </p>
-
-
-  </div>
-
-
-
-  <div class="timeline">
-
-
-    <div class="timeline-item reveal">
-
-
-      <div class="timeline-dot"></div>
-
-
-      <div class="timeline-card">
-
-
-        <div class="timeline-label">
-          EDUCATION
-        </div>
-
-
-        <h3>
-          B.Sc. Nursing
-        </h3>
-
-
-        <p>
-
-          Developing knowledge and practical skills through
-          nursing education while continuing to explore
-          technology and creative work.
-
-        </p>
-
-
-      </div>
-
-
-    </div>
-
-
-
-    <div class="timeline-item reveal">
-
-
-      <div class="timeline-dot"></div>
-
-
-      <div class="timeline-card">
-
-
-        <div class="timeline-label">
-          EXPLORATION
-        </div>
-
-
-        <h3>
-          Technology & Digital Creation
-        </h3>
-
-
-        <p>
-
-          Exploring web development, design, artificial
-          intelligence, video creation and digital storytelling.
-
-        </p>
-
-
-      </div>
-
-
-    </div>
-
-
-
-    <div class="timeline-item reveal">
-
-
-      <div class="timeline-dot"></div>
-
-
-      <div class="timeline-card">
-
-
-        <div class="timeline-label">
-          NOW
-        </div>
-
-
-        <h3>
-          Building & Experimenting
-        </h3>
-
-
-        <p>
-
-          Turning ideas into real projects and continuously
-          improving technical and creative abilities.
-
-        </p>
-
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-====================================================== -->
-
-<section
-  id="contact"
-  class="section-dark"
->
-
-
-  <div class="contact-box reveal">
-
-
-    <h2>
-
-      Let's build<br>
-
-      <span>
-        something.
-      </span>
-
-    </h2>
-
-
-    <p>
-
-      Have an idea, project or opportunity?
-      Feel free to reach out.
-
-    </p>
-
-
-    <a
-      href="mailto:shinermathew@gmail.com"
-      class="email-button"
-    >
-
-      ✉ shinermathew@gmail.com
-
+    <a href="#home" class="logo">
+      SHINE<span>.</span>
     </a>
 
+    <nav class="desktop-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </header>
 
 
-    <div class="socials">
+  <!-- =========================
+       MOBILE MENU
+  ========================== -->
 
+  <div class="mobile-menu" id="mobileMenu">
 
-      <a
-        class="social"
-        href="https://github.com/scilentwatcher"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        GH
-      </a>
-
-
-      <a
-        class="social"
-        href="mailto:shinermathew@gmail.com"
-        aria-label="Email"
-      >
-        @
-      </a>
-
-
-    </div>
-
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
 
   </div>
 
-</section>
 
+  <main>
 
-</main>
+    <!-- =========================
+         HERO
+    ========================== -->
 
+    <section class="hero section-grid" id="home">
 
+      <div class="hero-content">
 
-<!-- =======================================================
-     FOOTER
-======================================================== -->
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Welcome to my digital space
+        </div>
 
-<footer>
+        <h1>
+          SHINE R<br>
+          <span>MATHEW.</span>
+        </h1>
 
-  © 2026
+        <p class="hero-description">
+          Student. Creator. Developer.
+          <strong>
+            Building ideas that deserve to be seen.
+          </strong>
+        </p>
 
-  <strong>
-    Shine R Mathew
-  </strong>.
+        <div class="hero-buttons">
 
-  All rights reserved.
+          <a
+            href="#projects"
+            class="primary-button"
+          >
+            Explore My Work
+            <span>→</span>
+          </a>
 
-</footer>
+          <a
+            href="#contact"
+            class="secondary-button"
+          >
+            Let's Connect
+          </a>
 
+        </div>
 
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================== -->
+        <div class="hero-stats">
 
-<script>
+          <div class="stat">
+            <strong>01</strong>
+            <span>PORTFOLIO</span>
+          </div>
 
+          <div class="stat">
+            <strong>∞</strong>
+            <span>IDEAS</span>
+          </div>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>CREATING</span>
+          </div>
 
-const menuButton =
-  document.getElementById("menuButton");
+        </div>
 
-const mobileMenu =
-  document.getElementById("mobileMenu");
+      </div>
 
-const mobileLinks =
-  document.querySelectorAll(
-    ".mobile-menu a"
-  );
+    </section>
 
 
-menuButton.addEventListener(
-  "click",
-  () => {
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-    menuButton.classList.toggle(
-      "active"
-    );
+    <section
+      class="about section section-grid"
+      id="about"
+    >
 
-    mobileMenu.classList.toggle(
-      "active"
-    );
+      <div class="section-heading">
 
-    document.body.classList.toggle(
-      "menu-open"
-    );
+        <span class="section-number">
+          01 — ABOUT
+        </span>
 
-  }
-);
+        <h2>Who I Am</h2>
 
+        <p>
+          A little about the person behind the screen.
+        </p>
 
-mobileLinks.forEach(
-  link => {
+      </div>
 
-    link.addEventListener(
-      "click",
-      () => {
 
-        menuButton.classList.remove(
-          "active"
-        );
+      <div class="about-card">
 
-        mobileMenu.classList.remove(
-          "active"
-        );
+        <div class="avatar-area">
 
-        document.body.classList.remove(
-          "menu-open"
-        );
+          <div class="avatar-ring ring-one"></div>
+          <div class="avatar-ring ring-two"></div>
+          <div class="avatar-ring ring-three"></div>
 
-      }
-    );
+          <div class="avatar">
+            <span>SRM</span>
+          </div>
 
-  }
-);
+        </div>
 
+        <div class="avatar-name">
+          Shine R Mathew
+        </div>
 
+      </div>
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
 
-const revealElements =
-  document.querySelectorAll(
-    ".reveal"
-  );
+      <div class="about-text">
 
+        <h3>
+          Turning curiosity into
+          <span>creation.</span>
+        </h3>
 
-const revealObserver =
-  new IntersectionObserver(
+        <p>
+          I'm Shine R Mathew, a student and creative
+          individual interested in technology, design
+          and digital creation.
+        </p>
 
-    entries => {
+        <p>
+          My work sits at the intersection of learning
+          and experimentation. I enjoy exploring new
+          technologies, building websites, creating
+          digital stories and experimenting with
+          artificial intelligence.
+        </p>
 
-      entries.forEach(
-        entry => {
+        <p>
+          This portfolio is a space where I document
+          what I'm learning, what I'm building and
+          where I'm going next.
+        </p>
 
-          if (
-            entry.isIntersecting
-          ) {
+      </div>
 
-            entry.target.classList.add(
-              "visible"
-            );
+    </section>
 
-            revealObserver.unobserve(
-              entry.target
-            );
 
-          }
+    <!-- =========================
+         SKILLS
+    ========================== -->
 
-        }
-      );
+    <section
+      class="skills section section-grid"
+      id="skills"
+    >
 
-    },
+      <div class="section-heading">
 
-    {
-      threshold: 0.12
-    }
+        <span class="section-number">
+          02 — SKILLS
+        </span>
 
-  );
+        <h2>What I Do</h2>
 
+        <p>
+          Areas I'm interested in and continuously
+          developing.
+        </p>
 
-revealElements.forEach(
-  element => {
+      </div>
 
-    revealObserver.observe(
-      element
-    );
 
-  }
-);
+      <div class="skills-grid">
 
 
+        <!-- Skill 1 -->
 
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
+        <article class="skill-card">
 
-const sections =
-  document.querySelectorAll(
-    "section[id]"
-  );
+          <div class="skill-icon">
+            &lt;/&gt;
+          </div>
 
-const navLinks =
-  document.querySelectorAll(
-    ".desktop-nav a"
-  );
+          <h3>
+            Web Development
+          </h3>
 
+          <p>
+            Creating responsive websites using HTML,
+            CSS and JavaScript with a focus on clean
+            interfaces.
+          </p>
 
-window.addEventListener(
-  "scroll",
-  () => {
+        </article>
 
-    let current = "";
 
-    sections.forEach(
-      section => {
+        <!-- Skill 2 -->
 
-        const sectionTop =
-          section.offsetTop - 180;
+        <article class="skill-card">
 
-        if (
-          window.scrollY >=
-          sectionTop
-        ) {
+          <div class="skill-icon">
+            ✦
+          </div>
 
-          current =
-            section.getAttribute(
-              "id"
-            );
+          <h3>
+            UI &amp; Design
+          </h3>
 
-        }
+          <p>
+            Designing modern interfaces with a focus
+            on visual impact, usability and responsive
+            experiences.
+          </p>
 
-      }
-    );
+        </article>
 
 
-    navLinks.forEach(
-      link => {
+        <!-- Skill 3 -->
 
-        link.style.color =
-          "#aaa";
+        <article class="skill-card">
 
-        if (
-          link.getAttribute(
-            "href"
-          ) ===
-          "#" + current
-        ) {
+          <div class="skill-icon">
+            ▶
+          </div>
 
-          link.style.color =
-            "#00e5ff";
+          <h3>
+            Digital Creation
+          </h3>
 
-        }
+          <p>
+            Exploring video creation, digital
+            storytelling, visual concepts and
+            creative media.
+          </p>
 
-      }
-    );
+        </article>
 
-  }
-);
 
+        <!-- Skill 4 -->
 
+        <article class="skill-card">
 
-/* =========================================================
-   CURSOR GLOW — DESKTOP
-========================================================= */
+          <div class="skill-icon">
+            AI
+          </div>
 
-if (
-  window.matchMedia(
-    "(pointer:fine)"
-  ).matches
-) {
+          <h3>
+            AI Exploration
+          </h3>
 
-  const glow =
-    document.createElement(
-      "div"
-    );
+          <p>
+            Experimenting with artificial intelligence
+            and emerging creative technologies.
+          </p>
 
+        </article>
 
-  glow.style.position =
-    "fixed";
 
-  glow.style.width =
-    "180px";
+      </div>
 
-  glow.style.height =
-    "180px";
+    </section>
 
-  glow.style.borderRadius =
-    "50%";
 
-  glow.style.pointerEvents =
-    "none";
+    <!-- =========================
+         PROJECTS
+    ========================== -->
 
-  glow.style.zIndex =
-    "-1";
+    <section
+      class="projects section section-grid"
+      id="projects"
+    >
 
-  glow.style.background =
-    "rgba(0,229,255,0.055)";
+      <div class="section-heading">
 
-  glow.style.filter =
-    "blur(45px)";
+        <span class="section-number">
+          03 — PROJECTS
+        </span>
 
-  glow.style.transform =
-    "translate(-50%, -50%)";
+        <h2>Selected Work</h2>
 
+        <p>
+          A collection of things I'm building,
+          experimenting with and exploring.
+        </p>
 
-  document.body.appendChild(
-    glow
-  );
+      </div>
 
 
-  document.addEventListener(
-    "mousemove",
-    event => {
+      <div class="projects-grid">
 
-      glow.style.left =
-        event.clientX + "px";
 
-      glow.style.top =
-        event.clientY + "px";
+        <!-- Project 01 -->
 
-    }
-  );
+        <article class="project-card">
 
-}
+          <div class="project-number">
+            01
+          </div>
 
-</script>
+          <div class="project-content">
 
+            <span class="project-category">
+              WEB
+            </span>
+
+            <h3>
+              Personal Portfolio
+            </h3>
+
+            <p>
+              A cinematic personal website designed
+              to showcase my skills, projects and
+              creative work.
+            </p>
+
+            <a
+              href="#home"
+              class="project-link"
+            >
+              View Project →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Project 02 -->
+
+        <article class="project-card">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div class="project-content">
+
+            <span class="project-category">
+              CREATIVE
+            </span>
+
+            <h3>
+              Digital Storytelling
+            </h3>
+
+            <p>
+              Exploring cinematic stories, visual
+              concepts, characters and AI-assisted
+              creative production.
+            </p>
+
+            <span class="project-link muted-link">
+              Coming Soon →
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- Project 03 -->
+
+        <article class="project-card">
+
+          <div class="project-number">
+            03
+          </div>
+
+          <div class="project-content">
+
+            <span class="project-category">
+              EXPERIMENT
+            </span>
+
+            <h3>
+              Interactive Web Projects
+            </h3>
+
+            <p>
+              Building small interactive experiences
+              and experimenting with modern web
+              interfaces.
+            </p>
+
+            <span class="project-link muted-link">
+              Coming Soon →
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- Project 04 -->
+
+        <article class="project-card">
+
+          <div class="project-number">
+            04
+          </div>
+
+          <div class="project-content">
+
+            <span class="project-category">
+              FUTURE
+            </span>
+
+            <h3>
+              More To Come
+            </h3>
+
+            <p>
+              New ideas, experiments and projects are
+              currently being developed.
+            </p>
+
+            <span class="project-link muted-link">
+              Stay Tuned →
+            </span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOURNEY
+    ========================== -->
+
+    <section
+      class="journey section section-grid"
+      id="journey"
+    >
+
+      <div class="section-heading">
+
+        <span class="section-number">
+          04 — JOURNEY
+        </span>
+
+        <h2>My Journey</h2>
+
+        <p>
+          Learning, experimenting and building one
+          project at a time.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+
+        <!-- Timeline item 1 -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card">
+
+            <span class="timeline-label">
+              EDUCATION
+            </span>
+
+            <h3>
+              B.Sc. Nursing
+            </h3>
+
+            <p>
+              Developing knowledge and practical
+              skills through nursing education while
+              continuing to explore technology and
+              creative work.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Timeline item 2 -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card">
+
+            <span class="timeline-label">
+              EXPLORATION
+            </span>
+
+            <h3>
+              Technology &amp; Digital Creation
+            </h3>
+
+            <p>
+              Exploring web development, design,
+              artificial intelligence, video creation
+              and digital storytelling.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Timeline item 3 -->
+
+        <article class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card">
+
+            <span class="timeline-label">
+              NOW
+            </span>
+
+            <h3>
+              Building &amp; Experimenting
+            </h3>
+
+            <p>
+              Turning ideas into real projects and
+              continuously improving technical and
+              creative abilities.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section
+      class="contact section section-grid"
+      id="contact"
+    >
+
+      <div class="contact-card">
+
+        <span class="contact-label">
+          LET'S CREATE
+        </span>
+
+        <h2>
+          Let's build
+          <span>something.</span>
+        </h2>
+
+        <p>
+          Have an idea, project or opportunity?
+          Feel free to reach out.
+        </p>
+
+
+        <a
+          href="mailto:shinermathew@gmail.com"
+          class="email-button"
+        >
+          ✉ shinermathew@gmail.com
+        </a>
+
+
+        <div class="social-links">
+
+          <a
+            href="https://github.com/scilentwatcher"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            GH
+          </a>
+
+          <a
+            href="mailto:shinermathew@gmail.com"
+            aria-label="Email"
+          >
+            @
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+
+    <div class="footer-logo">
+      SHINE<span>.</span>
+    </div>
+
+    <p>
+      Designed &amp; built by Shine R Mathew.
+    </p>
+
+    <p class="copyright">
+      © <span id="year"></span> Shine R Mathew
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script src="script.js"></script>
 
 </body>
 </html>
