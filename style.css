@@ -1,6 +1,7 @@
 /* =========================================================
    SHINE PORTFOLIO
    COMPLETE MAIN STYLESHEET
+   COLOR PHOTO VERSION
 ========================================================= */
 
 :root {
@@ -14,6 +15,10 @@
   --white: #fff;
   --max-width: 1200px;
 }
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
   margin: 0;
@@ -52,13 +57,18 @@ button {
   z-index: 1000;
   width: 100%;
   height: 76px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 5%;
+
   background: rgba(8, 8, 8, 0.9);
   border-bottom: 1px solid var(--line);
+
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .header.scrolled {
@@ -98,8 +108,10 @@ button {
   display: none;
   width: 42px;
   height: 42px;
+
   border: 1px solid var(--line);
   background: transparent;
+
   cursor: pointer;
   padding: 9px;
 }
@@ -175,25 +187,34 @@ button {
 
 .hero {
   min-height: calc(100vh - 76px);
+
   display: flex;
   align-items: center;
+
   padding: 100px 0;
+
   position: relative;
   overflow: hidden;
 }
 
 .hero::before {
   content: "";
+
   position: absolute;
+
   width: 520px;
   height: 520px;
+
   right: -180px;
   top: 80px;
+
   border: 1px solid #222;
   border-radius: 50%;
+
   box-shadow:
     0 0 0 80px #0d0d0d,
     0 0 0 160px #0a0a0a;
+
   pointer-events: none;
 }
 
@@ -207,27 +228,35 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+
   border: 1px solid var(--line);
   background: var(--bg-soft);
+
   padding: 9px 15px;
   border-radius: 30px;
+
   color: #aaa;
   font-size: 0.8rem;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
+
   margin-bottom: 30px;
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
+
   background: white;
   border-radius: 50%;
+
   box-shadow: 0 0 12px white;
 }
 
 .hero h1 {
   font-size: clamp(4rem, 10vw, 9rem);
+
   line-height: 0.88;
   letter-spacing: -0.07em;
   font-weight: 900;
@@ -240,7 +269,9 @@ button {
 
 .hero-positioning {
   margin-top: 30px;
+
   font-size: clamp(1rem, 2.2vw, 1.4rem);
+
   letter-spacing: 0.1em;
 }
 
@@ -250,8 +281,11 @@ button {
 
 .hero-description {
   max-width: 650px;
+
   margin-top: 22px;
+
   color: #aaa;
+
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
@@ -259,10 +293,16 @@ button {
   color: white;
 }
 
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
+
   gap: 14px;
+
   margin-top: 35px;
 }
 
@@ -270,11 +310,16 @@ button {
 .secondary-button,
 .email-button {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 12px;
+
   padding: 14px 22px;
+
   border: 1px solid white;
+
   transition: 0.3s ease;
 }
 
@@ -297,11 +342,19 @@ button {
   border-color: white;
 }
 
+/* =========================================================
+   HERO STATS
+========================================================= */
+
 .hero-stats {
   display: flex;
+
   gap: 55px;
+
   margin-top: 70px;
+
   padding-top: 25px;
+
   border-top: 1px solid var(--line);
 }
 
@@ -316,28 +369,59 @@ button {
 
 .stat span {
   color: #777;
+
   font-size: 0.7rem;
+
   letter-spacing: 0.15em;
 }
 
 /* =========================================================
-   HERO PHOTO
+   HERO PHOTO — FULL COLOR
 ========================================================= */
 
 .hero-photo {
   position: absolute;
+
   z-index: 2;
+
   right: 3%;
   bottom: 0;
+
   width: min(34vw, 390px);
+
   max-height: 620px;
+
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(100%);
+
+  /* FULL COLOR */
+  filter: none;
+
   border: 1px solid #333;
-  opacity: 0.92;
-  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+
+  opacity: 1;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 85%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black 85%,
+      transparent 100%
+    );
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.02);
 }
 
 /* =========================================================
@@ -346,7 +430,9 @@ button {
 
 .about {
   display: grid;
+
   grid-template-columns: 0.8fr 1.2fr;
+
   gap: 70px;
 }
 
@@ -354,39 +440,65 @@ button {
   grid-column: 1 / -1;
 }
 
+/* =========================================================
+   ABOUT PHOTO CARD
+========================================================= */
+
 .about-card {
   min-height: 450px;
+
   background:
-    radial-gradient(circle at center, #222 0, #111 40%, #090909 75%);
+    radial-gradient(
+      circle at center,
+      #222 0,
+      #111 40%,
+      #090909 75%
+    );
+
   border: 1px solid var(--line);
+
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: flex-end;
+
   overflow: hidden;
+
   position: relative;
 }
 
 .about-photo {
   width: 100%;
   height: 390px;
+
   object-fit: cover;
   object-position: center;
-  filter: grayscale(100%);
-  transition: 0.5s ease;
+
+  /* FULL COLOR */
+  filter: none;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
 }
 
 .about-card:hover .about-photo {
-  filter: grayscale(0%);
+  filter: none;
   transform: scale(1.03);
 }
 
 .avatar-name {
   width: 100%;
+
   padding: 18px;
+
   text-align: center;
+
   font-weight: bold;
+
   border-top: 1px solid var(--line);
+
   background: #101010;
 }
 
@@ -396,7 +508,9 @@ button {
 
 .about-text h3 {
   font-size: clamp(2rem, 4vw, 3.5rem);
+
   line-height: 1;
+
   margin-bottom: 30px;
 }
 
@@ -406,7 +520,9 @@ button {
 
 .about-text p {
   color: #aaa;
+
   margin-bottom: 20px;
+
   max-width: 650px;
 }
 
@@ -416,36 +532,50 @@ button {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 18px;
 }
 
 .skill-card {
   border: 1px solid var(--line);
+
   background: var(--card);
+
   padding: 35px;
+
   transition: 0.3s ease;
 }
 
 .skill-card:hover {
   background: var(--card-hover);
+
   transform: translateY(-5px);
+
   border-color: #444;
 }
 
 .skill-icon {
   width: 50px;
   height: 50px;
+
   border: 1px solid #444;
+
   display: grid;
   place-items: center;
+
   margin-bottom: 28px;
+
   font-weight: bold;
+
   font-size: 0.8rem;
 }
 
 .skill-card h3 {
   font-size: 1.4rem;
+
   margin-bottom: 12px;
 }
 
@@ -459,40 +589,54 @@ button {
 
 .interaction-intro {
   max-width: 700px;
+
   color: #999;
+
   margin-bottom: 35px;
 }
 
 .interaction-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
   gap: 18px;
 }
 
 .interaction-card {
   border: 1px solid var(--line);
+
   background: var(--card);
+
   padding: 35px;
+
   transition: 0.3s ease;
 }
 
 .interaction-card:hover {
   background: var(--card-hover);
+
   transform: translateY(-5px);
 }
 
 .interaction-icon {
   width: 60px;
   height: 60px;
+
   border: 1px solid #444;
+
   display: grid;
   place-items: center;
+
   font-weight: 900;
+
   margin-bottom: 25px;
 }
 
 .interaction-card h3 {
   font-size: 1.6rem;
+
   margin-bottom: 12px;
 }
 
@@ -502,8 +646,11 @@ button {
 
 .interaction-button {
   display: inline-block;
+
   margin-top: 25px;
+
   border-bottom: 1px solid #555;
+
   padding-bottom: 5px;
 }
 
@@ -513,16 +660,23 @@ button {
 
 .puzzle-section {
   margin-top: 50px;
+
   padding: 40px;
+
   border: 1px solid var(--line);
+
   background: #0e0e0e;
 }
 
 .puzzle-header {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   gap: 20px;
+
   margin-bottom: 30px;
 }
 
@@ -532,7 +686,9 @@ button {
 
 .puzzle-info {
   color: #777;
+
   font-size: 0.8rem;
+
   letter-spacing: 0.08em;
 }
 
@@ -542,22 +698,38 @@ button {
 
 .puzzle-board {
   width: min(500px, 100%);
+
   aspect-ratio: 1;
+
   margin: auto;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  grid-template-rows:
+    repeat(4, 1fr);
+
   gap: 3px;
+
   background: #222;
+
   padding: 3px;
 }
 
 .puzzle-piece {
   position: relative;
+
   overflow: hidden;
+
   cursor: pointer;
+
   background-repeat: no-repeat;
-  transition: transform 0.15s ease;
+
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
 }
 
 .puzzle-piece:hover {
@@ -566,23 +738,33 @@ button {
 
 .puzzle-piece.empty {
   background: #111 !important;
+
   cursor: default;
 }
 
 .puzzle-controls {
   display: flex;
+
   justify-content: center;
+
   flex-wrap: wrap;
+
   gap: 12px;
+
   margin-top: 25px;
 }
 
 .puzzle-button {
   padding: 12px 20px;
+
   border: 1px solid #444;
+
   background: transparent;
+
   color: white;
+
   cursor: pointer;
+
   transition: 0.3s ease;
 }
 
@@ -597,28 +779,40 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
   gap: 18px;
 }
 
 .project-card {
   min-height: 300px;
+
   display: flex;
+
   gap: 25px;
+
   border: 1px solid var(--line);
+
   background: var(--card);
+
   padding: 35px;
+
   transition: 0.3s ease;
 }
 
 .project-card:hover {
   background: var(--card-hover);
+
   transform: translateY(-5px);
+
   border-color: #444;
 }
 
 .project-number {
   color: #555;
+
   font-size: 1rem;
 }
 
@@ -631,13 +825,17 @@ button {
 .contact-label,
 .ai-tag {
   color: #777;
+
   font-size: 0.7rem;
+
   letter-spacing: 0.15em;
+
   font-weight: bold;
 }
 
 .project-card h3 {
   font-size: 1.5rem;
+
   margin: 12px 0;
 }
 
@@ -647,14 +845,19 @@ button {
 
 .project-link {
   display: inline-block;
+
   margin-top: 25px;
+
   color: white;
+
   border-bottom: 1px solid #555;
+
   padding-bottom: 4px;
 }
 
 .muted-link {
   color: #666;
+
   border-bottom: none;
 }
 
@@ -664,51 +867,76 @@ button {
 
 .ai-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 18px;
 }
 
 .ai-card {
   min-height: 260px;
+
   border: 1px solid var(--line);
+
   background:
-    linear-gradient(145deg, #171717, #0d0d0d);
+    linear-gradient(
+      145deg,
+      #171717,
+      #0d0d0d
+    );
+
   padding: 35px;
+
   position: relative;
+
   overflow: hidden;
+
   transition: 0.3s ease;
 }
 
 .ai-card::after {
   content: "AI";
+
   position: absolute;
+
   right: -10px;
   bottom: -35px;
+
   font-size: 8rem;
+
   font-weight: 900;
-  color: rgba(255,255,255,0.025);
+
+  color: rgba(255, 255, 255, 0.025);
+
   pointer-events: none;
 }
 
 .ai-card:hover {
   transform: translateY(-5px);
+
   border-color: #444;
 }
 
 .ai-card h3 {
   font-size: 1.5rem;
+
   margin: 20px 0 12px;
 }
 
 .ai-card p {
   color: #999;
+
   position: relative;
+
   z-index: 2;
 }
 
 .ai-tag {
   display: inline-block;
+
   border: 1px solid #333;
+
   padding: 6px 10px;
 }
 
@@ -718,37 +946,114 @@ button {
 
 .visual-photo-section {
   margin-top: 50px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 18px;
 }
 
 .visual-photo-card {
   border: 1px solid var(--line);
+
   background: #101010;
+
   overflow: hidden;
+
+  min-height: 500px;
+
+  display: flex;
+
+  flex-direction: column;
 }
+
+/* =========================================================
+   VISUAL PHOTO — FULL COLOR
+========================================================= */
 
 .visual-photo {
   width: 100%;
+
   height: 450px;
+
   object-fit: cover;
+
   object-position: center;
-  filter: grayscale(100%);
-  transition: 0.5s ease;
+
+  /* FULL COLOR */
+  filter: none;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
+  display: block;
 }
 
 .visual-photo-card:hover .visual-photo {
-  filter: grayscale(0%);
+  filter: none;
+
   transform: scale(1.03);
 }
 
 .visual-photo-caption {
+  min-height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
   padding: 16px 20px;
+
   color: #777;
+
   font-size: 0.7rem;
+
   letter-spacing: 0.15em;
+
   border-top: 1px solid var(--line);
+}
+
+/* =========================================================
+   AI IDEAS VISUAL CARD
+========================================================= */
+
+.visual-photo-card .visual-photo[style] {
+  flex: 1;
+
+  min-height: 450px;
+
+  height: 450px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #333 0%,
+      #161616 45%,
+      #080808 75%
+    ) !important;
+
+  color: #888 !important;
+
+  font-size: clamp(2rem, 6vw, 5rem) !important;
+
+  font-weight: 900;
+
+  letter-spacing: -0.06em;
+
+  overflow: hidden;
 }
 
 /* =========================================================
@@ -757,36 +1062,50 @@ button {
 
 .timeline {
   max-width: 850px;
+
   margin: auto;
+
   position: relative;
+
   padding-left: 40px;
+
   border-left: 1px solid #333;
 }
 
 .timeline-item {
   position: relative;
+
   margin-bottom: 35px;
 }
 
 .timeline-dot {
   position: absolute;
+
   left: -46px;
+
   top: 30px;
+
   width: 11px;
   height: 11px;
+
   background: white;
+
   border-radius: 50%;
+
   box-shadow: 0 0 15px white;
 }
 
 .timeline-card {
   background: var(--card);
+
   border: 1px solid var(--line);
+
   padding: 30px;
 }
 
 .timeline-card h3 {
   margin: 10px 0;
+
   font-size: 1.5rem;
 }
 
@@ -804,33 +1123,48 @@ button {
 
 .contact-card {
   text-align: center;
+
   padding: 90px 30px;
+
   border: 1px solid var(--line);
+
   background:
-    radial-gradient(circle at center, #1c1c1c, #0c0c0c 60%);
+    radial-gradient(
+      circle at center,
+      #1c1c1c,
+      #0c0c0c 60%
+    );
 }
 
 .contact-card h2 {
   font-size: clamp(3rem, 8vw, 7rem);
+
   line-height: 0.95;
+
   letter-spacing: -0.06em;
+
   margin: 20px 0;
 }
 
 .contact-card h2 span {
   color: transparent;
+
   -webkit-text-stroke: 1px #777;
 }
 
 .contact-card p {
   color: #999;
+
   margin-bottom: 30px;
 }
 
 .email-button {
   background: white;
+
   color: black;
+
   border: none;
+
   font-weight: bold;
 }
 
@@ -838,28 +1172,44 @@ button {
   background: #ddd;
 }
 
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
 .social-links {
   display: flex;
+
   justify-content: center;
+
   gap: 10px;
+
   margin-top: 25px;
 }
 
 .social-links a {
   width: 48px;
   height: 48px;
+
   border: 1px solid #333;
+
   display: grid;
+
   place-items: center;
+
   color: #aaa;
+
   font-weight: bold;
+
   transition: 0.3s ease;
 }
 
 .social-links a:hover {
   color: black;
+
   background: white;
+
   border-color: white;
+
   transform: translateY(-4px);
 }
 
@@ -869,12 +1219,19 @@ button {
 
 .footer {
   border-top: 1px solid var(--line);
+
   padding: 35px 5%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   gap: 20px;
+
   color: #777;
+
   font-size: 0.8rem;
 }
 
@@ -887,7 +1244,7 @@ button {
 }
 
 /* =========================================================
-   MOBILE
+   MOBILE — TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -902,19 +1259,29 @@ button {
 
   .mobile-menu {
     position: fixed;
+
     top: 65px;
+
     left: 0;
+
     width: 100%;
+
     z-index: 999;
+
     background: #0b0b0b;
+
     border-bottom: 1px solid var(--line);
+
     padding: 20px;
   }
 
   .mobile-menu a {
     display: block;
+
     padding: 15px 10px;
+
     border-bottom: 1px solid #222;
+
     color: #aaa;
   }
 
@@ -922,35 +1289,79 @@ button {
     color: white;
   }
 
+  /* HERO */
+
   .hero {
     min-height: auto;
+
     padding: 90px 0 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
   }
 
   .hero::before {
     width: 280px;
+
     height: 280px;
+
     right: -180px;
   }
 
   .hero-photo {
     position: relative;
+
     right: auto;
+
     bottom: auto;
+
     width: min(100%, 360px);
+
     height: 420px;
+
     margin: 50px auto 0;
+
     display: block;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    filter: none;
+
+    opacity: 1;
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        black 90%,
+        transparent 100%
+      );
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        black 90%,
+        transparent 100%
+      );
   }
+
+  /* ABOUT */
 
   .about {
     grid-template-columns: 1fr;
+
     gap: 35px;
   }
 
   .about .section-heading {
     grid-column: auto;
   }
+
+  /* GRIDS */
 
   .skills-grid,
   .projects-grid,
@@ -963,9 +1374,13 @@ button {
     grid-template-columns: 1fr;
   }
 
+  /* SECTIONS */
+
   .section {
     padding: 90px 0;
   }
+
+  /* PUZZLE */
 
   .puzzle-section {
     padding: 25px 15px;
@@ -973,52 +1388,124 @@ button {
 
   .puzzle-header {
     flex-direction: column;
+
     align-items: flex-start;
   }
+
+  /* CONTACT */
 
   .contact-card {
     padding: 65px 20px;
   }
 
   .contact-card h2 {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size:
+      clamp(
+        3rem,
+        15vw,
+        5rem
+      );
   }
 
   .email-button {
     max-width: 100%;
+
     font-size: 0.85rem;
+
     padding: 13px 15px;
+
     word-break: break-all;
+  }
+
+  /* VISUAL PHOTOS */
+
+  .visual-photo-card {
+    min-height: auto;
   }
 
   .visual-photo {
     height: 350px;
+
+    filter: none;
   }
+
+  .visual-photo-card .visual-photo[style] {
+    min-height: 350px;
+
+    height: 350px;
+  }
+
+  /* FOOTER */
 
   .footer {
     flex-direction: column;
+
     text-align: center;
   }
 }
+
+/* =========================================================
+   MOBILE — PHONE
+========================================================= */
 
 @media (max-width: 500px) {
 
   .header {
     height: 65px;
+
     padding: 0 6%;
   }
 
+  .hero {
+    padding-top: 75px;
+  }
+
   .hero h1 {
-    font-size: clamp(3.5rem, 18vw, 6rem);
+    font-size:
+      clamp(
+        3.5rem,
+        18vw,
+        6rem
+      );
   }
 
   .hero-positioning {
     font-size: 0.9rem;
   }
 
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-photo {
+    width: 100%;
+
+    max-width: 360px;
+
+    height: 430px;
+
+    margin-top: 45px;
+
+    filter: none;
+  }
+
   .hero-stats {
     gap: 20px;
+
     justify-content: space-between;
+
+    margin-top: 50px;
   }
 
   .stat strong {
@@ -1029,10 +1516,17 @@ button {
     font-size: 0.58rem;
   }
 
+  /* PROJECTS */
+
   .project-card {
     padding: 25px;
+
     gap: 15px;
+
+    min-height: 260px;
   }
+
+  /* CARDS */
 
   .skill-card,
   .interaction-card,
@@ -1040,11 +1534,79 @@ button {
     padding: 25px;
   }
 
+  /* ABOUT PHOTO */
+
   .about-photo {
     height: 330px;
+
+    filter: none;
   }
+
+  /* VISUAL PHOTOS */
 
   .visual-photo {
     height: 300px;
+
+    filter: none;
+  }
+
+  .visual-photo-card .visual-photo[style] {
+    min-height: 300px;
+
+    height: 300px;
+  }
+
+  /* SECTION SPACING */
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 45px;
+  }
+
+  /* PUZZLE */
+
+  .puzzle-header h3 {
+    font-size: 1.6rem;
+  }
+
+  /* CONTACT */
+
+  .contact-card {
+    padding: 55px 18px;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-links a {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
   }
 }
