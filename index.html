@@ -1,191 +1,1203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Shine R Mathew — Student, Creator and Developer. Personal portfolio showcasing web development, UI design, digital creation and AI exploration."
-  >
+<meta name="description"
+content="Shine R Mathew — BSc Nursing student exploring AI, technology, web development, creative projects and digital creation.">
 
-  <meta
-    name="author"
-    content="Shine R Mathew"
-  >
+<meta name="author" content="Shine R Mathew">
 
-  <title>Shine R Mathew — Portfolio</title>
+<title>Shine R Mathew — Nursing × AI × Technology</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+
+/* =========================================================
+   SHINE R MATHEW — COMPLETE PORTFOLIO
+========================================================= */
+
+:root{
+  --bg:#070707;
+  --bg2:#0d0d0d;
+  --card:#121212;
+  --card2:#181818;
+  --text:#f5f5f5;
+  --muted:#999;
+  --line:#292929;
+  --white:#fff;
+  --max:1200px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(var(--max),90%);
+  margin:auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  background:rgba(7,7,7,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.header.scrolled{
+  background:rgba(5,5,5,.96);
+}
+
+.logo{
+  font-size:1.4rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.logo span{
+  color:#777;
+}
+
+.desktop-nav{
+  display:flex;
+  gap:28px;
+}
+
+.desktop-nav a{
+  color:#999;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  transition:.3s;
+}
+
+.desktop-nav a:hover{
+  color:#fff;
+}
+
+.menu-button{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  background:transparent;
+  cursor:pointer;
+  padding:8px;
+}
+
+.menu-button span{
+  display:block;
+  height:2px;
+  background:#fff;
+  margin:5px 0;
+  transition:.3s;
+}
+
+.menu-button.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-button.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+  position:fixed;
+  top:76px;
+  left:0;
+  width:100%;
+  background:#090909;
+  border-bottom:1px solid var(--line);
+  z-index:999;
+  transform:translateY(-120%);
+  transition:.35s ease;
+  padding:15px 6%;
+}
+
+.mobile-menu.active{
+  transform:translateY(0);
+}
+
+.mobile-menu a{
+  display:block;
+  padding:15px 5px;
+  border-bottom:1px solid #222;
+  color:#aaa;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.mobile-menu a:hover{
+  color:#fff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:calc(100vh - 76px);
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:60px;
+  padding:90px 0;
+  position:relative;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  right:-220px;
+  top:70px;
+  border:1px solid #222;
+  border-radius:50%;
+  box-shadow:
+  0 0 0 80px #0c0c0c,
+  0 0 0 160px #090909;
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--line);
+  background:#101010;
+  padding:9px 15px;
+  border-radius:30px;
+  color:#aaa;
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:28px;
+}
+
+.status-dot{
+  width:8px;
+  height:8px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 0 12px #fff;
+}
+
+.hero h1{
+  font-size:clamp(4rem,9vw,8.5rem);
+  line-height:.86;
+  letter-spacing:-.07em;
+  font-weight:900;
+}
+
+.hero h1 span{
+  color:transparent;
+  -webkit-text-stroke:1px #777;
+}
+
+.hero-subtitle{
+  margin-top:25px;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  font-weight:bold;
+}
+
+.hero-subtitle span{
+  color:#777;
+}
+
+.hero-description{
+  max-width:650px;
+  margin-top:18px;
+  color:#999;
+  font-size:1.05rem;
+}
+
+.hero-description strong{
+  color:#fff;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.primary-button,
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 21px;
+  border:1px solid #fff;
+  transition:.3s;
+}
+
+.primary-button{
+  background:#fff;
+  color:#000;
+}
+
+.primary-button:hover{
+  background:transparent;
+  color:#fff;
+}
+
+.secondary-button{
+  border-color:#333;
+}
+
+.secondary-button:hover{
+  border-color:#fff;
+}
+
+.hero-stats{
+  display:flex;
+  gap:50px;
+  margin-top:55px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+
+.stat{
+  display:flex;
+  flex-direction:column;
+}
+
+.stat strong{
+  font-size:1.4rem;
+}
+
+.stat span{
+  color:#666;
+  font-size:.65rem;
+  letter-spacing:.15em;
+}
+
+/* =========================================================
+   HERO PHOTO
+========================================================= */
+
+.hero-photo-wrap{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-photo{
+  width:min(390px,100%);
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border:1px solid #333;
+  filter:grayscale(100%);
+  transition:.5s;
+}
+
+.hero-photo:hover{
+  filter:grayscale(0%);
+  transform:scale(1.02);
+}
+
+.photo-frame{
+  position:absolute;
+  width:100%;
+  height:100%;
+  max-width:390px;
+  border:1px solid #333;
+  transform:translate(18px,18px);
+  pointer-events:none;
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section{
+  padding:120px 0;
+  border-top:1px solid var(--line);
+}
+
+.section-heading{
+  margin-bottom:55px;
+}
+
+.section-number{
+  color:#666;
+  font-size:.7rem;
+  letter-spacing:.18em;
+}
+
+.section-heading h2{
+  margin-top:12px;
+  font-size:clamp(2.8rem,6vw,5rem);
+  line-height:1;
+  letter-spacing:-.06em;
+}
+
+.section-heading p{
+  margin-top:18px;
+  color:#888;
+  max-width:650px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-photo{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border:1px solid var(--line);
+  filter:grayscale(100%);
+  transition:.4s;
+}
+
+.about-photo:hover{
+  filter:grayscale(0%);
+}
+
+.about-text h3{
+  font-size:clamp(2rem,4vw,3.5rem);
+  line-height:1;
+  margin-bottom:25px;
+}
+
+.about-text h3 span{
+  color:#777;
+}
+
+.about-text p{
+  color:#999;
+  margin-bottom:18px;
+}
+
+.identity-box{
+  margin-top:30px;
+  padding:22px;
+  border:1px solid var(--line);
+  background:#101010;
+}
+
+.identity-title{
+  color:#666;
+  font-size:.7rem;
+  letter-spacing:.15em;
+  margin-bottom:10px;
+}
+
+.identity-box strong{
+  font-size:1.1rem;
+}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.skill-card{
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:32px;
+  transition:.3s;
+}
+
+.skill-card:hover{
+  transform:translateY(-5px);
+  background:var(--card2);
+  border-color:#444;
+}
+
+.skill-icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border:1px solid #444;
+  margin-bottom:25px;
+  font-weight:bold;
+}
+
+.skill-card h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.skill-card p{
+  color:#888;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.project-card{
+  min-height:290px;
+  display:flex;
+  gap:22px;
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:32px;
+  transition:.3s;
+}
+
+.project-card:hover{
+  transform:translateY(-5px);
+  background:var(--card2);
+  border-color:#444;
+}
+
+.project-number{
+  color:#444;
+}
+
+.project-content{
+  flex:1;
+}
+
+.project-category{
+  color:#666;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  font-weight:bold;
+}
+
+.project-card h3{
+  margin:10px 0;
+  font-size:1.5rem;
+}
+
+.project-card p{
+  color:#888;
+}
+
+.project-link{
+  display:inline-block;
+  margin-top:22px;
+  padding-bottom:4px;
+  border-bottom:1px solid #555;
+}
+
+.project-link:hover{
+  border-color:#fff;
+}
+
+/* =========================================================
+   AI CREATIONS
+========================================================= */
+
+.ai-intro{
+  max-width:700px;
+  color:#999;
+  margin-top:-30px;
+  margin-bottom:45px;
+}
+
+.ai-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.ai-card{
+  min-height:320px;
+  border:1px solid var(--line);
+  background:#0d0d0d;
+  overflow:hidden;
+  position:relative;
+  transition:.4s;
+}
+
+.ai-card:hover{
+  transform:translateY(-7px);
+  border-color:#555;
+}
+
+.ai-card-image{
+  height:190px;
+  overflow:hidden;
+}
+
+.ai-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:.5s;
+}
+
+.ai-card:hover img{
+  filter:grayscale(0%);
+  transform:scale(1.05);
+}
+
+.ai-card-body{
+  padding:22px;
+}
+
+.ai-tag{
+  color:#666;
+  font-size:.65rem;
+  letter-spacing:.15em;
+}
+
+.ai-card h3{
+  margin:8px 0;
+  font-size:1.35rem;
+}
+
+.ai-card p{
+  color:#888;
+  font-size:.9rem;
+}
+
+/* =========================================================
+   PHOTO PUZZLE
+========================================================= */
+
+.interaction{
+  background:
+  radial-gradient(circle at center,#111,#070707 65%);
+}
+
+.puzzle-layout{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:60px;
+  align-items:center;
+}
+
+.interaction-text h3{
+  font-size:clamp(2rem,4vw,3.5rem);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.interaction-text h3 span{
+  color:#777;
+}
+
+.interaction-text p{
+  color:#999;
+  margin-bottom:18px;
+}
+
+.puzzle-info{
+  display:flex;
+  gap:25px;
+  margin:25px 0;
+}
+
+.puzzle-stat{
+  border-left:1px solid #333;
+  padding-left:15px;
+}
+
+.puzzle-stat strong{
+  display:block;
+  font-size:1.4rem;
+}
+
+.puzzle-stat span{
+  color:#666;
+  font-size:.65rem;
+  letter-spacing:.1em;
+}
+
+.puzzle-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.puzzle-button{
+  border:1px solid #444;
+  background:#111;
+  color:#fff;
+  padding:11px 16px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.puzzle-button:hover{
+  border-color:#fff;
+}
+
+.puzzle-button.primary{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.puzzle{
+  width:min(500px,100%);
+  aspect-ratio:1;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:3px;
+  background:#222;
+  border:3px solid #222;
+}
+
+.puzzle-piece{
+  background-image:url("photo3.jpg");
+  background-size:400% 400%;
+  cursor:pointer;
+  position:relative;
+  transition:.15s;
+}
+
+.puzzle-piece:hover{
+  filter:brightness(1.25);
+}
+
+.puzzle-piece.empty{
+  background-image:none;
+  background:#111;
+  cursor:default;
+}
+
+.puzzle-message{
+  text-align:center;
+  margin-top:18px;
+  min-height:25px;
+  color:#aaa;
+}
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.timeline{
+  max-width:850px;
+  margin:auto;
+  padding-left:40px;
+  border-left:1px solid #333;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:30px;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:-46px;
+  top:28px;
+  width:11px;
+  height:11px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 0 15px #fff;
+}
+
+.timeline-card{
+  padding:28px;
+  background:var(--card);
+  border:1px solid var(--line);
+}
+
+.timeline-label{
+  color:#666;
+  font-size:.68rem;
+  letter-spacing:.15em;
+  font-weight:bold;
+}
+
+.timeline-card h3{
+  margin:9px 0;
+  font-size:1.4rem;
+}
+
+.timeline-card p{
+  color:#888;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-card{
+  text-align:center;
+  padding:90px 30px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at center,#1a1a1a,#090909 65%);
+}
+
+.contact-label{
+  color:#666;
+  font-size:.7rem;
+  letter-spacing:.18em;
+}
+
+.contact-card h2{
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:.95;
+  letter-spacing:-.06em;
+  margin:20px 0;
+}
+
+.contact-card h2 span{
+  color:transparent;
+  -webkit-text-stroke:1px #777;
+}
+
+.contact-card p{
+  color:#888;
+  margin-bottom:28px;
+}
+
+.email-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 20px;
+  background:#fff;
+  color:#000;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.email-button:hover{
+  background:#ddd;
+}
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.social-link{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid #333;
+  color:#aaa;
+  transition:.3s;
+}
+
+.social-link svg{
+  width:22px;
+  height:22px;
+  fill:currentColor;
+}
+
+.social-link:hover{
+  color:#fff;
+  border-color:#fff;
+  transform:translateY(-4px);
+}
+
+.social-name{
+  display:none;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:35px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  color:#666;
+  font-size:.8rem;
+}
+
+.footer-logo{
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.footer-logo span{
+  color:#777;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+  .desktop-nav{
+    display:none;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:80px 0;
+  }
+
+  .hero-photo-wrap{
+    order:-1;
+    max-width:330px;
+    margin:auto;
+  }
+
+  .hero h1{
+    font-size:clamp(3.8rem,18vw,6rem);
+  }
+
+  .hero-stats{
+    gap:25px;
+    justify-content:space-between;
+  }
+
+  .about-grid,
+  .puzzle-layout{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .about-photo{
+    max-width:500px;
+    margin:auto;
+  }
+
+  .skills-grid,
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ai-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    padding:90px 0;
+  }
+
+  .contact-card{
+    padding:65px 20px;
+  }
+
+  .footer{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:500px){
+
+  .header{
+    height:65px;
+  }
+
+  .mobile-menu{
+    top:65px;
+  }
+
+  .hero{
+    padding:70px 0;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .primary-button,
+  .secondary-button{
+    justify-content:center;
+  }
+
+  .hero-stats{
+    gap:15px;
+  }
+
+  .stat strong{
+    font-size:1.15rem;
+  }
+
+  .project-card{
+    padding:25px;
+  }
+
+  .timeline{
+    padding-left:30px;
+  }
+
+  .timeline-dot{
+    left:-36px;
+  }
+
+  .social-link{
+    width:48px;
+    height:48px;
+  }
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <header class="header">
+<header class="header" id="header">
 
-    <a href="#home" class="logo">
-      SHINE<span>.</span>
-    </a>
+  <a href="#home" class="logo">
+    SHINE<span>.</span>
+  </a>
 
-    <nav class="desktop-nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#journey">Journey</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button
-      class="menu-button"
-      id="menuButton"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-  </header>
-
-
-  <!-- =========================
-       MOBILE MENU
-  ========================== -->
-
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="desktop-nav">
 
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#ai">AI Creations</a>
+    <a href="#interaction">Interaction</a>
     <a href="#journey">Journey</a>
     <a href="#contact">Contact</a>
+
+  </nav>
+
+  <button
+    class="menu-button"
+    id="menuButton"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#ai">AI Creations</a>
+  <a href="#interaction">Interaction</a>
+  <a href="#journey">Journey</a>
+  <a href="#contact">Contact</a>
+
+</div>
+
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero container" id="home">
+
+  <div class="hero-content">
+
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      8th Semester • Internship
+    </div>
+
+    <h1>
+      SHINE R<br>
+      <span>MATHEW.</span>
+    </h1>
+
+    <div class="hero-subtitle">
+      BSC NURSING <span>×</span> AI <span>×</span> TECHNOLOGY
+    </div>
+
+    <p class="hero-description">
+      <strong>Nursing student by training. Builder by curiosity.</strong>
+      Exploring technology, AI, apps, bots, creative projects,
+      coding and digital experiences.
+    </p>
+
+    <p class="hero-description">
+      B.Sc Nursing student at
+      <strong>CSI CON Karakonam</strong>.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#projects" class="primary-button">
+        Explore My Work →
+      </a>
+
+      <a href="#contact" class="secondary-button">
+        Let's Connect
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+        <strong>01</strong>
+        <span>PORTFOLIO</span>
+      </div>
+
+      <div class="stat">
+        <strong>AI</strong>
+        <span>EXPLORING</span>
+      </div>
+
+      <div class="stat">
+        <strong>∞</strong>
+        <span>IDEAS</span>
+      </div>
+
+    </div>
 
   </div>
 
 
-  <main>
+  <div class="hero-photo-wrap">
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <div class="photo-frame"></div>
 
-    <section class="hero section-grid" id="home">
-
-      <div class="hero-content">
-
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          Welcome to my digital space
-        </div>
-
-        <h1>
-          SHINE R<br>
-          <span>MATHEW.</span>
-        </h1>
-
-        <p class="hero-description">
-          Student. Creator. Developer.
-          <strong>
-            Building ideas that deserve to be seen.
-          </strong>
-        </p>
-
-        <div class="hero-buttons">
-
-          <a
-            href="#projects"
-            class="primary-button"
-          >
-            Explore My Work
-            <span>→</span>
-          </a>
-
-          <a
-            href="#contact"
-            class="secondary-button"
-          >
-            Let's Connect
-          </a>
-
-        </div>
-
-
-        <div class="hero-stats">
-
-          <div class="stat">
-            <strong>01</strong>
-            <span>PORTFOLIO</span>
-          </div>
-
-          <div class="stat">
-            <strong>∞</strong>
-            <span>IDEAS</span>
-          </div>
-
-          <div class="stat">
-            <strong>24/7</strong>
-            <span>CREATING</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section
-      class="about section section-grid"
-      id="about"
+    <img
+      src="photo1.jpg"
+      alt="Shine R Mathew"
+      class="hero-photo"
     >
 
-      <div class="section-heading">
+  </div>
 
-        <span class="section-number">
-          01 — ABOUT
-        </span>
-
-        <h2>Who I Am</h2>
-
-        <p>
-          A little about the person behind the screen.
-        </p>
-
-      </div>
+</section>
 
 
-      <div class="about-card">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-        <div class="avatar-area">
+<section class="section" id="about">
 
-          <div class="avatar-ring ring-one"></div>
-          <div class="avatar-ring ring-two"></div>
-          <div class="avatar-ring ring-three"></div>
+  <div class="container">
 
-          <div class="avatar">
-            <span>SRM</span>
-          </div>
+    <div class="section-heading">
 
-        </div>
+      <span class="section-number">
+        01 — ABOUT
+      </span>
 
-        <div class="avatar-name">
-          Shine R Mathew
-        </div>
+      <h2>Who I Am</h2>
+
+      <p>
+        Nursing + curiosity + technology.
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+      <div>
+
+        <img
+          src="photo2.jpg"
+          alt="Shine R Mathew"
+          class="about-photo"
+        >
 
       </div>
 
@@ -198,515 +1210,1388 @@
         </h3>
 
         <p>
-          I'm Shine R Mathew, a student and creative
-          individual interested in technology, design
-          and digital creation.
+          I'm Shine R Mathew, currently pursuing
+          B.Sc Nursing at CSI CON Karakonam and
+          completing my 8th semester / internship.
         </p>
 
         <p>
-          My work sits at the intersection of learning
-          and experimentation. I enjoy exploring new
-          technologies, building websites, creating
-          digital stories and experimenting with
-          artificial intelligence.
+          Nursing is my academic path, but technology
+          is one of the areas I explore because I want
+          to understand how things work and how ideas
+          can be turned into something real.
         </p>
 
         <p>
-          This portfolio is a space where I document
-          what I'm learning, what I'm building and
-          where I'm going next.
+          I experiment with apps, coding, bots,
+          artificial intelligence, AI-generated videos,
+          creative storytelling, websites and prompt
+          design.
         </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SKILLS
-    ========================== -->
-
-    <section
-      class="skills section section-grid"
-      id="skills"
-    >
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          02 — SKILLS
-        </span>
-
-        <h2>What I Do</h2>
 
         <p>
-          Areas I'm interested in and continuously
-          developing.
-        </p>
-
-      </div>
-
-
-      <div class="skills-grid">
-
-
-        <!-- Skill 1 -->
-
-        <article class="skill-card">
-
-          <div class="skill-icon">
-            &lt;/&gt;
-          </div>
-
-          <h3>
-            Web Development
-          </h3>
-
-          <p>
-            Creating responsive websites using HTML,
-            CSS and JavaScript with a focus on clean
-            interfaces.
-          </p>
-
-        </article>
-
-
-        <!-- Skill 2 -->
-
-        <article class="skill-card">
-
-          <div class="skill-icon">
-            ✦
-          </div>
-
-          <h3>
-            UI &amp; Design
-          </h3>
-
-          <p>
-            Designing modern interfaces with a focus
-            on visual impact, usability and responsive
-            experiences.
-          </p>
-
-        </article>
-
-
-        <!-- Skill 3 -->
-
-        <article class="skill-card">
-
-          <div class="skill-icon">
-            ▶
-          </div>
-
-          <h3>
-            Digital Creation
-          </h3>
-
-          <p>
-            Exploring video creation, digital
-            storytelling, visual concepts and
-            creative media.
-          </p>
-
-        </article>
-
-
-        <!-- Skill 4 -->
-
-        <article class="skill-card">
-
-          <div class="skill-icon">
-            AI
-          </div>
-
-          <h3>
-            AI Exploration
-          </h3>
-
-          <p>
-            Experimenting with artificial intelligence
-            and emerging creative technologies.
-          </p>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROJECTS
-    ========================== -->
-
-    <section
-      class="projects section section-grid"
-      id="projects"
-    >
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          03 — PROJECTS
-        </span>
-
-        <h2>Selected Work</h2>
-
-        <p>
-          A collection of things I'm building,
-          experimenting with and exploring.
-        </p>
-
-      </div>
-
-
-      <div class="projects-grid">
-
-
-        <!-- Project 01 -->
-
-        <article class="project-card">
-
-          <div class="project-number">
-            01
-          </div>
-
-          <div class="project-content">
-
-            <span class="project-category">
-              WEB
-            </span>
-
-            <h3>
-              Personal Portfolio
-            </h3>
-
-            <p>
-              A cinematic personal website designed
-              to showcase my skills, projects and
-              creative work.
-            </p>
-
-            <a
-              href="https://scilentwatcher.github.io/shine-portfolio/"
-              class="project-link"
-            >
-              View Project →
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- Project 02 -->
-
-        <article class="project-card">
-
-          <div class="project-number">
-            02
-          </div>
-
-          <div class="project-content">
-
-            <span class="project-category">
-              CREATIVE
-            </span>
-
-            <h3>
-              Digital Storytelling
-            </h3>
-
-            <p>
-              Exploring cinematic stories, visual
-              concepts, characters and AI-assisted
-              creative production.
-            </p>
-
-            <span class="project-link muted-link">
-              Coming Soon →
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- Project 03 -->
-
-        <article class="project-card">
-
-          <div class="project-number">
-            03
-          </div>
-
-          <div class="project-content">
-
-            <span class="project-category">
-              EXPERIMENT
-            </span>
-
-            <h3>
-              Interactive Web Projects
-            </h3>
-
-            <p>
-              Building small interactive experiences
-              and experimenting with modern web
-              interfaces.
-            </p>
-
-            <span class="project-link muted-link">
-              Coming Soon →
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- Project 04 -->
-
-        <article class="project-card">
-
-          <div class="project-number">
-            04
-          </div>
-
-          <div class="project-content">
-
-            <span class="project-category">
-              FUTURE
-            </span>
-
-            <h3>
-              More To Come
-            </h3>
-
-            <p>
-              New ideas, experiments and projects are
-              currently being developed.
-            </p>
-
-            <span class="project-link muted-link">
-              Stay Tuned →
-            </span>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         JOURNEY
-    ========================== -->
-
-    <section
-      class="journey section section-grid"
-      id="journey"
-    >
-
-      <div class="section-heading">
-
-        <span class="section-number">
-          04 — JOURNEY
-        </span>
-
-        <h2>My Journey</h2>
-
-        <p>
-          Learning, experimenting and building one
-          project at a time.
-        </p>
-
-      </div>
-
-
-      <div class="timeline">
-
-
-        <!-- Timeline item 1 -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-card">
-
-            <span class="timeline-label">
-              EDUCATION
-            </span>
-
-            <h3>
-              B.Sc. Nursing
-            </h3>
-
-            <p>
-              Developing knowledge and practical
-              skills through nursing education while
-              continuing to explore technology and
-              creative work.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- Timeline item 2 -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-card">
-
-            <span class="timeline-label">
-              EXPLORATION
-            </span>
-
-            <h3>
-              Technology &amp; Digital Creation
-            </h3>
-
-            <p>
-              Exploring web development, design,
-              artificial intelligence, video creation
-              and digital storytelling.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- Timeline item 3 -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-card">
-
-            <span class="timeline-label">
-              NOW
-            </span>
-
-            <h3>
-              Building &amp; Experimenting
-            </h3>
-
-            <p>
-              Turning ideas into real projects and
-              continuously improving technical and
-              creative abilities.
-            </p>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section
-      class="contact section section-grid"
-      id="contact"
-    >
-
-      <div class="contact-card">
-
-        <span class="contact-label">
-          LET'S CREATE
-        </span>
-
-        <h2>
-          Let's build
-          <span>something.</span>
-        </h2>
-
-        <p>
-          Have an idea, project or opportunity?
-          Feel free to reach out.
+          I'm not presenting myself as an expert in
+          everything. I'm learning by building,
+          experimenting and improving.
         </p>
 
 
-        <a
-          href="mailto:shinermathew@gmail.com"
-          class="email-button"
-        >
-          ✉ shinermathew@gmail.com
-        </a>
+        <div class="identity-box">
 
+          <div class="identity-title">
+            CURRENT POSITIONING
+          </div>
 
-        <div class="social-links">
-
-          <a
-            href="https://github.com/scilentwatcher"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            GH
-          </a>
-
-          <a
-            href="mailto:shinermathew@gmail.com"
-            aria-label="Email"
-          >
-            @
-          </a>
+          <strong>
+            BSC NURSING × AI × TECHNOLOGY
+          </strong>
 
         </div>
 
       </div>
 
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="footer">
-
-    <div class="footer-logo">
-      SHINE<span>.</span>
     </div>
 
-    <p>
-      Designed &amp; built by Shine R Mathew.
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section class="section" id="skills">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        02 — SKILLS & INTERESTS
+      </span>
+
+      <h2>What I Explore</h2>
+
+      <p>
+        Areas I'm learning, experimenting with and
+        developing through real projects.
+      </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          &lt;/&gt;
+        </div>
+
+        <h3>Web Development</h3>
+
+        <p>
+          HTML, CSS and JavaScript with a focus on
+          responsive and interactive websites.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          AI
+        </div>
+
+        <h3>AI Exploration</h3>
+
+        <p>
+          Exploring AI tools, creative workflows,
+          AI experiments and generative technology.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          ▶
+        </div>
+
+        <h3>AI Video Creation</h3>
+
+        <p>
+          Creating cinematic AI videos, characters,
+          stories and visual experiments.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          ✦
+        </div>
+
+        <h3>Prompt Design</h3>
+
+        <p>
+          Exploring prompting, creative direction and
+          generative workflows through experimentation.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          APP
+        </div>
+
+        <h3>App Experiments</h3>
+
+        <p>
+          Exploring app ideas, coding, modification and
+          understanding how applications work.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card">
+
+        <div class="skill-icon">
+          BOT
+        </div>
+
+        <h3>Telegram Bots</h3>
+
+        <p>
+          Experimenting with Telegram automation,
+          music recognition and group management bots.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section class="section" id="projects">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        03 — PROJECTS
+      </span>
+
+      <h2>Things I've Built</h2>
+
+      <p>
+        Projects, experiments and ideas developed
+        from curiosity.
+      </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+      <article class="project-card">
+
+        <div class="project-number">01</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            AI PROJECT
+          </span>
+
+          <h3>Rosiee AI</h3>
+
+          <p>
+            An AI assistant concept inspired by
+            conversational AI platforms such as
+            ChatGPT and Gemini.
+          </p>
+
+          <span class="project-link">
+            AI Experiment →
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="project-card">
+
+        <div class="project-number">02</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            TELEGRAM BOT
+          </span>
+
+          <h3>SRM_MODZ</h3>
+
+          <p>
+            A Telegram music-recognition bot concept,
+            designed around the idea of identifying
+            music similar to Shazam.
+          </p>
+
+          <a
+            href="https://t.me/SRMMODZ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            Open Telegram →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="project-card">
+
+        <div class="project-number">03</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            TELEGRAM BOT
+          </span>
+
+          <h3>scilent_watcher</h3>
+
+          <p>
+            A Telegram group-management and control
+            bot experiment.
+          </p>
+
+          <a
+            href="https://t.me/scilent_watcher"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            Telegram →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="project-card">
+
+        <div class="project-number">04</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            WEB
+          </span>
+
+          <h3>Shine Portfolio</h3>
+
+          <p>
+            This portfolio — designed as an interactive
+            personal digital space rather than a
+            traditional CV.
+          </p>
+
+          <a
+            href="https://scilentwatcher.github.io/shine-portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View Website →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="project-card">
+
+        <div class="project-number">05</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            CREATIVE AI
+          </span>
+
+          <h3>The Last Carrot</h3>
+
+          <p>
+            An AI-assisted cinematic fantasy story
+            involving characters, visual design,
+            video generation and prompt development.
+          </p>
+
+          <a href="#ai" class="project-link">
+            Explore AI Work →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="project-card">
+
+        <div class="project-number">06</div>
+
+        <div class="project-content">
+
+          <span class="project-category">
+            EXPERIMENT
+          </span>
+
+          <h3>Future Projects</h3>
+
+          <p>
+            New apps, websites, AI experiments,
+            bots and creative projects will be added
+            here as they are built.
+          </p>
+
+          <span class="project-link">
+            More Coming →
+          </span>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     AI CREATIONS
+===================================================== -->
+
+<section class="section" id="ai">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        04 — AI CREATIONS
+      </span>
+
+      <h2>Made With AI</h2>
+
+      <p>
+        Creative experiments where storytelling,
+        prompting and generative technology meet.
+      </p>
+
+    </div>
+
+
+    <p class="ai-intro">
+      This section is dedicated specifically to my
+      AI creations rather than hiding them inside
+      a general projects list.
     </p>
 
-    <p class="copyright">
-      © <span id="year"></span> Shine R Mathew
-    </p>
 
-  </footer>
+    <div class="ai-grid">
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+      <article class="ai-card">
 
-  <script src="script.js"></script>
+        <div class="ai-card-image">
+
+          <img
+            src="photo3.jpg"
+            alt="AI creative project"
+          >
+
+        </div>
+
+        <div class="ai-card-body">
+
+          <span class="ai-tag">
+            CINEMATIC STORY
+          </span>
+
+          <h3>The Last Carrot</h3>
+
+          <p>
+            AI-generated fantasy storytelling,
+            characters, cinematic shots and prompt
+            experiments.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="ai-card">
+
+        <div class="ai-card-image">
+
+          <img
+            src="photo2.jpg"
+            alt="AI visual experiment"
+          >
+
+        </div>
+
+        <div class="ai-card-body">
+
+          <span class="ai-tag">
+            VISUAL EXPERIMENT
+          </span>
+
+          <h3>AI Visuals</h3>
+
+          <p>
+            Exploring characters, environments,
+            cinematic compositions and visual styles.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="ai-card">
+
+        <div class="ai-card-image">
+
+          <img
+            src="photo1.jpg"
+            alt="AI experiment"
+          >
+
+        </div>
+
+        <div class="ai-card-body">
+
+          <span class="ai-tag">
+            PROMPT DESIGN
+          </span>
+
+          <h3>Creative Prompts</h3>
+
+          <p>
+            Developing prompts for image generation,
+            video creation and creative workflows.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTERACTIVE PHOTO PUZZLE
+===================================================== -->
+
+<section class="section interaction" id="interaction">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        05 — INTERACTION
+      </span>
+
+      <h2>Try Something</h2>
+
+      <p>
+        This isn't just a portfolio. There's a small
+        challenge hidden inside it.
+      </p>
+
+    </div>
+
+
+    <div class="puzzle-layout">
+
+
+      <div class="interaction-text">
+
+        <h3>
+          Can you solve the
+          <span>16-piece puzzle?</span>
+        </h3>
+
+        <p>
+          My photo has been divided into a 4 × 4 grid.
+          Move the pieces into the correct position.
+        </p>
+
+        <p>
+          Only pieces next to the empty space can move.
+        </p>
+
+
+        <div class="puzzle-info">
+
+          <div class="puzzle-stat">
+
+            <strong id="moves">
+              0
+            </strong>
+
+            <span>MOVES</span>
+
+          </div>
+
+
+          <div class="puzzle-stat">
+
+            <strong id="timer">
+              00:00
+            </strong>
+
+            <span>TIME</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="puzzle-buttons">
+
+          <button
+            class="puzzle-button primary"
+            id="shuffleButton"
+          >
+            Shuffle Again
+          </button>
+
+          <button
+            class="puzzle-button"
+            id="skipButton"
+          >
+            Skip Puzzle
+          </button>
+
+        </div>
+
+
+        <div
+          class="puzzle-message"
+          id="puzzleMessage"
+        >
+          Solve the puzzle to reveal the image.
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div
+          class="puzzle"
+          id="puzzle"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section class="section" id="journey">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        06 — JOURNEY
+      </span>
+
+      <h2>Where I'm Going</h2>
+
+      <p>
+        Learning, experimenting and building one
+        project at a time.
+      </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <span class="timeline-label">
+            EDUCATION
+          </span>
+
+          <h3>
+            B.Sc Nursing
+          </h3>
+
+          <p>
+            Studying nursing at CSI CON Karakonam,
+            currently in the 8th semester / internship.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <span class="timeline-label">
+            EXPLORATION
+          </span>
+
+          <h3>
+            Technology + AI
+          </h3>
+
+          <p>
+            Exploring websites, apps, bots,
+            artificial intelligence and creative
+            digital workflows alongside nursing.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <span class="timeline-label">
+            NOW
+          </span>
+
+          <h3>
+            Building & Experimenting
+          </h3>
+
+          <p>
+            Turning ideas into real projects and
+            learning through experimentation rather
+            than simply collecting certificates.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-card">
+
+          <span class="timeline-label">
+            FUTURE
+          </span>
+
+          <h3>
+            Nursing × Technology
+          </h3>
+
+          <p>
+            Continuing to develop both my nursing
+            career and my interest in technology,
+            AI and digital creation.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section" id="contact">
+
+  <div class="container">
+
+    <div class="contact-card">
+
+      <span class="contact-label">
+        LET'S CONNECT
+      </span>
+
+      <h2>
+        Let's build
+        <span>something.</span>
+      </h2>
+
+      <p>
+        Have an idea, project or simply want to connect?
+      </p>
+
+
+      <a
+        href="mailto:shinermathew@gmail.com"
+        class="email-button"
+      >
+        ✉ shinermathew@gmail.com
+      </a>
+
+
+      <!-- SOCIAL LINKS -->
+
+      <div class="social-links">
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="https://www.instagram.com/iam.sh1ne?igsi=cjRpMXlzaXU5ZDZx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+          aria-label="Instagram"
+          title="Instagram"
+        >
+
+          <svg viewBox="0 0 24 24">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
+            <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+            <circle cx="17.5" cy="6.5" r="1.2"/>
+          </svg>
+
+        </a>
+
+
+        <!-- TELEGRAM -->
+
+        <a
+          href="https://t.me/SRMMODZ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+          aria-label="Telegram"
+          title="Telegram"
+        >
+
+          <svg viewBox="0 0 24 24">
+            <path d="M21.8 4.2 18.7 19c-.2 1-1 1.2-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 12.6 1.3 11c-1-.3-1-1 .2-1.5L20.2 2.2c.9-.3 1.7.2 1.6 2z"/>
+          </svg>
+
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          href="https://wa.me/qr/SHQGJUVGO2W3H1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+
+          <svg viewBox="0 0 24 24">
+            <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7c1.7.9 3.6 1.4 5.6 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.4-8.3zM12 21.7c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.8 1 1-3.7-.2-.4c-1-1.5-1.5-3.3-1.5-5.2C2.1 6.3 6.5 2 12 2s9.9 4.4 9.9 9.9-4.4 9.8-9.9 9.8zm5.4-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/>
+          </svg>
+
+        </a>
+
+
+        <!-- GMAIL -->
+
+        <a
+          href="mailto:shinermathew@gmail.com"
+          class="social-link"
+          aria-label="Gmail"
+          title="Email"
+        >
+
+          <svg viewBox="0 0 24 24">
+            <path d="M2 5.5A3.5 3.5 0 0 1 5.5 2h13A3.5 3.5 0 0 1 22 5.5v13a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 18.5v-13zm3.5-1A1.5 1.5 0 0 0 4 6v.4l8 5.6 8-5.6V6a1.5 1.5 0 0 0-1.5-1.5h-13zM20 8.8l-7.4 5.1a1 1 0 0 1-1.2 0L4 8.8v9.7c0 .8.7 1.5 1.5 1.5h13c.8 0 1.5-.7 1.5-1.5V8.8z"/>
+          </svg>
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+  <div class="footer-logo">
+    SHINE<span>.</span>
+  </div>
+
+  <p>
+    Designed & built by Shine R Mathew.
+  </p>
+
+  <p>
+    © <span id="year"></span> Shine R Mathew
+  </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton =
+document.getElementById("menuButton");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+menuButton.addEventListener("click",function(){
+
+  mobileMenu.classList.toggle("active");
+
+  menuButton.classList.toggle("active");
+
+  document.body.classList.toggle("menu-open");
+
+  const isOpen =
+  mobileMenu.classList.contains("active");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    mobileMenu.classList.remove("active");
+
+    menuButton.classList.remove("active");
+
+    document.body.classList.remove("menu-open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  });
+
+});
+
+
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",function(){
+
+  if(window.scrollY > 30){
+
+    header.classList.add("scrolled");
+
+  }else{
+
+    header.classList.remove("scrolled");
+
+  }
+
+});
+
+
+/* =========================================================
+   4 × 4 PHOTO PUZZLE
+========================================================= */
+
+const puzzle =
+document.getElementById("puzzle");
+
+const movesElement =
+document.getElementById("moves");
+
+const timerElement =
+document.getElementById("timer");
+
+const messageElement =
+document.getElementById("puzzleMessage");
+
+const shuffleButton =
+document.getElementById("shuffleButton");
+
+const skipButton =
+document.getElementById("skipButton");
+
+
+let puzzleState = [];
+
+let moves = 0;
+
+let seconds = 0;
+
+let timerInterval = null;
+
+let puzzleStarted = false;
+
+let puzzleSkipped = false;
+
+
+/* CREATE SOLVED PUZZLE */
+
+function solvedState(){
+
+  return [
+    0,1,2,3,
+    4,5,6,7,
+    8,9,10,11,
+    12,13,14,15
+  ];
+
+}
+
+
+/* SHUFFLE */
+
+function shufflePuzzle(){
+
+  puzzleState = solvedState();
+
+  let empty = 15;
+
+  let previous = -1;
+
+  for(let i = 0; i < 150; i++){
+
+    const neighbours =
+    getNeighbours(empty);
+
+    let options =
+    neighbours.filter(n => n !== previous);
+
+    if(options.length === 0){
+      options = neighbours;
+    }
+
+    const randomIndex =
+    Math.floor(Math.random()*options.length);
+
+    const selected =
+    options[randomIndex];
+
+    [
+      puzzleState[empty],
+      puzzleState[selected]
+    ] =
+    [
+      puzzleState[selected],
+      puzzleState[empty]
+    ];
+
+    previous = empty;
+
+    empty = selected;
+
+  }
+
+  moves = 0;
+
+  seconds = 0;
+
+  puzzleStarted = false;
+
+  puzzleSkipped = false;
+
+  stopTimer();
+
+  updateStats();
+
+  messageElement.textContent =
+  "Solve the puzzle to reveal the image.";
+
+  renderPuzzle();
+
+}
+
+
+/* GET VALID NEIGHBOURS */
+
+function getNeighbours(index){
+
+  const row =
+  Math.floor(index / 4);
+
+  const col =
+  index % 4;
+
+  const result = [];
+
+  if(row > 0){
+    result.push(index - 4);
+  }
+
+  if(row < 3){
+    result.push(index + 4);
+  }
+
+  if(col > 0){
+    result.push(index - 1);
+  }
+
+  if(col < 3){
+    result.push(index + 1);
+  }
+
+  return result;
+
+}
+
+
+/* RENDER */
+
+function renderPuzzle(){
+
+  puzzle.innerHTML = "";
+
+  puzzleState.forEach(function(piece,rowIndex){
+
+    const tile =
+    document.createElement("div");
+
+    tile.className =
+    "puzzle-piece";
+
+    if(piece === 15){
+
+      tile.classList.add("empty");
+
+    }else{
+
+      const originalRow =
+      Math.floor(piece / 4);
+
+      const originalCol =
+      piece % 4;
+
+      tile.style.backgroundPosition =
+      `${originalCol * 33.333333}% ${originalRow * 33.333333}%`;
+
+      tile.addEventListener(
+        "click",
+        function(){
+
+          movePiece(rowIndex);
+
+        }
+      );
+
+    }
+
+    puzzle.appendChild(tile);
+
+  });
+
+}
+
+
+/* MOVE */
+
+function movePiece(index){
+
+  if(puzzleSkipped){
+    return;
+  }
+
+  const emptyIndex =
+  puzzleState.indexOf(15);
+
+  const validMoves =
+  getNeighbours(emptyIndex);
+
+  if(!validMoves.includes(index)){
+    return;
+  }
+
+
+  if(!puzzleStarted){
+
+    puzzleStarted = true;
+
+    startTimer();
+
+  }
+
+
+  [
+    puzzleState[index],
+    puzzleState[emptyIndex]
+  ] =
+  [
+    puzzleState[emptyIndex],
+    puzzleState[index]
+  ];
+
+
+  moves++;
+
+  updateStats();
+
+  renderPuzzle();
+
+  checkSolved();
+
+}
+
+
+/* CHECK SOLVED */
+
+function checkSolved(){
+
+  const solved =
+  puzzleState.every(
+    (value,index) =>
+    value === index
+  );
+
+  if(solved){
+
+    stopTimer();
+
+    messageElement.textContent =
+    `🎉 Puzzle solved in ${moves} moves!`;
+
+  }
+
+}
+
+
+/* TIMER */
+
+function startTimer(){
+
+  stopTimer();
+
+  timerInterval =
+  setInterval(function(){
+
+    seconds++;
+
+    updateTimer();
+
+  },1000);
+
+}
+
+
+function stopTimer(){
+
+  if(timerInterval){
+
+    clearInterval(timerInterval);
+
+    timerInterval = null;
+
+  }
+
+}
+
+
+function updateTimer(){
+
+  const minutes =
+  Math.floor(seconds / 60);
+
+  const secs =
+  seconds % 60;
+
+  timerElement.textContent =
+  String(minutes).padStart(2,"0")
+  + ":"
+  + String(secs).padStart(2,"0");
+
+}
+
+
+function updateStats(){
+
+  movesElement.textContent =
+  moves;
+
+  updateTimer();
+
+}
+
+
+/* =========================================================
+   SKIP PUZZLE
+========================================================= */
+
+skipButton.addEventListener(
+  "click",
+  function(){
+
+    puzzleSkipped = true;
+
+    stopTimer();
+
+    puzzleState = solvedState();
+
+    renderPuzzle();
+
+    messageElement.textContent =
+    "Puzzle skipped — here's the complete image.";
+
+  }
+);
+
+
+/* =========================================================
+   SHUFFLE BUTTON
+========================================================= */
+
+shuffleButton.addEventListener(
+  "click",
+  function(){
+
+    shufflePuzzle();
+
+  }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+shufflePuzzle();
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+document.querySelectorAll("img")
+.forEach(function(image){
+
+  image.addEventListener(
+    "error",
+    function(){
+
+      this.style.background =
+      "#151515";
+
+      this.style.minHeight =
+      "200px";
+
+      this.alt =
+      "Add your image file to the repository";
+
+    }
+  );
+
+});
+
+</script>
 
 </body>
 </html>
