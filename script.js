@@ -1,14 +1,13 @@
-/* =====================================================
+/* =========================================================
    SHINE PORTFOLIO
-   JAVASCRIPT
-   Nursing × AI × Technology
-===================================================== */
+   COMPLETE JAVASCRIPT
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ===================================================
+  /* =======================================================
      CURRENT YEAR
-  =================================================== */
+  ======================================================= */
 
   const yearElement = document.getElementById("year");
 
@@ -17,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
+  /* =======================================================
      MOBILE MENU
-  =================================================== */
+  ======================================================= */
 
   const menuButton = document.getElementById("menuButton");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -41,8 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    /* Close menu after clicking a link */
 
     const mobileLinks =
       mobileMenu.querySelectorAll("a");
@@ -66,9 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
-     SMOOTH SCROLL
-  =================================================== */
+  /* =======================================================
+     SMOOTH SCROLLING
+  ======================================================= */
 
   const navigationLinks =
     document.querySelectorAll('a[href^="#"]');
@@ -103,35 +100,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  /* ===================================================
+  /* =======================================================
      HEADER SCROLL EFFECT
-  =================================================== */
+  ======================================================= */
 
   const header =
     document.querySelector(".header");
 
-  function updateHeader() {
+  if (header) {
 
-    if (!header) {
-      return;
+    function updateHeader() {
+
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
     }
 
-    if (window.scrollY > 30) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+    window.addEventListener(
+      "scroll",
+      updateHeader
+    );
+
+    updateHeader();
 
   }
 
-  window.addEventListener("scroll", updateHeader);
 
-  updateHeader();
-
-
-  /* ===================================================
+  /* =======================================================
      4 × 4 PHOTO PUZZLE
-  =================================================== */
+  ======================================================= */
 
   const puzzleBoard =
     document.getElementById("puzzleBoard");
@@ -149,50 +149,67 @@ document.addEventListener("DOMContentLoaded", function () {
   if (
     puzzleBoard &&
     shuffleButton &&
-    skipButton &&
-    movesElement
+    skipButton
   ) {
 
     const SIZE = 4;
 
-    const TOTAL =
-      SIZE * SIZE;
+    /*
+      IMPORTANT:
+      This is the photo used by the puzzle.
+
+      Change photo-1.jpg if you want
+      another image.
+    */
+
+    const puzzleImage =
+      "images/photo-1.jpg";
+
 
     let tiles = [];
+
+    let emptyIndex = 15;
 
     let moves = 0;
 
     let puzzleSolved = false;
 
 
-    /* ================================================
+    /* =====================================================
        CREATE SOLVED PUZZLE
-    ================================================ */
+    ===================================================== */
 
     function createSolvedPuzzle() {
 
       tiles = [];
 
-      for (let i = 0; i < TOTAL - 1; i++) {
-
+      for (let i = 0; i < 15; i++) {
         tiles.push(i);
-
       }
 
-      /* Last tile = empty */
-
       tiles.push(null);
+
+      emptyIndex = 15;
+
+      moves = 0;
+
+      puzzleSolved = false;
+
+      updateMoves();
+
+      renderPuzzle();
 
     }
 
 
-    /* ================================================
+    /* =====================================================
        RENDER PUZZLE
-    ================================================ */
+    ===================================================== */
 
     function renderPuzzle() {
 
       puzzleBoard.innerHTML = "";
+
 
       tiles.forEach(function (tile, index) {
 
@@ -203,17 +220,11 @@ document.addEventListener("DOMContentLoaded", function () {
           "puzzle-piece";
 
 
-        /* Empty square */
-
         if (tile === null) {
 
           piece.classList.add("empty");
 
-        }
-
-        /* Image piece */
-
-        else {
+        } else {
 
           const row =
             Math.floor(tile / SIZE);
@@ -221,8 +232,17 @@ document.addEventListener("DOMContentLoaded", function () {
           const column =
             tile % SIZE;
 
+
+          piece.style.backgroundImage =
+            `url("${puzzleImage}")`;
+
+          piece.style.backgroundSize =
+            `${SIZE * 100}% ${SIZE * 100}%`;
+
+
           piece.style.backgroundPosition =
-            `${column * 33.333333}% ${row * 33.333333}%`;
+            `${(column / (SIZE - 1)) * 100}% ${(row / (SIZE - 1)) * 100}%`;
+
 
           piece.addEventListener(
             "click",
@@ -235,50 +255,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
         puzzleBoard.appendChild(piece);
 
       });
 
-      movesElement.textContent = moves;
-
     }
 
 
-    /* ================================================
-       GET EMPTY TILE
-    ================================================ */
-
-    function getEmptyIndex() {
-
-      return tiles.indexOf(null);
-
-    }
-
-
-    /* ================================================
+    /* =====================================================
        CHECK IF TILE CAN MOVE
-    ================================================ */
+    ===================================================== */
 
-    function isAdjacent(indexA, indexB) {
+    function isAdjacent(index) {
 
-      const rowA =
-        Math.floor(indexA / SIZE);
+      const row1 =
+        Math.floor(index / SIZE);
 
-      const colA =
-        indexA % SIZE;
+      const col1 =
+        index % SIZE;
 
-      const rowB =
-        Math.floor(indexB / SIZE);
 
-      const colB =
-        indexB % SIZE;
+      const row2 =
+        Math.floor(emptyIndex / SIZE);
+
+      const col2 =
+        emptyIndex % SIZE;
 
 
       const rowDifference =
-        Math.abs(rowA - rowB);
+        Math.abs(row1 - row2);
 
       const colDifference =
-        Math.abs(colA - colB);
+        Math.abs(col1 - col2);
 
 
       return (
@@ -288,9 +297,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ================================================
+    /* =====================================================
        MOVE TILE
-    ================================================ */
+    ===================================================== */
 
     function moveTile(index) {
 
@@ -298,35 +307,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const emptyIndex =
-        getEmptyIndex();
 
-
-      if (
-        !isAdjacent(
-          index,
-          emptyIndex
-        )
-      ) {
-
+      if (!isAdjacent(index)) {
         return;
-
       }
 
 
-      /* Swap */
-
-      const temporary =
+      tiles[emptyIndex] =
         tiles[index];
 
       tiles[index] =
-        tiles[emptyIndex];
+        null;
 
-      tiles[emptyIndex] =
-        temporary;
+
+      emptyIndex =
+        index;
 
 
       moves++;
+
+      updateMoves();
 
       renderPuzzle();
 
@@ -335,30 +335,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ================================================
+    /* =====================================================
+       UPDATE MOVE COUNTER
+    ===================================================== */
+
+    function updateMoves() {
+
+      if (movesElement) {
+
+        movesElement.textContent =
+          moves;
+
+      }
+
+    }
+
+
+    /* =====================================================
        CHECK SOLVED
-    ================================================ */
+    ===================================================== */
 
     function checkSolved() {
 
-      for (
-        let i = 0;
-        i < TOTAL - 1;
-        i++
-      ) {
+      for (let i = 0; i < 15; i++) {
 
         if (tiles[i] !== i) {
-
-          return false;
-
+          return;
         }
 
       }
 
-      if (tiles[TOTAL - 1] !== null) {
 
-        return false;
-
+      if (tiles[15] !== null) {
+        return;
       }
 
 
@@ -369,101 +378,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
         alert(
           "🎉 Puzzle solved!\n\n" +
-          "Moves: " + moves
+          "You rebuilt my photo in " +
+          moves +
+          " moves."
         );
 
       }, 150);
 
-
-      return true;
-
     }
 
 
-    /* ================================================
-       GET RANDOM VALID MOVE
-    ================================================ */
-
-    function getRandomMove() {
-
-      const emptyIndex =
-        getEmptyIndex();
-
-      const possibleMoves = [];
-
-
-      const row =
-        Math.floor(emptyIndex / SIZE);
-
-      const col =
-        emptyIndex % SIZE;
-
-
-      if (row > 0) {
-
-        possibleMoves.push(
-          emptyIndex - SIZE
-        );
-
-      }
-
-      if (row < SIZE - 1) {
-
-        possibleMoves.push(
-          emptyIndex + SIZE
-        );
-
-      }
-
-      if (col > 0) {
-
-        possibleMoves.push(
-          emptyIndex - 1
-        );
-
-      }
-
-      if (col < SIZE - 1) {
-
-        possibleMoves.push(
-          emptyIndex + 1
-        );
-
-      }
-
-
-      return possibleMoves[
-        Math.floor(
-          Math.random() *
-          possibleMoves.length
-        )
-      ];
-
-    }
-
-
-    /* ================================================
+    /* =====================================================
        SHUFFLE PUZZLE
-       Uses real legal moves so puzzle is solvable.
-    ================================================ */
+    ===================================================== */
 
     function shufflePuzzle() {
 
       createSolvedPuzzle();
 
-      moves = 0;
-
-      puzzleSolved = false;
-
 
       /*
-        Make many legal random moves.
-        This prevents impossible puzzle states.
+        Perform legal random moves instead
+        of randomly arranging tiles.
+
+        This guarantees the puzzle
+        can actually be solved.
       */
 
-      let previousEmpty = -1;
+      let previousEmpty =
+        -1;
 
-      const shuffleMoves = 250;
+
+      const shuffleMoves = 180;
 
 
       for (
@@ -471,9 +417,6 @@ document.addEventListener("DOMContentLoaded", function () {
         i < shuffleMoves;
         i++
       ) {
-
-        const emptyIndex =
-          getEmptyIndex();
 
         const possibleMoves = [];
 
@@ -486,39 +429,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (row > 0) {
-
           possibleMoves.push(
             emptyIndex - SIZE
           );
-
         }
 
         if (row < SIZE - 1) {
-
           possibleMoves.push(
             emptyIndex + SIZE
           );
-
         }
 
         if (col > 0) {
-
           possibleMoves.push(
             emptyIndex - 1
           );
-
         }
 
         if (col < SIZE - 1) {
-
           possibleMoves.push(
             emptyIndex + 1
           );
-
         }
 
 
-        /* Avoid immediately reversing */
+        /*
+          Avoid immediately undoing
+          the previous shuffle move.
+        */
 
         const filteredMoves =
           possibleMoves.filter(
@@ -529,151 +467,154 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const choices =
-          filteredMoves.length > 0
+          filteredMoves.length
             ? filteredMoves
             : possibleMoves;
 
 
+        const randomIndex =
+          Math.floor(
+            Math.random() * choices.length
+          );
+
+
         const selectedIndex =
-          choices[
-            Math.floor(
-              Math.random() *
-              choices.length
-            )
-          ];
-
-
-        const temporary =
-          tiles[selectedIndex];
-
-        tiles[selectedIndex] =
-          tiles[emptyIndex];
-
-        tiles[emptyIndex] =
-          temporary;
+          choices[randomIndex];
 
 
         previousEmpty =
           emptyIndex;
 
-      }
+
+        tiles[emptyIndex] =
+          tiles[selectedIndex];
+
+        tiles[selectedIndex] =
+          null;
 
 
-      /*
-        Very small chance of accidentally
-        returning to solved state.
-      */
-
-      if (checkSolved()) {
-
-        shufflePuzzle();
-
-        return;
+        emptyIndex =
+          selectedIndex;
 
       }
 
 
       moves = 0;
 
+      puzzleSolved = false;
+
+      updateMoves();
+
       renderPuzzle();
 
     }
 
 
-    /* ================================================
+    /* =====================================================
        SKIP PUZZLE
-    ================================================ */
+    ===================================================== */
 
-    skipButton.addEventListener(
-      "click",
-      function () {
+    function skipPuzzle() {
 
-        puzzleSolved = true;
-
-        alert(
-          "Puzzle skipped. You can try it anytime!"
-        );
-
-      }
-    );
+      puzzleSolved = true;
 
 
-    /* ================================================
-       SHUFFLE BUTTON
-    ================================================ */
+      puzzleBoard.innerHTML = "";
+
+
+      const skipped =
+        document.createElement("div");
+
+
+      skipped.style.gridColumn =
+        "1 / -1";
+
+      skipped.style.gridRow =
+        "1 / -1";
+
+      skipped.style.display =
+        "flex";
+
+      skipped.style.alignItems =
+        "center";
+
+      skipped.style.justifyContent =
+        "center";
+
+      skipped.style.textAlign =
+        "center";
+
+      skipped.style.padding =
+        "30px";
+
+      skipped.style.color =
+        "#777";
+
+      skipped.style.fontSize =
+        "1rem";
+
+      skipped.innerHTML =
+        `
+          <div>
+            <div style="
+              font-size:3rem;
+              margin-bottom:15px;
+              color:white;
+            ">
+              ✓
+            </div>
+
+            <strong style="
+              color:white;
+              display:block;
+              margin-bottom:8px;
+            ">
+              Puzzle skipped
+            </strong>
+
+            <span>
+              You can try it again anytime.
+            </span>
+          </div>
+        `;
+
+
+      puzzleBoard.appendChild(skipped);
+
+    }
+
+
+    /* =====================================================
+       BUTTON EVENTS
+    ===================================================== */
 
     shuffleButton.addEventListener(
       "click",
-      function () {
-
-        shufflePuzzle();
-
-      }
+      shufflePuzzle
     );
 
 
-    /* ================================================
-       START PUZZLE
-    ================================================ */
+    skipButton.addEventListener(
+      "click",
+      skipPuzzle
+    );
 
-    shufflePuzzle();
+
+    /* =====================================================
+       START PUZZLE
+    ===================================================== */
+
+    createSolvedPuzzle();
+
+    /*
+      Automatically shuffle when page loads.
+    */
+
+    setTimeout(function () {
+      shufflePuzzle();
+    }, 300);
 
   }
 
-
-  /* ===================================================
-     EXTERNAL LINKS
-     Open social/project links safely
-  =================================================== */
-
-  const externalLinks =
-    document.querySelectorAll(
-      'a[target="_blank"]'
-    );
-
-  externalLinks.forEach(function (link) {
-
-    link.addEventListener(
-      "click",
-      function () {
-
-        this.setAttribute(
-          "rel",
-          "noopener noreferrer"
-        );
-
-      }
-    );
-
-  });
-
-
-  /* ===================================================
-     IMAGE FALLBACK
-     If an image is missing, don't show broken icon.
-  =================================================== */
-
-  const images =
-    document.querySelectorAll("img");
-
-  images.forEach(function (image) {
-
-    image.addEventListener(
-      "error",
-      function () {
-
-        this.style.background =
-          "linear-gradient(135deg,#222,#090909)";
-
-        this.style.objectFit =
-          "cover";
-
-        this.alt =
-          "Shine R Mathew";
-
-      }
-    );
-
-  });
 
 });
