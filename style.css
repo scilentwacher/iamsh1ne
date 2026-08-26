@@ -757,3 +757,6 @@ button {
   background: rgba(8, 8, 8, 0.96);
   border-bottom-color: #3a3a3a;
 }
+.mobile-menu.active {
+  display: block;
+}
