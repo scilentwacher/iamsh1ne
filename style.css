@@ -377,16 +377,20 @@ button {
 
 /* =========================================================
    HERO PHOTO
+   NATURAL ORIGINAL COLOR
 ========================================================= */
 
 .hero-photo-wrapper {
   position: absolute;
+
   right: 3%;
   bottom: 0;
 
   width: min(34vw, 390px);
 
   z-index: 2;
+
+  pointer-events: none;
 }
 
 .hero-photo {
@@ -398,12 +402,12 @@ button {
   object-fit: cover;
   object-position: center top;
 
-  filter: none;
-  -webkit-filter: none;
+  filter: none !important;
+  -webkit-filter: none !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   border: 1px solid #333;
 
@@ -481,12 +485,12 @@ button {
   object-fit: cover;
   object-position: center;
 
-  filter: none;
-  -webkit-filter: none;
+  filter: none !important;
+  -webkit-filter: none !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition: transform 0.5s ease;
 }
@@ -734,10 +738,10 @@ button {
 
   background-repeat: no-repeat;
 
-  filter: none;
-  -webkit-filter: none;
+  filter: none !important;
+  -webkit-filter: none !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition:
     transform 0.15s ease,
@@ -745,8 +749,8 @@ button {
 }
 
 .puzzle-piece:hover {
-  filter: brightness(1.2);
-  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2) !important;
+  -webkit-filter: brightness(1.2) !important;
 }
 
 .puzzle-piece.empty {
@@ -996,12 +1000,12 @@ button {
 
   display: block;
 
-  filter: none;
-  -webkit-filter: none;
+  filter: none !important;
+  -webkit-filter: none !important;
 
-  opacity: 1;
+  opacity: 1 !important;
 
-  mix-blend-mode: normal;
+  mix-blend-mode: normal !important;
 
   transition: transform 0.5s ease;
 }
@@ -1299,46 +1303,107 @@ button {
     color: white;
   }
 
-  /* HERO */
+  /* =====================================================
+     MOBILE HERO
+     PHOTO STAYS ON RIGHT SIDE
+  ===================================================== */
 
   .hero {
-    min-height: auto;
+    min-height: calc(100vh - 65px);
 
-    padding: 90px 0 50px;
+    padding: 70px 0 55px;
 
-    display: flex;
+    display: block;
 
-    flex-direction: column;
+    position: relative;
+  }
 
-    align-items: stretch;
+  .hero-content {
+    width: 100%;
+
+    max-width: none;
+
+    padding-right: 125px;
+
+    position: relative;
+
+    z-index: 5;
   }
 
   .hero::before {
-    width: 280px;
+    width: 320px;
 
-    height: 280px;
+    height: 320px;
 
-    right: -180px;
+    right: -210px;
+
+    top: 40px;
   }
 
+  .status-pill {
+    font-size: 0.7rem;
+
+    padding: 8px 12px;
+
+    margin-bottom: 35px;
+
+    white-space: nowrap;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.8rem, 15vw, 7rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -0.07em;
+  }
+
+  .hero-positioning {
+    margin-top: 35px;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.08em;
+
+    max-width: 500px;
+  }
+
+  .hero-description {
+    max-width: 470px;
+
+    margin-top: 22px;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+  }
+
+  /* =====================================================
+     RIGHT-SIDE HERO PHOTO
+  ===================================================== */
+
   .hero-photo-wrapper {
-    position: relative;
+    position: absolute;
 
-    right: auto;
+    right: 0;
 
-    bottom: auto;
+    bottom: 35px;
 
-    width: min(100%, 360px);
+    width: 125px;
 
-    margin: 50px auto 0;
+    height: 520px;
 
-    display: block;
+    z-index: 2;
+
+    margin: 0;
+
+    pointer-events: none;
   }
 
   .hero-photo {
     width: 100%;
 
-    height: 420px;
+    height: 100%;
 
     max-height: none;
 
@@ -1346,29 +1411,87 @@ button {
 
     object-position: center top;
 
-    filter: none;
-    -webkit-filter: none;
+    display: block;
 
-    opacity: 1;
+    filter: none !important;
 
-    mix-blend-mode: normal;
+    -webkit-filter: none !important;
+
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
+
+    border: 1px solid #292929;
 
     mask-image:
       linear-gradient(
         to bottom,
-        black 90%,
+        black 88%,
         transparent 100%
       );
 
     -webkit-mask-image:
       linear-gradient(
         to bottom,
-        black 90%,
+        black 88%,
         transparent 100%
       );
   }
 
-  /* ABOUT */
+  /* =====================================================
+     BUTTONS
+  ===================================================== */
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 100%;
+
+    max-width: 470px;
+
+    margin-top: 35px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 58px;
+
+    width: 100%;
+  }
+
+  /* =====================================================
+     HERO STATS
+  ===================================================== */
+
+  .hero-stats {
+    position: relative;
+
+    z-index: 5;
+
+    width: calc(100% - 10px);
+
+    gap: 20px;
+
+    justify-content: space-between;
+
+    margin-top: 65px;
+
+    padding-top: 25px;
+  }
+
+  .stat strong {
+    font-size: 1.25rem;
+  }
+
+  .stat span {
+    font-size: 0.62rem;
+  }
+
+  /* =====================================================
+     ABOUT
+  ===================================================== */
 
   .about {
     grid-template-columns: 1fr;
@@ -1380,7 +1503,9 @@ button {
     grid-column: auto;
   }
 
-  /* GRIDS */
+  /* =====================================================
+     GRIDS
+  ===================================================== */
 
   .skills-grid,
   .projects-grid,
@@ -1393,13 +1518,17 @@ button {
     grid-template-columns: 1fr;
   }
 
-  /* SECTIONS */
+  /* =====================================================
+     SECTIONS
+  ===================================================== */
 
   .section {
     padding: 90px 0;
   }
 
-  /* PUZZLE */
+  /* =====================================================
+     PUZZLE
+  ===================================================== */
 
   .puzzle-section {
     padding: 25px 15px;
@@ -1411,7 +1540,9 @@ button {
     align-items: flex-start;
   }
 
-  /* CONTACT */
+  /* =====================================================
+     CONTACT
+  ===================================================== */
 
   .contact-card {
     padding: 65px 20px;
@@ -1436,7 +1567,9 @@ button {
     word-break: break-all;
   }
 
-  /* VISUAL PHOTOS */
+  /* =====================================================
+     VISUAL PHOTOS
+  ===================================================== */
 
   .visual-photo-card {
     min-height: auto;
@@ -1445,19 +1578,22 @@ button {
   .visual-photo {
     height: 350px;
 
-    filter: none;
-    -webkit-filter: none;
+    filter: none !important;
 
-    opacity: 1;
+    -webkit-filter: none !important;
 
-    mix-blend-mode: normal;
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
     min-height: 350px;
   }
 
-  /* FOOTER */
+  /* =====================================================
+     FOOTER
+  ===================================================== */
 
   .footer {
     flex-direction: column;
@@ -1478,76 +1614,169 @@ button {
     padding: 0 6%;
   }
 
+  /* =====================================================
+     PHONE HERO
+  ===================================================== */
+
   .hero {
-    padding-top: 75px;
+    min-height: calc(100vh - 65px);
+
+    padding-top: 65px;
+
+    padding-bottom: 45px;
+  }
+
+  .hero-content {
+    padding-right: 108px;
+  }
+
+  .status-pill {
+    font-size: 0.64rem;
+
+    padding: 8px 10px;
+
+    gap: 7px;
+
+    margin-bottom: 32px;
+
+    max-width: 100%;
+  }
+
+  .status-dot {
+    width: 7px;
+
+    height: 7px;
+
+    flex-shrink: 0;
   }
 
   .hero h1 {
     font-size:
       clamp(
-        3.5rem,
-        18vw,
-        6rem
+        3.2rem,
+        17vw,
+        5.5rem
       );
+
+    line-height: 0.86;
   }
 
   .hero-positioning {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+
+    margin-top: 32px;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.93rem;
+
+    line-height: 1.75;
+
+    margin-top: 18px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .primary-button,
-  .secondary-button {
-    width: 100%;
-  }
+  /* =====================================================
+     PHONE RIGHT PHOTO
+  ===================================================== */
 
   .hero-photo-wrapper {
-    width: 100%;
+    right: 0;
 
-    max-width: 360px;
+    bottom: 30px;
 
-    margin-top: 45px;
+    width: 105px;
+
+    height: 455px;
   }
 
   .hero-photo {
     width: 100%;
 
-    height: 430px;
+    height: 100%;
 
-    filter: none;
-    -webkit-filter: none;
+    object-fit: cover;
 
-    opacity: 1;
+    object-position: center top;
 
-    mix-blend-mode: normal;
+    filter: none !important;
+
+    -webkit-filter: none !important;
+
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
+
+    border: 1px solid #292929;
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        black 88%,
+        transparent 100%
+      );
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        black 88%,
+        transparent 100%
+      );
   }
 
+  /* =====================================================
+     BUTTONS
+  ===================================================== */
+
+  .hero-buttons {
+    width: 100%;
+
+    max-width: none;
+
+    gap: 12px;
+
+    margin-top: 30px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+
+    min-height: 58px;
+
+    padding: 14px 15px;
+
+    font-size: 0.95rem;
+  }
+
+  /* =====================================================
+     STATS
+  ===================================================== */
+
   .hero-stats {
-    gap: 20px;
+    width: 100%;
 
-    justify-content: space-between;
+    gap: 10px;
 
-    margin-top: 50px;
+    margin-top: 55px;
+
+    padding-top: 22px;
   }
 
   .stat strong {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .stat span {
-    font-size: 0.58rem;
+    font-size: 0.55rem;
+
+    letter-spacing: 0.12em;
   }
 
-  /* PROJECTS */
+  /* =====================================================
+     PROJECTS
+  ===================================================== */
 
   .project-card {
     padding: 25px;
@@ -1557,7 +1786,9 @@ button {
     min-height: 260px;
   }
 
-  /* CARDS */
+  /* =====================================================
+     CARDS
+  ===================================================== */
 
   .skill-card,
   .interaction-card,
@@ -1565,37 +1796,45 @@ button {
     padding: 25px;
   }
 
-  /* ABOUT PHOTO */
+  /* =====================================================
+     ABOUT PHOTO
+  ===================================================== */
 
   .about-photo {
     height: 330px;
 
-    filter: none;
-    -webkit-filter: none;
+    filter: none !important;
 
-    opacity: 1;
+    -webkit-filter: none !important;
 
-    mix-blend-mode: normal;
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
   }
 
-  /* VISUAL PHOTOS */
+  /* =====================================================
+     VISUAL PHOTOS
+  ===================================================== */
 
   .visual-photo {
     height: 300px;
 
-    filter: none;
-    -webkit-filter: none;
+    filter: none !important;
 
-    opacity: 1;
+    -webkit-filter: none !important;
 
-    mix-blend-mode: normal;
+    opacity: 1 !important;
+
+    mix-blend-mode: normal !important;
   }
 
   .visual-ai-card {
     min-height: 300px;
   }
 
-  /* SECTION SPACING */
+  /* =====================================================
+     SECTION SPACING
+  ===================================================== */
 
   .section {
     padding: 75px 0;
@@ -1605,13 +1844,17 @@ button {
     margin-bottom: 45px;
   }
 
-  /* PUZZLE */
+  /* =====================================================
+     PUZZLE
+  ===================================================== */
 
   .puzzle-header h3 {
     font-size: 1.6rem;
   }
 
-  /* CONTACT */
+  /* =====================================================
+     CONTACT
+  ===================================================== */
 
   .contact-card {
     padding: 55px 18px;
@@ -1623,16 +1866,62 @@ button {
 
   .social-links a {
     width: 45px;
+
     height: 45px;
   }
 }
 
 /* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-content {
+    padding-right: 92px;
+  }
+
+  .hero-photo-wrapper {
+    width: 90px;
+
+    height: 410px;
+
+    bottom: 25px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-positioning {
+    font-size: 0.7rem;
+  }
+
+  .hero-description {
+    font-size: 0.86rem;
+  }
+
+  .hero-stats {
+    gap: 7px;
+  }
+
+  .stat strong {
+    font-size: 1rem;
+  }
+
+  .stat span {
+    font-size: 0.5rem;
+  }
+}
+
+/* =========================================================
    FINAL PHOTO COLOR PROTECTION
+   NEVER DESATURATE REAL PHOTOS
 ========================================================= */
 
 img {
   filter: none !important;
+
   -webkit-filter: none !important;
 
   opacity: 1 !important;
@@ -1644,6 +1933,7 @@ img {
 .about-photo,
 .visual-photo {
   filter: none !important;
+
   -webkit-filter: none !important;
 
   opacity: 1 !important;
@@ -1653,6 +1943,7 @@ img {
 
 .puzzle-piece {
   filter: none !important;
+
   -webkit-filter: none !important;
 
   mix-blend-mode: normal !important;
@@ -1660,11 +1951,13 @@ img {
 
 .puzzle-piece:hover {
   filter: brightness(1.2) !important;
+
   -webkit-filter: brightness(1.2) !important;
 }
 
 .puzzle-piece.empty {
   filter: none !important;
+
   -webkit-filter: none !important;
 }
 
