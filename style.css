@@ -1610,3 +1610,95 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   FINAL PHOTO COLOR PROTECTION
+   DO NOT REMOVE
+========================================================= */
+
+/*
+   All actual photographs must remain in their
+   original natural colors.
+*/
+
+img,
+.hero-photo,
+.about-photo,
+.visual-photo {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/*
+   Puzzle pieces use the original photo as a
+   background image. Do not desaturate them.
+*/
+
+.puzzle-piece {
+  filter: none !important;
+  -webkit-filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/*
+   Keep the puzzle hover effect subtle without
+   changing the photograph's color.
+*/
+
+.puzzle-piece:hover {
+  filter: brightness(1.2) !important;
+  -webkit-filter: brightness(1.2) !important;
+}
+
+/*
+   Restore the actual visual AI card styling.
+*/
+
+.visual-ai-card {
+  flex: 1;
+  min-height: 450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #333 0%,
+      #161616 45%,
+      #080808 75%
+    );
+
+  color: #888;
+
+  font-size: clamp(2rem, 6vw, 5rem);
+
+  font-weight: 900;
+
+  letter-spacing: -0.06em;
+
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+
+  .visual-ai-card {
+    min-height: 350px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .visual-ai-card {
+    min-height: 300px;
+  }
+
+}
