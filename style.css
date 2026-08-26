@@ -16,6 +16,7 @@
   --max-width: 1200px;
 }
 
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -28,7 +29,6 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--bg);
 }
 
 body {
@@ -174,7 +174,9 @@ button {
 
 .section-number {
   color: #777;
+
   font-size: 0.75rem;
+
   letter-spacing: 0.18em;
 }
 
@@ -184,6 +186,7 @@ button {
   font-size: clamp(2.5rem, 6vw, 5rem);
 
   line-height: 1;
+
   letter-spacing: -0.05em;
 }
 
@@ -215,7 +218,7 @@ button {
 
 
 /* =========================================================
-   HERO BACKGROUND
+   HERO BACKGROUND CIRCLE
 ========================================================= */
 
 .hero::before {
@@ -240,17 +243,10 @@ button {
   pointer-events: none;
 }
 
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
 .hero-content {
   position: relative;
 
-  z-index: 10;
-
-  width: 100%;
+  z-index: 5;
 
   max-width: 850px;
 }
@@ -301,22 +297,17 @@ button {
 
 
 /* =========================================================
-   HERO NAME
-   #9 STYLE — PREMIUM EDITORIAL TYPOGRAPHY
+   HERO TYPOGRAPHY
 ========================================================= */
 
 .hero h1 {
-  margin: 0;
-
   font-size: clamp(4rem, 10vw, 9rem);
 
-  line-height: 0.86;
+  line-height: 0.88;
 
-  letter-spacing: -0.075em;
+  letter-spacing: -0.07em;
 
   font-weight: 900;
-
-  text-transform: uppercase;
 }
 
 .hero h1 span {
@@ -324,12 +315,8 @@ button {
 
   color: transparent;
 
-  -webkit-text-stroke: 1.2px #777;
-  text-stroke: 1.2px #777;
-
-  margin-left: 0.035em;
-
-  letter-spacing: -0.075em;
+  -webkit-text-stroke: 1px #777;
+  text-stroke: 1px #777;
 }
 
 
@@ -338,7 +325,7 @@ button {
 ========================================================= */
 
 .hero-positioning {
-  margin-top: 32px;
+  margin-top: 30px;
 
   font-size: clamp(1rem, 2.2vw, 1.4rem);
 
@@ -403,16 +390,19 @@ button {
 
 .primary-button {
   background: white;
+
   color: black;
 }
 
 .primary-button:hover {
   background: transparent;
+
   color: white;
 }
 
 .secondary-button {
   color: white;
+
   border-color: var(--line);
 }
 
@@ -438,7 +428,7 @@ button {
 
   position: relative;
 
-  z-index: 12;
+  z-index: 8;
 }
 
 .stat {
@@ -461,25 +451,22 @@ button {
 
 
 /* =========================================================
-   HERO PHOTO — DESKTOP
+   HERO PHOTO
+   DESKTOP
 ========================================================= */
 
 .hero-photo-wrapper {
   position: absolute;
 
-  right: 1.5%;
+  right: 3%;
 
   bottom: 0;
 
-  width: min(36vw, 430px);
+  width: min(34vw, 390px);
 
-  height: min(86vh, 680px);
-
-  z-index: 4;
+  z-index: 2;
 
   pointer-events: none;
-
-  overflow: hidden;
 }
 
 .hero-photo {
@@ -487,21 +474,21 @@ button {
 
   width: 100%;
 
-  height: 100%;
+  max-height: 620px;
 
   object-fit: cover;
 
   object-position: center top;
 
   filter:
-    saturate(1.18)
-    contrast(1.04)
-    brightness(1.03) !important;
+    saturate(1.15)
+    contrast(1.03)
+    brightness(1.02) !important;
 
   -webkit-filter:
-    saturate(1.18)
-    contrast(1.04)
-    brightness(1.03) !important;
+    saturate(1.15)
+    contrast(1.03)
+    brightness(1.02) !important;
 
   opacity: 1 !important;
 
@@ -512,14 +499,14 @@ button {
   mask-image:
     linear-gradient(
       to bottom,
-      black 86%,
+      black 88%,
       transparent 100%
     );
 
   -webkit-mask-image:
     linear-gradient(
       to bottom,
-      black 86%,
+      black 88%,
       transparent 100%
     );
 
@@ -549,7 +536,7 @@ button {
 
 
 /* =========================================================
-   ABOUT PHOTO
+   ABOUT PHOTO CARD
 ========================================================= */
 
 .about-card {
@@ -1450,7 +1437,7 @@ button {
   .hero {
     min-height: 1050px;
 
-    padding: 85px 0 0;
+    padding: 75px 0 0;
 
     display: block;
 
@@ -1478,7 +1465,7 @@ button {
 
     position: relative;
 
-    z-index: 10;
+    z-index: 20;
   }
 
 
@@ -1505,9 +1492,9 @@ button {
         6rem
       );
 
-    line-height: 0.86;
+    line-height: 0.87;
 
-    letter-spacing: -0.07em;
+    letter-spacing: -0.065em;
   }
 
   .hero h1 span {
@@ -1558,7 +1545,7 @@ button {
 
     position: relative;
 
-    z-index: 20;
+    z-index: 30;
   }
 
   .primary-button,
@@ -1577,36 +1564,37 @@ button {
 
     position: relative;
 
-    z-index: 25;
+    z-index: 30;
   }
 
 
   /* =======================================================
-     MOBILE HERO PHOTO
+     MOBILE PHOTO
+     RIGHT-SIDE PORTRAIT
   ======================================================= */
 
   .hero-photo-wrapper {
     position: absolute;
 
-    left: 0;
+    top: 430px;
 
     right: 0;
 
-    top: 465px;
+    left: auto;
 
     bottom: auto;
 
-    width: 100%;
+    width: 45%;
 
-    height: 700px;
+    height: 610px;
 
     margin: 0;
 
-    z-index: 3;
-
-    pointer-events: none;
+    z-index: 5;
 
     overflow: hidden;
+
+    pointer-events: none;
   }
 
   .hero-photo {
@@ -1614,13 +1602,13 @@ button {
 
     width: 100%;
 
-    height: 700px;
+    height: 610px;
 
     max-height: none;
 
     object-fit: cover;
 
-    object-position: center 25%;
+    object-position: center 28%;
 
     filter:
       saturate(1.18)
@@ -1642,8 +1630,7 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0,0,0,0.25) 8%,
-        black 18%,
+        black 12%,
         black 82%,
         transparent 100%
       );
@@ -1652,8 +1639,7 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0,0,0,0.25) 8%,
-        black 18%,
+        black 12%,
         black 82%,
         transparent 100%
       );
@@ -1672,10 +1658,9 @@ button {
       linear-gradient(
         to bottom,
         #080808 0%,
-        rgba(8,8,8,0.65) 8%,
-        rgba(8,8,8,0.05) 25%,
-        rgba(8,8,8,0) 60%,
-        rgba(8,8,8,0.25) 80%,
+        rgba(8,8,8,0.45) 10%,
+        rgba(8,8,8,0) 28%,
+        rgba(8,8,8,0) 75%,
         #080808 100%
       );
   }
@@ -1696,13 +1681,13 @@ button {
 
     gap: 15px;
 
-    margin-top: 125px;
+    margin-top: 115px;
 
     padding: 25px 0;
 
     position: relative;
 
-    z-index: 30;
+    z-index: 40;
   }
 
   .stat {
@@ -1872,9 +1857,9 @@ button {
   }
 
   .hero-content {
-    width: calc(100% - 50px);
+    width: calc(100% - 70px);
 
-    margin-left: 25px;
+    margin-left: 35px;
   }
 
 
@@ -1898,20 +1883,16 @@ button {
   .hero h1 {
     font-size:
       clamp(
-        3.15rem,
+        3.2rem,
         16vw,
         5.5rem
       );
 
-    line-height: 0.85;
-
-    letter-spacing: -0.075em;
+    line-height: 0.86;
   }
 
   .hero h1 span {
     -webkit-text-stroke: 1px #777;
-
-    margin-left: 0.04em;
   }
 
 
@@ -1964,33 +1945,34 @@ button {
 
 
   /* =======================================================
-     LARGE MOBILE PHOTO
+     MOBILE PORTRAIT
+     IMPORTANT: NEVER 100% WIDTH
   ======================================================= */
 
   .hero-photo-wrapper {
-    left: 0;
+    top: 430px;
 
     right: 0;
 
-    top: 455px;
+    left: auto;
 
-    width: 100%;
+    width: 45%;
 
-    height: 670px;
+    height: 610px;
 
     overflow: hidden;
 
-    z-index: 3;
+    z-index: 5;
   }
 
   .hero-photo {
     width: 100%;
 
-    height: 670px;
+    height: 610px;
 
     object-fit: cover;
 
-    object-position: center 25%;
+    object-position: center 28%;
 
     filter:
       saturate(1.18)
@@ -2012,8 +1994,8 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 15%,
-        black 83%,
+        black 12%,
+        black 82%,
         transparent 100%
       );
 
@@ -2021,8 +2003,8 @@ button {
       linear-gradient(
         to bottom,
         transparent 0%,
-        black 15%,
-        black 83%,
+        black 12%,
+        black 82%,
         transparent 100%
       );
   }
@@ -2032,10 +2014,9 @@ button {
       linear-gradient(
         to bottom,
         #080808 0%,
-        rgba(8,8,8,0.72) 9%,
-        rgba(8,8,8,0.08) 24%,
-        rgba(8,8,8,0) 55%,
-        rgba(8,8,8,0.2) 80%,
+        rgba(8,8,8,0.45) 10%,
+        rgba(8,8,8,0) 28%,
+        rgba(8,8,8,0) 75%,
         #080808 100%
       );
   }
@@ -2046,9 +2027,9 @@ button {
   ======================================================= */
 
   .hero-stats {
-    width: calc(100% - 50px);
+    width: calc(100% - 70px);
 
-    margin-left: 25px;
+    margin-left: 35px;
 
     margin-top: 115px;
 
@@ -2058,7 +2039,7 @@ button {
 
     position: relative;
 
-    z-index: 30;
+    z-index: 50;
   }
 
   .stat {
@@ -2212,26 +2193,32 @@ button {
 
   .hero h1 {
     font-size: 3rem;
-
-    letter-spacing: -0.07em;
   }
 
   .hero-description {
     font-size: 0.84rem;
   }
 
-  .hero-photo-wrapper {
-    top: 450px;
+  /* Keep portrait on right even on small phones */
 
-    height: 650px;
+  .hero-photo-wrapper {
+    top: 440px;
+
+    right: 0;
+
+    left: auto;
+
+    width: 45%;
+
+    height: 590px;
   }
 
   .hero-photo {
     width: 100%;
 
-    height: 650px;
+    height: 590px;
 
-    object-position: center 25%;
+    object-position: center 28%;
   }
 
   .hero-stats {
