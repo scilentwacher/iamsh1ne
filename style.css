@@ -377,7 +377,6 @@ button {
 
 /* =========================================================
    HERO PHOTO
-   NATURAL ORIGINAL COLORS
 ========================================================= */
 
 .hero-photo-wrapper {
@@ -1630,13 +1629,7 @@ button {
 
 /* =========================================================
    FINAL PHOTO COLOR PROTECTION
-   IMPORTANT
 ========================================================= */
-
-/*
-   Protect all real image elements from accidental
-   grayscale, desaturation, opacity or blend effects.
-*/
 
 img {
   filter: none !important;
