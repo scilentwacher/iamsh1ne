@@ -42,6 +42,10 @@ button {
   font: inherit;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header {
   position: sticky;
   top: 0;
@@ -86,6 +90,10 @@ button {
   color: white;
 }
 
+/* =========================
+   MENU BUTTON
+========================= */
+
 .menu-button {
   display: none;
   width: 42px;
@@ -101,16 +109,35 @@ button {
   height: 2px;
   background: white;
   margin: 5px 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
+
+/* =========================
+   MOBILE MENU
+========================= */
 
 .mobile-menu {
   display: none;
 }
 
+.mobile-menu.active {
+  display: block;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
 .section-grid {
   width: min(var(--max-width), 90%);
   margin: auto;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
   min-height: calc(100vh - 76px);
@@ -247,6 +274,10 @@ button {
   letter-spacing: 0.15em;
 }
 
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
   padding: 130px 0;
   border-top: 1px solid var(--line);
@@ -275,6 +306,10 @@ button {
   max-width: 600px;
 }
 
+/* =========================
+   ABOUT
+========================= */
+
 .about {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -288,7 +323,12 @@ button {
 .about-card {
   min-height: 400px;
   background:
-    radial-gradient(circle at center, #222 0, #111 40%, #090909 75%);
+    radial-gradient(
+      circle at center,
+      #222 0,
+      #111 40%,
+      #090909 75%
+    );
   border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
@@ -361,6 +401,10 @@ button {
   max-width: 650px;
 }
 
+/* =========================
+   SKILLS
+========================= */
+
 .skills-grid,
 .projects-grid {
   display: grid;
@@ -404,6 +448,10 @@ button {
   color: #999;
 }
 
+/* =========================
+   PROJECTS
+========================= */
+
 .project-card {
   min-height: 300px;
   display: flex;
@@ -440,6 +488,10 @@ button {
   color: #666;
   border-bottom: none;
 }
+
+/* =========================
+   JOURNEY
+========================= */
 
 .timeline {
   max-width: 850px;
@@ -480,6 +532,10 @@ button {
   color: #999;
 }
 
+/* =========================
+   CONTACT
+========================= */
+
 .contact {
   padding-bottom: 80px;
 }
@@ -489,7 +545,11 @@ button {
   padding: 90px 30px;
   border: 1px solid var(--line);
   background:
-    radial-gradient(circle at center, #1c1c1c, #0c0c0c 60%);
+    radial-gradient(
+      circle at center,
+      #1c1c1c,
+      #0c0c0c 60%
+    );
 }
 
 .contact-card h2 {
@@ -541,6 +601,10 @@ button {
   border-color: white;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .footer {
   border-top: 1px solid var(--line);
   padding: 35px 5%;
@@ -590,6 +654,10 @@ button {
     padding: 20px;
   }
 
+  .mobile-menu.active {
+    display: block;
+  }
+
   .mobile-menu a {
     display: block;
     padding: 15px 10px;
@@ -599,6 +667,20 @@ button {
 
   .mobile-menu a:hover {
     color: white;
+  }
+
+  /* Menu button animation */
+
+  .menu-button.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-button.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-button.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .hero {
@@ -665,4 +747,13 @@ button {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* =========================
+   HEADER SCROLL EFFECT
+========================= */
+
+.header.scrolled {
+  background: rgba(8, 8, 8, 0.96);
+  border-bottom-color: #3a3a3a;
 }
