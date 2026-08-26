@@ -1,5 +1,6 @@
 /* =========================================================
-   SHINE R MATHEW — PORTFOLIO JAVASCRIPT
+   SHINE PORTFOLIO
+   JAVASCRIPT
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -19,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
      MOBILE MENU
   ======================================================= */
 
-  const menuButton = document.querySelector(".menu-button");
-  const mobileMenu = document.querySelector(".mobile-menu");
+  const menuButton = document.getElementById("menuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
 
   if (menuButton && mobileMenu) {
 
@@ -29,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenu.classList.toggle("active");
       menuButton.classList.toggle("active");
 
-      const isOpen =
-        mobileMenu.classList.contains("active");
+      const isOpen = mobileMenu.classList.contains("active");
 
       menuButton.setAttribute(
         "aria-expanded",
@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    const mobileLinks =
-      mobileMenu.querySelectorAll("a");
+    /* Close mobile menu after clicking a link */
+
+    const mobileLinks = mobileMenu.querySelectorAll("a");
 
     mobileLinks.forEach(function (link) {
 
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =======================================================
-     SMOOTH SCROLL
+     SMOOTH SCROLLING
   ======================================================= */
 
   const navigationLinks =
@@ -73,8 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     link.addEventListener("click", function (event) {
 
-      const targetId =
-        this.getAttribute("href");
+      const targetId = this.getAttribute("href");
 
       if (!targetId || targetId === "#") {
         return;
@@ -97,6 +97,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   });
+
+
+  /* =======================================================
+     MENU BUTTON ANIMATION
+  ======================================================= */
+
+  const menuStyle = document.createElement("style");
+
+  menuStyle.textContent = `
+    
+    .menu-button span {
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    .menu-button.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+  `;
+
+  document.head.appendChild(menuStyle);
 
 
   /* =======================================================
@@ -132,546 +163,378 @@ document.addEventListener("DOMContentLoaded", function () {
      4 × 4 PHOTO PUZZLE
   ======================================================= */
 
-  const puzzle =
-    document.querySelector(".puzzle-container");
+  const puzzleBoard =
+    document.getElementById("puzzleBoard");
 
-  if (!puzzle) {
-    return;
-  }
-
-
-  /* -------------------------------------------------------
-     PUZZLE SETTINGS
-  ------------------------------------------------------- */
-
-  const GRID_SIZE = 4;
-  const TOTAL_TILES = GRID_SIZE * GRID_SIZE;
-
-  /*
-     Change this if you want another photo.
-
-     Your current photos should be:
-
-     images/photo-1.jpg
-     images/photo-2.jpg
-     images/photo-3.jpg
-  */
-
-  const puzzleImage =
-    "images/photo-1.jpg";
-
-
-  /* -------------------------------------------------------
-     PUZZLE VARIABLES
-  ------------------------------------------------------- */
-
-  let tiles = [];
-  let emptyIndex = TOTAL_TILES - 1;
-
-  let moves = 0;
-  let seconds = 0;
-
-  let timerInterval = null;
-  let puzzleStarted = false;
-  let puzzleSolved = false;
-
-
-  /* =======================================================
-     FIND PUZZLE UI ELEMENTS
-  ======================================================= */
-
-  const movesElement =
-    document.querySelector("#puzzleMoves");
-
-  const timerElement =
-    document.querySelector("#puzzleTimer");
+  const puzzleMovesElement =
+    document.getElementById("puzzleMoves");
 
   const shuffleButton =
-    document.querySelector("#shufflePuzzle");
+    document.getElementById("shufflePuzzle");
 
   const skipButton =
-    document.querySelector("#skipPuzzle");
+    document.getElementById("skipPuzzle");
 
 
-  /* =======================================================
-     FORMAT TIMER
-  ======================================================= */
+  if (
+    puzzleBoard &&
+    puzzleMovesElement &&
+    shuffleButton &&
+    skipButton
+  ) {
 
-  function formatTime(totalSeconds) {
+    const GRID_SIZE = 4;
+    const TOTAL_TILES = 16;
 
-    const minutes =
-      Math.floor(totalSeconds / 60);
-
-    const secs =
-      totalSeconds % 60;
-
-    return (
-      String(minutes).padStart(2, "0") +
-      ":" +
-      String(secs).padStart(2, "0")
-    );
-
-  }
+    let tiles = [];
+    let moves = 0;
+    let puzzleSolved = false;
 
 
-  /* =======================================================
-     UPDATE PUZZLE STATS
-  ======================================================= */
+    /* =====================================================
+       CREATE PUZZLE
+    ===================================================== */
 
-  function updateStats() {
+    function createPuzzle() {
 
-    if (movesElement) {
-      movesElement.textContent = moves;
-    }
+      tiles = [];
 
-    if (timerElement) {
-      timerElement.textContent =
-        formatTime(seconds);
-    }
+      for (let i = 0; i < TOTAL_TILES - 1; i++) {
+        tiles.push(i);
+      }
 
-  }
+      /* Empty space */
 
+      tiles.push(null);
 
-  /* =======================================================
-     START TIMER
-  ======================================================= */
+      moves = 0;
+      puzzleSolved = false;
 
-  function startTimer() {
+      updateMoves();
 
-    if (timerInterval) {
-      return;
-    }
-
-    timerInterval =
-      setInterval(function () {
-
-        seconds++;
-
-        updateStats();
-
-      }, 1000);
-
-  }
-
-
-  /* =======================================================
-     STOP TIMER
-  ======================================================= */
-
-  function stopTimer() {
-
-    if (timerInterval) {
-
-      clearInterval(timerInterval);
-
-      timerInterval = null;
+      shufflePuzzle();
 
     }
 
-  }
 
+    /* =====================================================
+       UPDATE MOVE COUNTER
+    ===================================================== */
 
-  /* =======================================================
-     CREATE SOLVED PUZZLE
-  ======================================================= */
+    function updateMoves() {
 
-  function createSolvedPuzzle() {
-
-    tiles = [];
-
-    for (
-      let i = 0;
-      i < TOTAL_TILES - 1;
-      i++
-    ) {
-
-      tiles.push(i);
+      puzzleMovesElement.textContent = moves;
 
     }
 
-    /*
-       Last position is empty.
-    */
 
-    tiles.push(null);
+    /* =====================================================
+       CHECK IF TWO TILES CAN MOVE
+    ===================================================== */
 
-    emptyIndex =
-      TOTAL_TILES - 1;
+    function isAdjacent(tileIndex, emptyIndex) {
 
-  }
+      const tileRow =
+        Math.floor(tileIndex / GRID_SIZE);
 
+      const tileColumn =
+        tileIndex % GRID_SIZE;
 
-  /* =======================================================
-     GET VALID MOVES
-  ======================================================= */
+      const emptyRow =
+        Math.floor(emptyIndex / GRID_SIZE);
 
-  function getValidMoves(index) {
-
-    const validMoves = [];
-
-    const row =
-      Math.floor(index / GRID_SIZE);
-
-    const column =
-      index % GRID_SIZE;
+      const emptyColumn =
+        emptyIndex % GRID_SIZE;
 
 
-    /* UP */
+      const rowDifference =
+        Math.abs(tileRow - emptyRow);
 
-    if (row > 0) {
-      validMoves.push(
-        index - GRID_SIZE
+      const columnDifference =
+        Math.abs(tileColumn - emptyColumn);
+
+
+      return (
+        rowDifference + columnDifference === 1
       );
+
     }
 
 
-    /* DOWN */
+    /* =====================================================
+       MOVE TILE
+    ===================================================== */
 
-    if (row < GRID_SIZE - 1) {
-      validMoves.push(
-        index + GRID_SIZE
-      );
+    function moveTile(tileIndex) {
+
+      if (puzzleSolved) {
+        return;
+      }
+
+      const emptyIndex =
+        tiles.indexOf(null);
+
+
+      if (!isAdjacent(tileIndex, emptyIndex)) {
+        return;
+      }
+
+
+      /* Swap tile with empty space */
+
+      const temporary =
+        tiles[tileIndex];
+
+      tiles[tileIndex] =
+        tiles[emptyIndex];
+
+      tiles[emptyIndex] =
+        temporary;
+
+
+      moves++;
+
+      updateMoves();
+
+      renderPuzzle();
+
+      checkSolved();
+
     }
 
 
-    /* LEFT */
+    /* =====================================================
+       RENDER PUZZLE
+    ===================================================== */
 
-    if (column > 0) {
-      validMoves.push(
-        index - 1
-      );
+    function renderPuzzle() {
+
+      puzzleBoard.innerHTML = "";
+
+
+      tiles.forEach(function (tile, index) {
+
+        const tileElement =
+          document.createElement("button");
+
+        tileElement.type = "button";
+
+        tileElement.className =
+          "puzzle-tile";
+
+
+        /* Empty tile */
+
+        if (tile === null) {
+
+          tileElement.classList.add(
+            "puzzle-empty"
+          );
+
+          tileElement.setAttribute(
+            "aria-label",
+            "Empty space"
+          );
+
+        }
+
+
+        /* Image tile */
+
+        else {
+
+          const row =
+            Math.floor(tile / GRID_SIZE);
+
+          const column =
+            tile % GRID_SIZE;
+
+
+          tileElement.style.backgroundImage =
+            'url("images/photo-1.jpg")';
+
+
+          tileElement.style.backgroundSize =
+            `${GRID_SIZE * 100}% ${GRID_SIZE * 100}%`;
+
+
+          tileElement.style.backgroundPosition =
+            `${(column / (GRID_SIZE - 1)) * 100}% ${(row / (GRID_SIZE - 1)) * 100}%`;
+
+
+          tileElement.setAttribute(
+            "aria-label",
+            `Puzzle piece ${tile + 1}`
+          );
+
+
+          tileElement.addEventListener(
+            "click",
+            function () {
+              moveTile(index);
+            }
+          );
+
+        }
+
+
+        puzzleBoard.appendChild(
+          tileElement
+        );
+
+      });
+
     }
 
 
-    /* RIGHT */
+    /* =====================================================
+       SHUFFLE PUZZLE
+    ===================================================== */
 
-    if (column < GRID_SIZE - 1) {
-      validMoves.push(
-        index + 1
-      );
-    }
+    function shufflePuzzle() {
 
+      puzzleSolved = false;
 
-    return validMoves;
+      /*
+        Start from solved state and make many
+        valid random moves.
 
-  }
+        This guarantees the puzzle remains solvable.
+      */
 
+      tiles = [];
 
-  /* =======================================================
-     SHUFFLE PUZZLE
-  ======================================================= */
+      for (let i = 0; i < TOTAL_TILES - 1; i++) {
+        tiles.push(i);
+      }
 
-  function shufflePuzzle() {
-
-    createSolvedPuzzle();
-
-    /*
-       Use actual legal puzzle movements
-       so the puzzle remains solvable.
-    */
-
-    let previousEmpty =
-      -1;
-
-    const shuffleMoves = 250;
-
-    for (
-      let i = 0;
-      i < shuffleMoves;
-      i++
-    ) {
-
-      const possibleMoves =
-        getValidMoves(emptyIndex)
-          .filter(function (index) {
-            return index !== previousEmpty;
-          });
+      tiles.push(null);
 
 
-      const randomIndex =
-        possibleMoves[
+      let emptyIndex =
+        tiles.indexOf(null);
+
+
+      let previousIndex = -1;
+
+
+      for (let i = 0; i < 250; i++) {
+
+        const possibleMoves = [];
+
+
+        for (
+          let tileIndex = 0;
+          tileIndex < TOTAL_TILES;
+          tileIndex++
+        ) {
+
+          if (
+            tileIndex !== emptyIndex &&
+            tileIndex !== previousIndex &&
+            isAdjacent(
+              tileIndex,
+              emptyIndex
+            )
+          ) {
+
+            possibleMoves.push(
+              tileIndex
+            );
+
+          }
+
+        }
+
+
+        if (possibleMoves.length === 0) {
+          continue;
+        }
+
+
+        const randomIndex =
           Math.floor(
             Math.random() *
             possibleMoves.length
-          )
-        ];
+          );
 
 
-      /*
-         Swap tile with empty space.
-      */
-
-      tiles[emptyIndex] =
-        tiles[randomIndex];
-
-      tiles[randomIndex] =
-        null;
+        const selectedTile =
+          possibleMoves[randomIndex];
 
 
-      previousEmpty =
-        emptyIndex;
+        const temporary =
+          tiles[selectedTile];
 
-      emptyIndex =
-        randomIndex;
+        tiles[selectedTile] =
+          tiles[emptyIndex];
 
-    }
-
-
-    /*
-       Reset game.
-    */
-
-    moves = 0;
-    seconds = 0;
-
-    puzzleStarted = false;
-    puzzleSolved = false;
-
-    stopTimer();
-
-    updateStats();
-
-    renderPuzzle();
-
-  }
+        tiles[emptyIndex] =
+          temporary;
 
 
-  /* =======================================================
-     RENDER PUZZLE
-  ======================================================= */
+        previousIndex =
+          emptyIndex;
 
-  function renderPuzzle() {
-
-    puzzle.innerHTML = "";
-
-
-    tiles.forEach(function (
-      tile,
-      index
-    ) {
-
-      const piece =
-        document.createElement("button");
-
-      piece.className =
-        "puzzle-piece";
-
-
-      /*
-         Empty square.
-      */
-
-      if (tile === null) {
-
-        piece.classList.add("empty");
-
-        piece.setAttribute(
-          "aria-label",
-          "Empty puzzle space"
-        );
+        emptyIndex =
+          selectedTile;
 
       }
 
 
-      /*
-         Image tile.
-      */
+      moves = 0;
 
-      else {
+      updateMoves();
 
-        const row =
-          Math.floor(tile / GRID_SIZE);
+      renderPuzzle();
 
-        const column =
-          tile % GRID_SIZE;
+    }
 
 
-        piece.style.backgroundImage =
-          `url("${puzzleImage}")`;
+    /* =====================================================
+       CHECK SOLVED
+    ===================================================== */
 
+    function checkSolved() {
 
-        /*
-           Position the correct portion
-           of the original image.
-        */
+      for (
+        let i = 0;
+        i < TOTAL_TILES - 1;
+        i++
+      ) {
 
-        piece.style.backgroundPosition =
-          `${(column / (GRID_SIZE - 1)) * 100}% ` +
-          `${(row / (GRID_SIZE - 1)) * 100}%`;
-
-
-        piece.setAttribute(
-          "aria-label",
-          `Puzzle piece ${tile + 1}`
-        );
-
-
-        piece.addEventListener(
-          "click",
-          function () {
-
-            moveTile(index);
-
-          }
-        );
+        if (tiles[i] !== i) {
+          return;
+        }
 
       }
 
 
-      puzzle.appendChild(piece);
-
-    });
-
-  }
-
-
-  /* =======================================================
-     MOVE TILE
-  ======================================================= */
-
-  function moveTile(index) {
-
-    if (puzzleSolved) {
-      return;
-    }
-
-
-    const validMoves =
-      getValidMoves(emptyIndex);
-
-
-    /*
-       Tile can move only if it is
-       directly beside empty space.
-    */
-
-    if (!validMoves.includes(index)) {
-      return;
-    }
-
-
-    /*
-       Start timer on first move.
-    */
-
-    if (!puzzleStarted) {
-
-      puzzleStarted = true;
-
-      startTimer();
-
-    }
-
-
-    /*
-       Swap.
-    */
-
-    tiles[emptyIndex] =
-      tiles[index];
-
-    tiles[index] =
-      null;
-
-
-    emptyIndex =
-      index;
-
-
-    moves++;
-
-    updateStats();
-
-    renderPuzzle();
-
-
-    /*
-       Check solution.
-    */
-
-    checkSolved();
-
-  }
-
-
-  /* =======================================================
-     CHECK IF PUZZLE IS SOLVED
-  ======================================================= */
-
-  function checkSolved() {
-
-    for (
-      let i = 0;
-      i < TOTAL_TILES - 1;
-      i++
-    ) {
-
-      if (tiles[i] !== i) {
-        return false;
+      if (tiles[TOTAL_TILES - 1] !== null) {
+        return;
       }
 
-    }
+
+      puzzleSolved = true;
 
 
-    if (tiles[TOTAL_TILES - 1] !== null) {
-      return false;
-    }
+      setTimeout(function () {
 
+        alert(
+          "🎉 Puzzle solved!\n\n" +
+          "You rebuilt the photo in " +
+          moves +
+          " moves."
+        );
 
-    puzzleSolved = true;
-
-    stopTimer();
-
-    showPuzzleSuccess();
-
-    return true;
-
-  }
-
-
-  /* =======================================================
-     PUZZLE SUCCESS
-  ======================================================= */
-
-  function showPuzzleSuccess() {
-
-    const message =
-      document.querySelector(
-        "#puzzleMessage"
-      );
-
-    if (message) {
-
-      message.textContent =
-        "✓ Puzzle solved — you found the photo!";
-
-      message.style.color =
-        "white";
+      }, 150);
 
     }
 
-    /*
-       Small visual effect.
-    */
 
-    puzzle.style.transform =
-      "scale(1.015)";
-
-    setTimeout(function () {
-
-      puzzle.style.transform =
-        "scale(1)";
-
-    }, 250);
-
-  }
-
-
-  /* =======================================================
-     SHUFFLE BUTTON
-  ======================================================= */
-
-  if (shuffleButton) {
+    /* =====================================================
+       SHUFFLE AGAIN BUTTON
+    ===================================================== */
 
     shuffleButton.addEventListener(
       "click",
@@ -682,81 +545,74 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
-  }
 
-
-  /* =======================================================
-     SKIP PUZZLE
-  ======================================================= */
-
-  if (skipButton) {
+    /* =====================================================
+       SKIP PUZZLE
+    ===================================================== */
 
     skipButton.addEventListener(
       "click",
       function () {
 
-        stopTimer();
-
         puzzleSolved = true;
 
-        /*
-           Show complete image.
-        */
+        puzzleBoard.innerHTML = "";
 
-        puzzle.innerHTML = "";
+        const skippedMessage =
+          document.createElement("div");
 
-        const image =
-          document.createElement("img");
+        skippedMessage.className =
+          "puzzle-skipped";
 
-        image.src =
-          puzzleImage;
+        skippedMessage.innerHTML = `
+          <div>
+            <strong>Puzzle skipped.</strong>
+            <br>
+            <span>You can try it anytime.</span>
+          </div>
+        `;
 
-        image.alt =
-          "Shine R Mathew";
-
-        image.style.width =
-          "100%";
-
-        image.style.height =
-          "100%";
-
-        image.style.objectFit =
-          "cover";
-
-        image.style.gridColumn =
-          "1 / -1";
-
-        image.style.gridRow =
-          "1 / -1";
-
-        puzzle.appendChild(image);
-
-
-        const message =
-          document.querySelector(
-            "#puzzleMessage"
-          );
-
-        if (message) {
-
-          message.textContent =
-            "Puzzle skipped — here's the complete photo.";
-
-          message.style.color =
-            "#aaa";
-
-        }
+        puzzleBoard.appendChild(
+          skippedMessage
+        );
 
       }
     );
+
+
+    /* =====================================================
+       START PUZZLE
+    ===================================================== */
+
+    createPuzzle();
 
   }
 
 
   /* =======================================================
-     INITIALIZE PUZZLE
+     IMAGE ERROR HANDLING
   ======================================================= */
 
-  shufflePuzzle();
+  const portfolioImages =
+    document.querySelectorAll(
+      "img[src^='images/']"
+    );
+
+
+  portfolioImages.forEach(function (image) {
+
+    image.addEventListener(
+      "error",
+      function () {
+
+        console.warn(
+          "Could not load image:",
+          image.getAttribute("src")
+        );
+
+      }
+    );
+
+  });
 
 });
