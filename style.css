@@ -1,7 +1,7 @@
 /* =========================================================
    SHINE PORTFOLIO
    COMPLETE MAIN STYLESHEET
-   COLOR PHOTO VERSION
+   PREMIUM DARK EDITORIAL + NATURAL COLOR PHOTOS
 ========================================================= */
 
 :root {
@@ -376,30 +376,37 @@ button {
 }
 
 /* =========================================================
-   HERO PHOTO — FULL COLOR
+   HERO PHOTO
+   NATURAL ORIGINAL COLORS
 ========================================================= */
 
-.hero-photo {
+.hero-photo-wrapper {
   position: absolute;
-
-  z-index: 2;
-
   right: 3%;
   bottom: 0;
 
   width: min(34vw, 390px);
 
+  z-index: 2;
+}
+
+.hero-photo {
+  display: block;
+
+  width: 100%;
   max-height: 620px;
 
   object-fit: cover;
   object-position: center top;
 
-  /* FULL COLOR */
   filter: none;
-
-  border: 1px solid #333;
+  -webkit-filter: none;
 
   opacity: 1;
+
+  mix-blend-mode: normal;
+
+  border: 1px solid #333;
 
   mask-image:
     linear-gradient(
@@ -415,9 +422,7 @@ button {
       transparent 100%
     );
 
-  transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .hero-photo:hover {
@@ -469,22 +474,25 @@ button {
 }
 
 .about-photo {
+  display: block;
+
   width: 100%;
   height: 390px;
 
   object-fit: cover;
   object-position: center;
 
-  /* FULL COLOR */
   filter: none;
+  -webkit-filter: none;
 
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
+  opacity: 1;
+
+  mix-blend-mode: normal;
+
+  transition: transform 0.5s ease;
 }
 
 .about-card:hover .about-photo {
-  filter: none;
   transform: scale(1.03);
 }
 
@@ -727,6 +735,11 @@ button {
 
   background-repeat: no-repeat;
 
+  filter: none;
+  -webkit-filter: none;
+
+  mix-blend-mode: normal;
+
   transition:
     transform 0.15s ease,
     filter 0.15s ease;
@@ -734,12 +747,16 @@ button {
 
 .puzzle-piece:hover {
   filter: brightness(1.2);
+  -webkit-filter: brightness(1.2);
 }
 
 .puzzle-piece.empty {
   background: #111 !important;
 
   cursor: default;
+
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 .puzzle-controls {
@@ -969,10 +986,6 @@ button {
   flex-direction: column;
 }
 
-/* =========================================================
-   VISUAL PHOTO — FULL COLOR
-========================================================= */
-
 .visual-photo {
   width: 100%;
 
@@ -982,19 +995,19 @@ button {
 
   object-position: center;
 
-  /* FULL COLOR */
-  filter: none;
-
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
-
   display: block;
+
+  filter: none;
+  -webkit-filter: none;
+
+  opacity: 1;
+
+  mix-blend-mode: normal;
+
+  transition: transform 0.5s ease;
 }
 
 .visual-photo-card:hover .visual-photo {
-  filter: none;
-
   transform: scale(1.03);
 }
 
@@ -1020,12 +1033,10 @@ button {
    AI IDEAS VISUAL CARD
 ========================================================= */
 
-.visual-photo-card .visual-photo[style] {
+.visual-ai-card {
   flex: 1;
 
   min-height: 450px;
-
-  height: 450px;
 
   display: flex;
 
@@ -1043,11 +1054,11 @@ button {
       #333 0%,
       #161616 45%,
       #080808 75%
-    ) !important;
+    );
 
-  color: #888 !important;
+  color: #888;
 
-  font-size: clamp(2rem, 6vw, 5rem) !important;
+  font-size: clamp(2rem, 6vw, 5rem);
 
   font-weight: 900;
 
@@ -1244,7 +1255,7 @@ button {
 }
 
 /* =========================================================
-   MOBILE — TABLET
+   TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1311,7 +1322,7 @@ button {
     right: -180px;
   }
 
-  .hero-photo {
+  .hero-photo-wrapper {
     position: relative;
 
     right: auto;
@@ -1320,19 +1331,28 @@ button {
 
     width: min(100%, 360px);
 
-    height: 420px;
-
     margin: 50px auto 0;
 
     display: block;
+  }
+
+  .hero-photo {
+    width: 100%;
+
+    height: 420px;
+
+    max-height: none;
 
     object-fit: cover;
 
     object-position: center top;
 
     filter: none;
+    -webkit-filter: none;
 
     opacity: 1;
+
+    mix-blend-mode: normal;
 
     mask-image:
       linear-gradient(
@@ -1427,12 +1447,15 @@ button {
     height: 350px;
 
     filter: none;
+    -webkit-filter: none;
+
+    opacity: 1;
+
+    mix-blend-mode: normal;
   }
 
-  .visual-photo-card .visual-photo[style] {
+  .visual-ai-card {
     min-height: 350px;
-
-    height: 350px;
   }
 
   /* FOOTER */
@@ -1445,7 +1468,7 @@ button {
 }
 
 /* =========================================================
-   MOBILE — PHONE
+   PHONE
 ========================================================= */
 
 @media (max-width: 500px) {
@@ -1488,16 +1511,25 @@ button {
     width: 100%;
   }
 
-  .hero-photo {
+  .hero-photo-wrapper {
     width: 100%;
 
     max-width: 360px;
 
+    margin-top: 45px;
+  }
+
+  .hero-photo {
+    width: 100%;
+
     height: 430px;
 
-    margin-top: 45px;
-
     filter: none;
+    -webkit-filter: none;
+
+    opacity: 1;
+
+    mix-blend-mode: normal;
   }
 
   .hero-stats {
@@ -1540,6 +1572,11 @@ button {
     height: 330px;
 
     filter: none;
+    -webkit-filter: none;
+
+    opacity: 1;
+
+    mix-blend-mode: normal;
   }
 
   /* VISUAL PHOTOS */
@@ -1548,12 +1585,15 @@ button {
     height: 300px;
 
     filter: none;
+    -webkit-filter: none;
+
+    opacity: 1;
+
+    mix-blend-mode: normal;
   }
 
-  .visual-photo-card .visual-photo[style] {
+  .visual-ai-card {
     min-height: 300px;
-
-    height: 300px;
   }
 
   /* SECTION SPACING */
@@ -1589,6 +1629,53 @@ button {
 }
 
 /* =========================================================
+   FINAL PHOTO COLOR PROTECTION
+   IMPORTANT
+========================================================= */
+
+/*
+   Protect all real image elements from accidental
+   grayscale, desaturation, opacity or blend effects.
+*/
+
+img {
+  filter: none !important;
+  -webkit-filter: none !important;
+
+  opacity: 1 !important;
+
+  mix-blend-mode: normal !important;
+}
+
+.hero-photo,
+.about-photo,
+.visual-photo {
+  filter: none !important;
+  -webkit-filter: none !important;
+
+  opacity: 1 !important;
+
+  mix-blend-mode: normal !important;
+}
+
+.puzzle-piece {
+  filter: none !important;
+  -webkit-filter: none !important;
+
+  mix-blend-mode: normal !important;
+}
+
+.puzzle-piece:hover {
+  filter: brightness(1.2) !important;
+  -webkit-filter: brightness(1.2) !important;
+}
+
+.puzzle-piece.empty {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* =========================================================
    ACCESSIBILITY
 ========================================================= */
 
@@ -1609,96 +1696,4 @@ button {
 
     scroll-behavior: auto !important;
   }
-}
-
-/* =========================================================
-   FINAL PHOTO COLOR PROTECTION
-   DO NOT REMOVE
-========================================================= */
-
-/*
-   All actual photographs must remain in their
-   original natural colors.
-*/
-
-img,
-.hero-photo,
-.about-photo,
-.visual-photo {
-  filter: none !important;
-  -webkit-filter: none !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-}
-
-/*
-   Puzzle pieces use the original photo as a
-   background image. Do not desaturate them.
-*/
-
-.puzzle-piece {
-  filter: none !important;
-  -webkit-filter: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/*
-   Keep the puzzle hover effect subtle without
-   changing the photograph's color.
-*/
-
-.puzzle-piece:hover {
-  filter: brightness(1.2) !important;
-  -webkit-filter: brightness(1.2) !important;
-}
-
-/*
-   Restore the actual visual AI card styling.
-*/
-
-.visual-ai-card {
-  flex: 1;
-  min-height: 450px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #333 0%,
-      #161616 45%,
-      #080808 75%
-    );
-
-  color: #888;
-
-  font-size: clamp(2rem, 6vw, 5rem);
-
-  font-weight: 900;
-
-  letter-spacing: -0.06em;
-
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-
-  .visual-ai-card {
-    min-height: 350px;
-  }
-
-}
-
-@media (max-width: 500px) {
-
-  .visual-ai-card {
-    min-height: 300px;
-  }
-
 }
