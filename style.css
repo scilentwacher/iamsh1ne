@@ -1,8 +1,7 @@
 /* =========================================================
    SHINE PORTFOLIO
-   COMPLETE MAIN STYLESHEET
    PREMIUM DARK EDITORIAL
-   HERO PHOTO = COLOR + RIGHT SIDE ON MOBILE
+   HERO PHOTO = FULL COLOR + RIGHT SIDE
 ========================================================= */
 
 :root {
@@ -39,6 +38,10 @@ body {
   overflow-x: hidden;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -66,7 +69,7 @@ button {
 
   padding: 0 5%;
 
-  background: rgba(8, 8, 8, 0.9);
+  background: rgba(8, 8, 8, 0.92);
 
   border-bottom: 1px solid var(--line);
 
@@ -75,7 +78,7 @@ button {
 }
 
 .header.scrolled {
-  background: rgba(5, 5, 5, 0.97);
+  background: rgba(5, 5, 5, 0.98);
 }
 
 .logo,
@@ -90,6 +93,8 @@ button {
   color: #777;
 }
 
+/* Desktop navigation */
+
 .desktop-nav {
   display: flex;
   gap: 24px;
@@ -97,19 +102,17 @@ button {
 
 .desktop-nav a {
   color: #999;
-
   font-size: 0.76rem;
-
   text-transform: uppercase;
-
   letter-spacing: 0.08em;
-
   transition: 0.3s ease;
 }
 
 .desktop-nav a:hover {
   color: white;
 }
+
+/* Hamburger */
 
 .menu-button {
   display: none;
@@ -150,6 +153,8 @@ button {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Mobile menu */
+
 .mobile-menu {
   display: none;
 }
@@ -169,7 +174,6 @@ button {
 
 .section {
   padding: 130px 0;
-
   border-top: 1px solid var(--line);
 }
 
@@ -179,9 +183,7 @@ button {
 
 .section-number {
   color: #777;
-
   font-size: 0.75rem;
-
   letter-spacing: 0.18em;
 }
 
@@ -211,7 +213,6 @@ button {
   min-height: calc(100vh - 76px);
 
   display: flex;
-
   align-items: center;
 
   padding: 100px 0;
@@ -220,6 +221,8 @@ button {
 
   overflow: hidden;
 }
+
+/* Large background circle */
 
 .hero::before {
   content: "";
@@ -243,13 +246,17 @@ button {
   pointer-events: none;
 }
 
+/* Hero content */
+
 .hero-content {
   position: relative;
 
-  z-index: 3;
+  z-index: 5;
 
   max-width: 850px;
 }
+
+/* Status */
 
 .status-pill {
   display: inline-flex;
@@ -288,6 +295,8 @@ button {
   box-shadow: 0 0 12px white;
 }
 
+/* Hero title */
+
 .hero h1 {
   font-size: clamp(4rem, 10vw, 9rem);
 
@@ -304,6 +313,8 @@ button {
   -webkit-text-stroke: 1px #777;
 }
 
+/* Positioning */
+
 .hero-positioning {
   margin-top: 30px;
 
@@ -315,6 +326,8 @@ button {
 .hero-positioning strong {
   color: white;
 }
+
+/* Description */
 
 .hero-description {
   max-width: 650px;
@@ -364,19 +377,16 @@ button {
 
 .primary-button {
   background: white;
-
   color: black;
 }
 
 .primary-button:hover {
   background: transparent;
-
   color: white;
 }
 
 .secondary-button {
   color: white;
-
   border-color: var(--line);
 }
 
@@ -402,7 +412,6 @@ button {
 
 .stat {
   display: flex;
-
   flex-direction: column;
 }
 
@@ -420,7 +429,7 @@ button {
 
 /* =========================================================
    HERO PHOTO
-   DESKTOP
+   FULL COLOR
 ========================================================= */
 
 .hero-photo-wrapper {
@@ -432,7 +441,7 @@ button {
 
   width: min(34vw, 390px);
 
-  z-index: 2;
+  z-index: 3;
 
   pointer-events: none;
 }
@@ -449,12 +458,13 @@ button {
   object-position: center top;
 
   /*
-     FORCE NATURAL COLOR
+    IMPORTANT:
+    FULL COLOR PHOTO
   */
 
-  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  filter: none !important;
 
-  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  -webkit-filter: none !important;
 
   opacity: 1 !important;
 
@@ -465,14 +475,14 @@ button {
   mask-image:
     linear-gradient(
       to bottom,
-      black 85%,
+      black 84%,
       transparent 100%
     );
 
   -webkit-mask-image:
     linear-gradient(
       to bottom,
-      black 85%,
+      black 84%,
       transparent 100%
     );
 
@@ -540,9 +550,13 @@ button {
 
   object-position: center;
 
-  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  /*
+    FULL COLOR
+  */
 
-  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  filter: none !important;
+
+  -webkit-filter: none !important;
 
   opacity: 1 !important;
 
@@ -1063,9 +1077,13 @@ button {
 
   display: block;
 
-  filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  /*
+    FULL COLOR
+  */
 
-  -webkit-filter: saturate(1.12) contrast(1.02) brightness(1.02) !important;
+  filter: none !important;
+
+  -webkit-filter: none !important;
 
   opacity: 1 !important;
 
@@ -1097,7 +1115,7 @@ button {
 }
 
 /* =========================================================
-   AI IDEAS VISUAL CARD
+   AI VISUAL CARD
 ========================================================= */
 
 .visual-ai-card {
@@ -1325,8 +1343,6 @@ button {
 
 /* =========================================================
    TABLET
-   IMPORTANT:
-   HERO PHOTO STAYS BESIDE CONTENT
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1372,8 +1388,7 @@ button {
   }
 
   /* =======================================================
-     HERO MOBILE
-     PHOTO ON RIGHT — NOT BELOW
+     HERO
   ======================================================= */
 
   .hero {
@@ -1398,6 +1413,10 @@ button {
     top: 80px;
   }
 
+  /*
+    Content leaves room for the photo
+  */
+
   .hero-content {
     width: calc(100% - 135px);
 
@@ -1419,7 +1438,12 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(3.4rem, 11vw, 6rem);
+    font-size:
+      clamp(
+        3.4rem,
+        11vw,
+        6rem
+      );
 
     line-height: 0.88;
 
@@ -1445,6 +1469,10 @@ button {
 
     line-height: 1.65;
   }
+
+  /* =======================================================
+     HERO BUTTONS
+  ======================================================= */
 
   .hero-buttons {
     display: flex;
@@ -1472,8 +1500,8 @@ button {
   }
 
   /* =======================================================
-     PHOTO
-     FORCE RIGHT SIDE
+     HERO PHOTO
+     RIGHT SIDE + FULL COLOR
   ======================================================= */
 
   .hero-photo-wrapper {
@@ -1491,7 +1519,7 @@ button {
 
     margin: 0;
 
-    z-index: 2;
+    z-index: 3;
 
     pointer-events: none;
   }
@@ -1510,18 +1538,13 @@ button {
     object-position: center top;
 
     /*
-       FORCE COLOR
+      NO GRAYSCALE
+      NO COLOR REMOVAL
     */
 
-    filter:
-      saturate(1.2)
-      contrast(1.03)
-      brightness(1.02) !important;
+    filter: none !important;
 
-    -webkit-filter:
-      saturate(1.2)
-      contrast(1.03)
-      brightness(1.02) !important;
+    -webkit-filter: none !important;
 
     opacity: 1 !important;
 
@@ -1663,15 +1686,13 @@ button {
   .visual-photo {
     height: 350px;
 
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    /*
+      FULL COLOR
+    */
 
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    filter: none !important;
+
+    -webkit-filter: none !important;
 
     opacity: 1 !important;
 
@@ -1711,6 +1732,10 @@ button {
     padding-bottom: 55px;
   }
 
+  /*
+    Leave space for right-side image
+  */
+
   .hero-content {
     width: calc(100% - 128px);
   }
@@ -1746,6 +1771,7 @@ button {
 
   /* =======================================================
      MOBILE HERO PHOTO
+     RIGHT SIDE + COLOR
   ======================================================= */
 
   .hero-photo-wrapper {
@@ -1756,6 +1782,8 @@ button {
     width: 112px;
 
     height: 520px;
+
+    z-index: 3;
   }
 
   .hero-photo {
@@ -1767,19 +1795,29 @@ button {
 
     object-position: center top;
 
-    filter:
-      saturate(1.2)
-      contrast(1.03)
-      brightness(1.02) !important;
+    filter: none !important;
 
-    -webkit-filter:
-      saturate(1.2)
-      contrast(1.03)
-      brightness(1.02) !important;
+    -webkit-filter: none !important;
 
     opacity: 1 !important;
 
     mix-blend-mode: normal !important;
+
+    border: 1px solid #333;
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        black 82%,
+        transparent 100%
+      );
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        black 82%,
+        transparent 100%
+      );
   }
 
   /* =======================================================
@@ -1848,15 +1886,9 @@ button {
   .about-photo {
     height: 330px;
 
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    filter: none !important;
 
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    -webkit-filter: none !important;
 
     opacity: 1 !important;
 
@@ -1870,15 +1902,9 @@ button {
   .visual-photo {
     height: 300px;
 
-    filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    filter: none !important;
 
-    -webkit-filter:
-      saturate(1.12)
-      contrast(1.02)
-      brightness(1.02) !important;
+    -webkit-filter: none !important;
 
     opacity: 1 !important;
 
@@ -1929,8 +1955,8 @@ button {
 }
 
 /* =========================================================
-   FINAL PHOTO PROTECTION
-   NEVER MAKE REAL PHOTOS GRAYSCALE
+   FINAL PHOTO COLOR PROTECTION
+   These rules override accidental grayscale CSS
 ========================================================= */
 
 img.hero-photo,
@@ -1940,15 +1966,27 @@ img.visual-photo {
 
   mix-blend-mode: normal !important;
 
-  filter:
-    saturate(1.2)
-    contrast(1.03)
-    brightness(1.02) !important;
+  filter: none !important;
 
-  -webkit-filter:
-    saturate(1.2)
-    contrast(1.03)
-    brightness(1.02) !important;
+  -webkit-filter: none !important;
+
+  color: initial !important;
+
+  visibility: visible !important;
+}
+
+/* =========================================================
+   PREVENT GRAYSCALE FROM PARENT ELEMENTS
+========================================================= */
+
+.hero-photo-wrapper,
+.about-card,
+.visual-photo-card {
+  filter: none !important;
+
+  -webkit-filter: none !important;
+
+  mix-blend-mode: normal !important;
 }
 
 /* =========================================================
